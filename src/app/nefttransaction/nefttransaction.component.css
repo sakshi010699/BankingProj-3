@@ -1,0 +1,47 @@
+#neft{
+    border-style: solid;
+    border-width: 2px;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+
+
+  
+}
+form{
+    margin-left: 6cm;
+    margin-right: 6cm;
+}
+.error{
+    color:red;
+    font-family:Arial, Helvetica, sans-serif;
+}
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+button{
+    margin-left:2mm;
+}
+#continue{
+    margin-left: 14cm;
+}
+p{
+    line-height: 200%;
+}
+ 
+input{
+    float: right;
+}
+ 
+input[type=checkbox]{
+    float:inherit;
+}
+ 
+button{
+    left: 50%;
+    top: 50%;
+}
+ 
+input [type=date]{
+    width: 159px;
+}

@@ -1,0 +1,66 @@
+<form [formGroup]="NEFTForm" (ngSubmit)="onSubmit()" style=" border: solid black; padding-left: 5cm; padding-right: 6cm ; margin-top: 6cm;" >
+
+        <h3 id="neft" style="margin-top: 0.5cm;">Initiate NEFT Payment</h3>
+    
+    <p>
+        <label for="From_Account" >From Account<span style="color: red;">*</span></label>
+        <input type="text " pattern="\d*" id="From_Account" name="From_Account" formControlName="From_Account"  >
+        <span class="error" *ngIf="NEFTForm.controls.From_Account.invalid&&(NEFTForm.controls.From_Account.touched && !NEFTForm.controls.From_Account.dirty)" >This field is mandatory</span>           
+        <span class="error" *ngIf="NEFTForm.controls.From_Account.invalid&&(NEFTForm.controls.From_Account.touched && NEFTForm.controls.From_Account.dirty)" >Invalid Account Number</span>           
+
+
+    </p>
+    <p>
+        <label for="To_Account" >To Account<span style="color: red;">*</span></label>
+        <input type="number" pattern="\d*" id="To_Account" name="To_Account" formControlName="To_Account" maxlength="10"  required>
+        <span class="error" *ngIf="NEFTForm.controls.To_Account.invalid&&(NEFTForm.controls.To_Account.touched && !NEFTForm.controls.To_Account.dirty)" >This field is mandatory</span>           
+        <span class="error" *ngIf="NEFTForm.controls.To_Account.invalid&&(NEFTForm.controls.To_Account.touched && NEFTForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
+
+        <button>Add New +</button>
+
+        
+    </p>  <p>
+        <label for="Amount" >Amount<span style="color: red;">*</span></label>
+        <input type="number" id="Amount" name="Amount" formControlName="Amount">
+        <span class="error" *ngIf="NEFTForm.controls.Amount.invalid&&(NEFTForm.controls.Amount.touched)" >This field is mandatory</span>           
+
+        
+    </p>  <p>
+        <label for="Transaction_Date" >Transaction Date<span style="color: red;">*</span></label>
+        <input type="date" id="Transaction_Date" name="Transaction_Date" formControlName="Transaction_Date">
+        <span class="error" *ngIf="NEFTForm.controls.Transaction_Date.invalid&&(NEFTForm.controls.Transaction_Date.touched)" >This field is mandatory</span>           
+
+        
+    </p>  
+    <p>
+        <label for="Remark" >Remark<span style="color: red;">*</span></label>
+        <input type="text" id="Remark" name="Remark" formControlName="Remark">
+        <span class="error" *ngIf="NEFTForm.controls.Remark.invalid&&(NEFTForm.controls.Remark.touched)" >This field is mandatory</span>           
+
+        
+    </p>
+    <div>
+<p>Please Note</p>
+<ol>
+    <li style="font-style: italic;">
+        Transaction will be executed on the next working day if they are scheduled for Sundays, National Holidays, NEFT Holidays (as declared by RBI).
+    </li>
+    <li style="font-style: italic;"> 
+        Timing for NEFT: Monday - Saturday(except 2nd and 4th Saturday) 6:00 AM - 6:30 PM.
+    </li>
+</ol>
+
+    </div>
+    <p>
+
+        <button type="submit" [disabled]="NEFTForm.invalid" >Save</button>
+        <button type="reset">Reset</button>
+        <button>Save as Template</button>
+        <button type="submit" [disabled]="NEFTForm.invalid"  id="continue">Continue</button>
+        
+    </p>
+
+
+
+
+</form>

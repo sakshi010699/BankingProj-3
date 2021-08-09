@@ -1,0 +1,51 @@
+form{
+    margin-left: 10cm;
+    margin-right: 10cm;
+    border:solid Black ;
+    padding: 10px;
+}
+
+p{
+    line-height: 200%;
+}
+
+input{
+    float: right;
+}
+
+#BenHeading{
+    border-style: solid;
+    border-width: 2px;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+  
+}
+
+.error{
+    color:red;
+    font-family:Arial, Helvetica, sans-serif;
+}
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+button{
+    margin-left:2mm;
+}
+#continue{
+    margin-left: 14cm;
+}
+
+ 
+
+ 
+input[type=checkbox]{
+    margin-left:5cm ;
+    size: 25px;
+}
+ 
+button{
+    left: 50%;
+    top: 50%;
+}
+ 

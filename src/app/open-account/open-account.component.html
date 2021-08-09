@@ -1,0 +1,240 @@
+<body>
+    <h3>Open a Savings Account</h3>
+
+<form [formGroup]="userBasicInfo" (ngSubmit)="post_api(userBasicInfo.value)">
+<div>
+    Title:<span class="required">*</span>
+    <span>
+        <select type="text" id="title" name="title" formControlName="Title">
+            <option value="" disabled selected>Select</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Dr.">Dr.</option>
+        </select>
+    </span>
+    <label *ngIf="userBasicInfo.controls.Title.invalid && 
+    (userBasicInfo.controls.Title.touched || userBasicInfo.controls.Title.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+
+<div>
+    First Name:<span class="required">*</span>
+    <span>
+        <input type="text" id="fName" name="fName" formControlName="FirstName">
+    </span>
+    <label *ngIf="userBasicInfo.controls.FirstName.invalid && 
+    (userBasicInfo.controls.FirstName.touched || userBasicInfo.controls.FirstName.dirty)" class="required size right">
+    This is a mandaroy field</label>
+
+</div>
+<div>
+    Middle Name:
+    <span>
+        <input type="text" id="mName" name="mName" formControlName="MiddleName">
+    </span>
+</div>
+<div>
+    Last Name:<span class="required">*</span>
+    <span>
+        <input type="text" id="lName" name="lName" formControlName="LastName">
+    </span>
+    <label *ngIf="userBasicInfo.controls.LastName.invalid && 
+    (userBasicInfo.controls.LastName.touched || userBasicInfo.controls.LastName.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    Father's name:<span class="required">*</span>
+    <span>
+        <input type="text" id="faName" name="faName" formControlName="FathersName">
+    </span>
+    <label *ngIf="userBasicInfo.controls.FathersName.invalid && 
+    (userBasicInfo.controls.FathersName.touched || userBasicInfo.controls.FathersName.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    Mobile Number:<span class="required">*</span>
+    <span>
+        <input type="text" id="mobileNo" name="mobileNo" formControlName="MobileNumber">
+    </span>
+    <label *ngIf="userBasicInfo.controls.MobileNumber.invalid && (userBasicInfo.controls.MobileNumber.touched && 
+    !userBasicInfo.controls.MobileNumber.dirty)" class="required size right">This is a mandatory field</label>
+    <label *ngIf="userBasicInfo.controls.MobileNumber.invalid && (userBasicInfo.controls.MobileNumber.touched && 
+    userBasicInfo.controls.MobileNumber.dirty)" class="required size right">Please enter a valid mobile number.</label>
+</div>
+<div>
+    Email ID:
+    <span>
+        <input type="email" id="email" name="email" formControlName="EmailID">
+    </span>
+    <label *ngIf="userBasicInfo.controls.EmailID.invalid" class="required size right">Please enter a valid email ID</label>
+</div>
+<div>
+    Aadhar Card Number:<span class="required">*</span>
+    <span>
+        <input type="text" id="aadharNo" name="aadharNo" formControlName="AadharCardNumber">
+    </span>
+    <label *ngIf="userBasicInfo.controls.AadharCardNumber.invalid && (userBasicInfo.controls.AadharCardNumber.touched && 
+    !userBasicInfo.controls.AadharCardNumber.dirty)" class="required size right">This is a mandatory field</label>
+    <label *ngIf="userBasicInfo.controls.AadharCardNumber.invalid && (userBasicInfo.controls.AadharCardNumber.touched && 
+    userBasicInfo.controls.AadharCardNumber.dirty)" class="required size right">Please enter a valid Aadhar number.</label>
+</div>
+<div>
+    Date of Birth:<span class="required">*</span>
+    <span>
+        <input type="date" max="2021-08-09" id="DOB" name="DOB" formControlName="DateOfBirth">
+    </span>
+    <label *ngIf="userBasicInfo.controls.DateOfBirth.invalid && 
+    (userBasicInfo.controls.DateOfBirth.touched || userBasicInfo.controls.DateOfBirth.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+
+<div><br>Residential Address</div>
+
+<div>
+    a) Address Line 1:<span class="required">*</span>
+    <span>
+        <input type="text" id="rLine1" name="rLine1" formControlName="ResidentialAddrLine1">
+    </span>
+    <label *ngIf="userBasicInfo.controls.ResidentialAddrLine1.invalid && 
+    (userBasicInfo.controls.ResidentialAddrLine1.touched || userBasicInfo.controls.ResidentialAddrLine1.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    b) Address Line 2:<span class="required">*</span>
+    <span>
+        <input type="text" id="rLine2" name="rLine2" formControlName="ResidentialAddrLine2">
+    </span>
+    <label *ngIf="userBasicInfo.controls.ResidentialAddrLine2.invalid && 
+    (userBasicInfo.controls.ResidentialAddrLine2.touched || userBasicInfo.controls.ResidentialAddrLine2.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    c) Landmark:
+    <span>
+        <input type="text" id="rLandmark" name="rLandmark" formControlName="ResidentialLandmark">
+    </span>
+</div>
+<div>
+    d) State:<span class="required">*</span>
+    <span>
+        <input type="text" id="rState" name="rState" formControlName="ResidentialState">
+    </span>
+    <label *ngIf="userBasicInfo.controls.ResidentialState.invalid && 
+    (userBasicInfo.controls.ResidentialState.touched || userBasicInfo.controls.ResidentialState.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    e) City:<span class="required">*</span>
+    <span>
+        <input type="text" id="rCity" name="rCity" formControlName="rCity">
+    </span>
+    <label *ngIf="userBasicInfo.controls.rCity.invalid && 
+    (userBasicInfo.controls.rCity.touched || userBasicInfo.controls.rCity.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    f) Pin Code:<span class="required">*</span>
+    <span>
+        <input type="text" id="rPinCode" name="rPinCode" formControlName="rPinCode">
+    </span>
+    <label *ngIf="userBasicInfo.controls.rPinCode.invalid && (userBasicInfo.controls.rPinCode.touched && 
+    !userBasicInfo.controls.rPinCode.dirty)" class="required size right">This is a mandatory field</label>
+    <label *ngIf="userBasicInfo.controls.rPinCode.invalid && (userBasicInfo.controls.rPinCode.touched && 
+    userBasicInfo.controls.rPinCode.dirty)" class="required size right">Please enter a valid Pin Code.</label>
+</div>
+
+<div><br>Permanent Address</div>
+
+<input type="checkbox">Permanent Address same as Mailing Address
+<div>
+    a) Address Line 1:<span class="required">*</span>
+    <span>
+        <input type="text" id="pLine1" name="pLine1" formControlName="pLine1">
+    </span>
+    <label *ngIf="userBasicInfo.controls.pLine1.invalid && 
+    (userBasicInfo.controls.pLine1.touched || userBasicInfo.controls.pLine1.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    b) Address Line 2:<span class="required">*</span>
+    <span>
+        <input type="text" id="pLine2" name="pLine2" formControlName="pLine2">
+    </span>
+    <label *ngIf="userBasicInfo.controls.pLine2.invalid && 
+    (userBasicInfo.controls.pLine2.touched || userBasicInfo.controls.pLine2.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    c) Landmark:
+    <span>
+        <input type="text" id="pLandmark" name="pLandmark" formControlName="pLandmark">
+    </span>
+</div>
+<div>
+    d) State:<span class="required">*</span>
+    <span>
+        <input type="text" id="pState" name="pState" formControlName="pState">
+    </span>
+    <label *ngIf="userBasicInfo.controls.pState.invalid && 
+    (userBasicInfo.controls.pState.touched || userBasicInfo.controls.pState.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    e) City:<span class="required">*</span>
+    <span>
+        <input type="text" id="pCity" name="pCity" formControlName="pCity">
+    </span>
+    <label *ngIf="userBasicInfo.controls.pCity.invalid && 
+    (userBasicInfo.controls.pCity.touched || userBasicInfo.controls.pCity.dirty)" class="required size right">
+    This is a mandaroy field</label>
+</div>
+<div>
+    f) Pin Code:<span class="required">*</span>
+    <span>
+        <input type="text" id="pPinCode" name="pPinCode" formControlName="pPinCode">
+    </span>
+    <label *ngIf="userBasicInfo.controls.pPinCode.invalid && (userBasicInfo.controls.pPinCode.touched && 
+    !userBasicInfo.controls.pPinCode.dirty)" class="required size right">This is a mandatory field</label>
+    <label *ngIf="userBasicInfo.controls.pPinCode.invalid && (userBasicInfo.controls.pPinCode.touched && 
+    userBasicInfo.controls.pPinCode.dirty)" class="required size right">Please enter a valid Pin Code.</label>
+</div>
+
+<div><br>Occupation Details</div>
+
+<div>
+    a) Occupation Type:<span class="required">*</span>
+    <span>
+        <input type="text" id="occupationType" name="occupationType" formControlName="OccupationType">
+    </span>
+</div>
+<div>
+    b) Source of Income:<span class="required">*</span>
+    <span>
+        <input type="text" id="incomeSource" name="incomeSource" formControlName="SourceOfIncome">
+    </span>
+</div>
+<div>
+    c) Gross Annual Income:<span class="required">*</span>
+    <span>
+        <input type="text" id="grossIncome" name="grossIncome" formControlName="GrossAnnualIncome">
+    </span>
+</div>
+
+<div><br>Debit/ATM Card</div>
+
+<div>
+    <input type="checkbox" id="debitCard" name="debitCard" formControlName="DebitCard">Opt for debit Card
+</div>
+<div>
+    <input type="checkbox" id="netBanking" name="netBanking" formControlName="NetBanking">Opt for Net Banking
+</div>
+<div>
+    <input type="checkbox" (click)="agreed()">I have read and agree to the 
+    terms and conditions.
+</div>
+<div class="required size">*Fields marked with * are required.</div>
+<div class="required">{{agreeWarning}}</div>
+<div><button type="submit" >Submit</button></div>
+</form>
+</body>

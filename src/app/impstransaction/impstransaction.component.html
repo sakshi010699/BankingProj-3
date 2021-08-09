@@ -1,0 +1,58 @@
+<form [formGroup]="IMPSForm" (ngSubmit)="put_api(IMPSForm.value.From_Account,IMPSForm.value)" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ; margin-top: 2cm;" >
+    <h3 id="neft" style="margin-top: 0.5cm;">Initiate IMPS Payment</h3>
+    <p>
+        <label for="From_Account" >From Account <span style="color: red;">*</span></label>
+        <input type="number" id="From_Account" name="From_Account" formControlName="From_Account">
+        <span class="error" *ngIf="IMPSForm.controls.From_Account.invalid&&(IMPSForm.controls.From_Account.touched && !IMPSForm.controls.From_Account.dirty)" >This field is mandatory</span>           
+        <span class="error" *ngIf="IMPSForm.controls.From_Account.invalid&&(IMPSForm.controls.From_Account.touched && IMPSForm.controls.From_Account.dirty)" >Invalid Account Number</span>           
+
+
+    </p>
+    <p>
+        <label for="To_Account" >To Account<span style="color: red;">*</span></label>
+        <input type="number" id="To_Account" name="To_Account" formControlName="To_Account">
+        <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && !IMPSForm.controls.To_Account.dirty)" >This field is mandatory</span>           
+        <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && IMPSForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
+
+        <button>Add New +</button>
+
+        
+    </p>  <p>
+        <label for="Amount" >Amount<span style="color: red;">*</span></label>
+        <input type="Amount" id="Amount" name="Amount" formControlName="Amount">
+        <span class="error" *ngIf="IMPSForm.controls.Amount.invalid&&(IMPSForm.controls.Amount.touched)" >This field is mandatory</span>           
+
+        
+    </p>  <p>
+        <label for="Transaction_Date" >Transaction Date<span style="color: red;">*</span></label>
+        <input type="date" id="Transaction_Date" name="Transaction_Date" formControlName="Transaction_Date">
+        <span class="error" *ngIf="IMPSForm.controls.Transaction_Date.invalid&&(IMPSForm.controls.Transaction_Date.touched)" >This field is mandatory</span>           
+
+        
+    </p>  <p>
+        <label for="Maturity_Instructions" >Maturity Instructions<span style="color: red;">*</span></label>
+        <input type="text" id="Maturity_Instructions" name="Maturity_Instructions" formControlName="Maturity_Instructions">
+        <span class="error" *ngIf="IMPSForm.controls.Maturity_Instructions.invalid&&(IMPSForm.controls.Maturity_Instructions.touched)" >This field is mandatory</span>           
+
+        
+    </p>
+    <p>
+        <label for="Remark" >Remark<span style="color: red;">*</span></label>
+        <input type="text" id="Remark" name="Remark" formControlName="Remark">
+        <span class="error" *ngIf="IMPSForm.controls.Remark.invalid&&(IMPSForm.controls.Remark.touched)" >This field is mandatory</span>           
+
+        
+    </p>
+    <p>
+
+        <button type="submit"[disabled]="IMPSForm.invalid">Save</button>
+        <button type="reset"  >Reset</button>
+        <button>Save as Template</button>
+        <button type="submit" [disabled]="IMPSForm.invalid"  id="continue">Continue</button>
+        
+    </p>
+
+
+
+
+</form>

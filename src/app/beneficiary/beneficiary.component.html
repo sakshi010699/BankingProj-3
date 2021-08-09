@@ -1,0 +1,45 @@
+<form [formGroup]="beneficiary" (ngSubmit)="post_api(beneficiary.value)">
+
+    <h2 id ="BenHeading">Add Beneficiary</h2>
+    <p>
+      <label for="beneficiaryname">Beneficiary Name </label>
+      <input type="text" id="beneficiaryname" name="beneficiaryname" formControlName="BeneficiaryName">
+      <span class="error" *ngIf="beneficiary.controls.BeneficiaryName.invalid&&(beneficiary.controls.BeneficiaryName.touched)" >This field is mandatory</span> 
+    </p>
+
+    <p>
+        <label for="beneficiaryAccNo">Beneficiary Account Number </label>
+        <input type="text" pattern="\d*" id="beneficiaryAccNo" name="beneficiaryAccNo" formControlName="BeneficiaryAccNo">
+        <span class="error" *ngIf="beneficiary.controls.BeneficiaryAccNo.invalid&&(beneficiary.controls.BeneficiaryAccNo.touched && !beneficiary.controls.BeneficiaryAccNo.dirty)" >This field is mandatory</span>
+        <span class="error" *ngIf="beneficiary.controls.BeneficiaryAccNo.invalid&&(beneficiary.controls.BeneficiaryAccNo.touched && beneficiary.controls.BeneficiaryAccNo.dirty)" >Account Number is Invalid</span>
+    </p>
+    <p>
+        <label for="UserAccountNo">User Account Number </label>
+        <input type="text" pattern="\d*" id="UserAccountNumber" name="UserAccountNumber" formControlName="UserAccountNo">
+        <span class="error" *ngIf="beneficiary.controls.UserAccountNo.invalid&&(beneficiary.controls.UserAccountNo.touched && !beneficiary.controls.UserAccountNo.dirty)" >This field is mandatory</span>
+        <span class="error" *ngIf="beneficiary.controls.UserAccountNo.invalid&&(beneficiary.controls.UserAccountNo.touched && beneficiary.controls.UserAccountNo.dirty)" >Account Number is Invalid</span>
+    </p>
+
+    <p>
+        <label for="reEnterBeneficiaryAccNo">Re - Enter Beneficiary Account Number </label>
+        <input type="text" pattern="\d*" id="reEnterBeneficiaryAccNo" name="reEnterBeneficiaryAccNo" formControlName="reEnterBeneficiaryAccNo">
+        <span class="error" *ngIf="beneficiary.controls.reEnterBeneficiaryAccNo.invalid&&(beneficiary.controls.reEnterBeneficiaryAccNo.touched && !beneficiary.controls.reEnterBeneficiaryAccNo.dirty)" >This field is mandatory</span>
+            <span class="error" *ngIf="beneficiary.controls.reEnterBeneficiaryAccNo.invalid&&(beneficiary.controls.reEnterBeneficiaryAccNo.touched && beneficiary.controls.reEnterBeneficiaryAccNo.dirty)" >Account Number doesn't match</span>           
+            
+    </p>
+
+    <p>
+        <label for="saveBeneficiary">Save Beneficiary </label>
+        <input type="checkbox" id="saveBeneficiary" (click) = "saveDetails()" name="saveBeneficiary" formControlName="saveBeneficiary">
+    </p>
+
+    <p>
+        <label for="nickName"> Nick Name </label>
+        <input type="text" id="nickName" name="nickName" formControlName="NickName">
+    </p>
+
+    <p>
+        <button type="submit" >Save as Beneficiary</button>
+    </p>
+     
+</form>

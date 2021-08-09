@@ -1,0 +1,42 @@
+<form [formGroup]="netBankingReg" (ngSubmit)="onSubmit()">
+    <h1 id = "Login">Net Banking Registration</h1>
+       <p>
+         <label for="accountNo">Account Number </label>
+         <input type="text" id="accountNo" name="accountNo" formControlName="accountNo">
+         <span class="error" *ngIf="netBankingReg.controls.accountNo.invalid&&(netBankingReg.controls.accountNo.touched)" >This field is mandatory</span>
+       </p>
+       <p>
+           <label for="setPass">Set Password </label>
+           <input type="password" id="setPass" name="setPass" formControlName="setPass">
+           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid&&(netBankingReg.controls.setPass.touched)" >This field is mandatory</span>
+       </p>
+       <p>
+           <label for="confirmPass">Confirm Password </label>
+           <input type="password" id="confirmPass" name="confirmPass" formControlName="confirmPass">
+           <span  class="error" *ngIf="netBankingReg.controls.confirmPass.invalid&&(netBankingReg.controls.confirmPass.touched && netBankingReg.controls.confirmPass.dirty)" >Password doesn't match</span>           
+                           <span class="error" *ngIf="netBankingReg.controls.confirmPass.invalid&&(netBankingReg.controls.confirmPass.touched && !netBankingReg.controls.confirmPass.dirty)" >This field is mandatory</span>
+           
+       </p>
+       <p>
+           <label for="setTranPass">Set Transaction Password </label>
+           <input type="password" id="setTranPass" name="setTranPass" formControlName="setTranPass">
+           <span class="error" *ngIf="netBankingReg.controls.setTranPass.invalid&&(netBankingReg.controls.setTranPass.touched)" >This field is mandatory</span>
+       </p>
+       <p>
+           <label for="confirmTranPass">Confirm Transaction Password </label>
+           <input type="password" id="confirmTranPass" name="confirmTranPass" formControlName="confirmTranPass">
+           <span  class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && netBankingReg.controls.confirmTranPass.dirty)" >Password doesn't match</span>           
+                           <span class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && !netBankingReg.controls.confirmTranPass.dirty)" >This field is mandatory</span>
+       </p>
+       
+       <p>
+           <label for="enterOtp">Enter OTP </label>
+           <input type="text" id="enterOtp" name="enterOtp" formControlName="enterOtp">
+           <span class="error" *ngIf="netBankingReg.controls.enterOtp.invalid&&(netBankingReg.controls.enterOtp.touched)" >This field is mandatory</span>
+         </p>
+   
+       <p>
+           <button type="submit">Submit</button>
+       </p>
+        
+   </form>

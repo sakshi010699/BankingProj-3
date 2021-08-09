@@ -1,0 +1,55 @@
+.required{
+    color:red
+}
+
+body{
+    line-height: 200%;
+}
+
+input, select{
+    float: right;
+}
+
+.right{
+    align-items:right;
+}
+
+input.ng-invalid.ng-touched, input.ng-invalid.ng-dirty{
+    border: 2px;
+    border-style: solid;
+    color: red;
+}
+
+select.ng-invalid.ng-touched, select.ng-invalid.ng-dirty{
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+}
+select{
+    width: 124pt;
+}
+
+input[type=date]{
+    width: 120pt;
+}
+
+input[type=checkbox]{
+    float:inherit;
+}
+
+button{
+    left: 50%;
+    top: 50%;
+}
+
+input [type=date]{
+    width: 159px;
+}
+
+h3{
+    text-align: center;
+}
+
+.size{
+    font-size: smaller;
+}
