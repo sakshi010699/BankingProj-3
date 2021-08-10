@@ -1,10 +1,10 @@
 export class UserTransaction {
-    TransactionId:number=0;
+    TransactionID:number=0;
     AccountNumber:number=0;
-    // TransactionDate:Date;
+   TransactionDate:Date=new Date();
     TransactionType:string="";
     AccountBalance:number=0;
-    REmark:string="";
+    Remark:string="";
 
 
 
