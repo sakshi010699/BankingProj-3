@@ -9,5 +9,7 @@ export class AccountDetails {
  this.AccountType=c;
  this.AccountBalance=d;
 
+
     }
+
 }

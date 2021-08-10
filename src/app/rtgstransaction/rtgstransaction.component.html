@@ -1,4 +1,4 @@
-<form [formGroup]="RTGSForm" (ngSubmit)="onSubmit()" style=" border: solid black" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ;">
+<form [formGroup]="RTGSForm" (ngSubmit)="post_update_api(RTGSForm.value)" style=" border: solid black" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ;">
 
     <h3 id="neft"  style="margin-top: 0.5cm;">Initiate RTGS Payment</h3>
     <p>
