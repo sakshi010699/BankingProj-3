@@ -19,7 +19,8 @@ import { SetNewTranPaswordComponent } from './set-new-tran-pasword/set-new-tran-
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 import {HttpClientModule} from '@angular/common/http';
-import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component' 
+import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
+import { OpenAccount2Component } from './open-account2/open-account2.component' 
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UpdateCredentialsComponent } from './update-credentials/update-credenti
     SetNewTranPaswordComponent,
     UserDashboardComponent,
     FundsTransferComponent,
-    UpdateCredentialsComponent
+    UpdateCredentialsComponent,
+    OpenAccount2Component
   ],
   imports: [
     BrowserModule,

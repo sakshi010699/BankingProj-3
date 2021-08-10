@@ -15,6 +15,7 @@ import { SetNewTranPaswordComponent } from './set-new-tran-pasword/set-new-tran-
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component'
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
+import { OpenAccount2Component } from './open-account2/open-account2.component';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "UserDashboard", component: UserDashboardComponent },
 { path: "ForgotPassword", component: ForgotPasswordComponent },
 { path: "ForgotUserId", component: ForgotUserIdComponent },
-{ path: "OpenSavingsAccount", component: OpenAccountComponent },
+{ path: "OpenSavingsAccount", component: OpenAccount2Component },
 { path: "FundsTransfer", component: FundsTransferComponent },
 { path: "UpdateCredentials", component: UpdateCredentialsComponent },
 
