@@ -221,3 +221,19 @@ this.q=data.From_Account;
  
   
 }
+
+
+/*
+this.employeeService.getEmployeeById(employeeId).subscribe(employee=> {  
+      this.massage = null;  
+      this.dataSaved = false;  
+      this.employeeIdUpdate = employee.EmpId;  
+      this.employeeForm.controls['EmpName'].setValue(employee.EmpName);  
+      this.employeeForm.controls['DateOfBirth'].setValue(employee.DateOfBirth);  
+      this.employeeForm.controls['EmailId'].setValue(employee.EmailId);  
+      this.employeeForm.controls['Gender'].setValue(employee.Gender);  
+      this.employeeForm.controls['Address'].setValue(employee.Address);  
+      this.employeeForm.controls['PinCode'].setValue(employee.PinCode);  
+    });  
+
+*/
