@@ -1,4 +1,4 @@
-<form [formGroup]="IMPSForm" (ngSubmit)="put_api(IMPSForm.value.From_Account,IMPSForm.value)" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ; margin-top: 2cm;" >
+<form [formGroup]="IMPSForm" (ngSubmit)="post_update_api(IMPSForm.value)" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ; margin-top: 2cm;" >
     <h3 id="neft" style="margin-top: 0.5cm;">Initiate IMPS Payment</h3>
     <p>
         <label for="From_Account" >From Account <span style="color: red;">*</span></label>
@@ -14,7 +14,7 @@
         <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && !IMPSForm.controls.To_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && IMPSForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
 
-        <button>Add New +</button>
+        <button  routerLink="/AddPayee">Add New +</button>
 
         
     </p>  <p>
@@ -48,7 +48,7 @@
         <button type="submit"[disabled]="IMPSForm.invalid">Save</button>
         <button type="reset"  >Reset</button>
         <button>Save as Template</button>
-        <button type="submit" [disabled]="IMPSForm.invalid"  id="continue">Continue</button>
+        <button type="submit" [disabled]="IMPSForm.invalid"  id="continue" style="margin: auto;">Continue</button>
         
     </p>
 

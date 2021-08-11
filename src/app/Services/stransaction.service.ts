@@ -5,6 +5,7 @@ import {catchError} from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AccountDetails } from 'Models/account-details';
 import { UserTransaction } from 'Models/user-transaction';
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,14 @@ export class STransactionService {
 
   constructor(private http:HttpClient) { }
   req:string="https://localhost:44327/api";
-   updateUser(id:number,a:any):Observable<any>
+  getAllUsers():Observable<BeneficiaryDetails[]>
+  {
+    return this.http.get<BeneficiaryDetails[]>(this.req+"/BeneficiaryDetails");
+  }
+   updateAccount(id:number,a:AccountDetails):Observable<any>
   {
     
-    return this.http.put<any>(this.req+"AccountDetails"+"/"+id,a,{
+    return this.http.put<AccountDetails>(this.req+"/AccountDetails/"+id,a,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -46,7 +51,7 @@ export class STransactionService {
   
   getAccountDetailsById(id:number): Observable<any> {
 
-    console.log(`${this.req}/${"AccountDetails"}/${id}`);
+   // console.log(`${this.req}/${"AccountDetails"}/${id}`);
     return this.http.get(`${this.req}/${"AccountDetails"}/${id}`);
   }
   

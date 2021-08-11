@@ -34,9 +34,7 @@ export class BeneficiaryComponent implements OnInit {
     NickName : new FormControl(),
     UserAccountNo:new FormControl("",[Validators.required, Validators.maxLength(10),Validators.minLength(4)])
   })
-  onSubmit() {
-    console.log(this.beneficiary.value);
-  }
+ 
 
   saveDetails(){
     console.log(this.beneficiary.value);
