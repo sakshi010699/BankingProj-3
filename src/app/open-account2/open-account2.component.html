@@ -77,7 +77,7 @@
       
       <p>
         <label for="PermEqualRes">Is your residential address same as permanent address: </label>
-        <input type="checkbox" id="PermEqualRes" name="PermEqualRes" formControlName="PermEqualRes" >
+        <input type="checkbox" id="PermEqualRes" name="PermEqualRes" formControlName="PermEqualRes" (click)="sameAddress()">
         <span class="error" *ngIf="UserBasicInfo.controls.PermEqualRes.invalid&&(UserBasicInfo.controls.PermEqualRes.touched)" >This field is mandatory</span>
       </p>
       <p>

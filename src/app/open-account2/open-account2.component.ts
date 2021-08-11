@@ -76,22 +76,22 @@ export class OpenAccount2Component implements OnInit {
   sameAddress(){
     if(this.addCheck==false)
     {
-      this.UserBasicInfo.controls.pLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);      
-      this.UserBasicInfo.controls.pLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);      
-      this.UserBasicInfo.controls.pLandmark.setValue(this.UserBasicInfo.controls.ResidentialLandmark.value);
-      this.UserBasicInfo.controls.pPinCode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
-      this.UserBasicInfo.controls.pCity.setValue(this.UserBasicInfo.controls.rCity.value); 
-      this.UserBasicInfo.controls.pState.setValue(this.UserBasicInfo.controls.rState.value);           
+      this.UserBasicInfo.controls.PermanentAddrLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);
+      this.UserBasicInfo.controls.PermanentAddrLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);
+      this.UserBasicInfo.controls.PermanentLandmark.setValue(this.UserBasicInfo.controls.ResidentialLandmark.value);      
+      this.UserBasicInfo.controls.PermanentPincode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
+      this.UserBasicInfo.controls.PermanentCity.setValue(this.UserBasicInfo.controls.ResidentialCity.value); 
+      this.UserBasicInfo.controls.PermanentState.setValue(this.UserBasicInfo.controls.ResidentialState.value);           
       this.addCheck=true;
     }
     else
     {
-      this.UserBasicInfo.controls.pLine1.setValue("");      
-      this.UserBasicInfo.controls.pLine2.setValue("");      
-      this.UserBasicInfo.controls.pLandmark.setValue("");
-      this.UserBasicInfo.controls.pPinCode.setValue("");            
-      this.UserBasicInfo.controls.pCity.setValue(""); 
-      this.UserBasicInfo.controls.pState.setValue("");           
+      this.UserBasicInfo.controls.PermanentAddrLine1.setValue("");
+      this.UserBasicInfo.controls.PermanentAddrLine2.setValue("");
+      this.UserBasicInfo.controls.PermanentLandmark.setValue("");      
+      this.UserBasicInfo.controls.PermanentPincode.setValue("");            
+      this.UserBasicInfo.controls.PermanentCity.setValue(""); 
+      this.UserBasicInfo.controls.PermanentState.setValue("");           
       this.addCheck=false;
     }
 
