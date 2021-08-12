@@ -11,7 +11,11 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
+<<<<<<< HEAD
   req:string="https://localhost:44390/api/";
+=======
+  req:string="https://localhost:44346/api/UserOpenAccounts";
+>>>>>>> 6063e75dd3504071f49dfc8e52bf19e10ddb63c0
 
   
   CreateBeneficiary(bDetails:UserOpenAccount):Observable<UserOpenAccount>

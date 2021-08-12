@@ -11,7 +11,11 @@ import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 export class SSetNewTranPassswordService {
 
   constructor(private http:HttpClient) { }
+<<<<<<< HEAD
   req:string="https://localhost:44390/api/";
+=======
+  req:string="https://localhost:44346/api/NetBankingUserDetails";
+>>>>>>> 6063e75dd3504071f49dfc8e52bf19e10ddb63c0
   updateUser(id:number,u:NetBankingUserDetails):Observable<any>
   {
     

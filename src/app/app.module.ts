@@ -20,7 +20,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
-import { OpenAccount2Component } from './open-account2/open-account2.component' 
+import { OpenAccount2Component } from './open-account2/open-account2.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { OpenAccount2Component } from './open-account2/open-account2.component'
     UserDashboardComponent,
     FundsTransferComponent,
     UpdateCredentialsComponent,
-    OpenAccount2Component
+    OpenAccount2Component,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
