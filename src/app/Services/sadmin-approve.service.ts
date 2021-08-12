@@ -10,7 +10,7 @@ export class SadminApproveService {
 
   constructor(private http : HttpClient) { }
 
-  req:string="https://localhost:44346/api/";
+  req:string="https://localhost:44327/api/";
 
   getAllUsers():Observable<UserOpenAccount[]>
   {

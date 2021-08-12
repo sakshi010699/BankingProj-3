@@ -10,6 +10,8 @@ import { UserTransaction } from 'Models/user-transaction';
   styleUrls: ['./nefttransaction.component.css']
 })
 export class NEFTTransactionComponent implements OnInit {
+  isHidden1:boolean=true;
+  isHidden2:boolean=false;
   FromAccountBalance:AccountDetails={
     AccountNumber:0,
     AadharCardNumber:"",
@@ -75,9 +77,21 @@ export class NEFTTransactionComponent implements OnInit {
 
 
   })
+  ReceiptReferenceId:number=Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000;
+  ReceiptMode:string="RTGS";
+  ReceiptToAccount:number=0;
+  ReceiptAmount:number=0;
+  RecieptFromAccount:number=0;
+  ReceiptOn:Date=new Date();
+  ReceiptRemarks:string="";
 
   post_update_api(data:any):void{
     console.log(data.From_Account);
+    this.ReceiptToAccount=data.To_Account;
+   this.ReceiptAmount=data.Amount;
+   this.RecieptFromAccount=data.From_Account;
+   this.ReceiptOn=data.Transaction_Date;
+   this.ReceiptRemarks=data.Remark;
 
     
       this.obj.getAccountDetailsById(data.From_Account)
@@ -165,6 +179,8 @@ this.q=data.From_Account;
         })
       
       })
+      this.isHidden1=false;
+      this.isHidden2=true;
 
 
      

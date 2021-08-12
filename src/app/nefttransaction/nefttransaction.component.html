@@ -1,6 +1,6 @@
-<form [formGroup]="NEFTForm"(ngSubmit)="post_update_api(NEFTForm.value)" style=" border: solid black; padding-left: 5cm; padding-right: 6cm ; margin-top: 6cm;" >
+<form [formGroup]="NEFTForm"(ngSubmit)="post_update_api(NEFTForm.value)" [hidden]="isHidden2" style=" border: solid black; padding-left: 5cm; padding-right: 6cm ; margin-top: 6cm;" >
 
-        <h3 id="neft" style="margin-top: 0.5cm;">Initiate NEFT Payment</h3>
+        <h3 id="neft" style="margin-top: 0.5cm;font-size: x-large">Initiate NEFT Payment</h3>
     
     <p>
         <label for="From_Account" >From Account<span style="color: red;">*</span></label>
@@ -62,5 +62,38 @@
 
 
 
+
+</form>
+<form [hidden]="isHidden1" style=" border: solid black" style=" border: solid black; padding-left: 8cm; padding-right: 8cm  ; ">
+    <h1 style=" font-size: xx-large; text-align: center;">Transaction Successful</h1>
+    <p>
+        <label for="RefrenceId" style="text-align: right;" >Reference ID:</label>
+        <span id="receipt" >{{ReceiptReferenceId}}</span>
+    </p>
+    <p>
+        <label for="Mode">Mode:</label>
+        <span id="receipt">{{ReceiptMode}}</span>
+    </p>
+    <p>
+        <label for="Paid_To_Account">Paid to Account:</label>
+        <span id="receipt">{{ReceiptToAccount}}</span>
+    </p>
+    <p>
+        <label for="Amount">Amount:</label>
+        <span id="receipt">{{ReceiptAmount}}</span>
+    </p>
+    <p>
+        <label for="From_Account">From Account:</label>
+        <span id="receipt">{{RecieptFromAccount}}</span>
+    </p>
+
+    <p>
+        <label for="On">On:</label>
+        <span id="receipt">{{ReceiptOn}}</span>
+    </p>
+    <p>
+        <label for="Remarks">Remarks:</label>
+        <span id="receipt">{{ReceiptRemarks}}</span>
+    </p>
 
 </form>

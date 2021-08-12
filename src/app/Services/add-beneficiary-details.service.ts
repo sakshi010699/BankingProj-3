@@ -12,7 +12,7 @@ import { BeneficiaryDetails } from 'Models/beneficiary-details';
 export class AddBeneficiaryDetailsService {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44346/api/BeneficiaryDetails";
+  req:string="https://localhost:44327/api/BeneficiaryDetails";
 
 
   CreateBeneficiary(bDetails:BeneficiaryDetails):Observable<BeneficiaryDetails>

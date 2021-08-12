@@ -4,6 +4,7 @@ import { UserTransaction } from 'Models/user-transaction';
 import { STransactionService } from '../Services/stransaction.service';
 import { AccountDetails } from 'Models/account-details';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 
 @Component({
@@ -13,6 +14,9 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 })
 
 export class RTGSTransactionComponent implements OnInit {
+  isHidden1:boolean=true;
+  isHidden2:boolean=false;
+  UserBeneficiary:BeneficiaryDetails[]=[];
   FromAccountBalance:AccountDetails={
     AccountNumber:0,
     AadharCardNumber:"",
@@ -67,6 +71,11 @@ export class RTGSTransactionComponent implements OnInit {
   constructor(private obj:STransactionService) { }
 
   ngOnInit(): void {
+    
+    this.obj.getAllUsers().subscribe(data=>{
+      this.UserBeneficiary=data;
+    });
+  
   }
 
   RTGSForm = new FormGroup({
@@ -78,9 +87,35 @@ export class RTGSTransactionComponent implements OnInit {
   Remark : new FormControl()
 
   })
+
+  // TransactionReceiptRTGS= new FormGroup({
+
+    
+  //    ReferenceId: new FormControl(Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000),
+  //    Mode:new FormControl("RTGS"),
+  //    Paid_To_Account:new FormControl(this.RTGSForm.controls.To_Account.value),
+  //    Amount:new FormControl(this.RTGSForm.controls.From_Account.value),
+  //    From_Account: new FormControl(this.RTGSForm.controls.From_Account.value),
+  //    On:new FormControl(this.RTGSForm.controls.Transaction_Date.value),
+  //    Remarks:new FormControl(this.RTGSForm.controls.Remark.value)   
+  // })
+  ReceiptReferenceId:number=Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000;
+  ReceiptMode:string="RTGS";
+  ReceiptToAccount:number=0;
+  ReceiptAmount:number=0;
+  RecieptFromAccount:number=0;
+  ReceiptOn:Date=new Date();
+  ReceiptRemarks:string="";
+
   
   post_update_api(data:any):void{
     console.log(data.From_Account);
+    this.ReceiptToAccount=data.To_Account;
+   this.ReceiptAmount=data.Amount;
+   this.RecieptFromAccount=data.From_Account;
+   this.ReceiptOn=data.Transaction_Date;
+   this.ReceiptRemarks=data.Remark;
+
 
     
       this.obj.getAccountDetailsById(data.From_Account)
@@ -168,50 +203,9 @@ this.q=data.From_Account;
         })
       
       })
+      this.isHidden1=false;
+      this.isHidden2=true;
 
-
-     
-      
-      
-      
-
- 
-     
-      //  this.obj.updateAccount(data.From_Account,this.acc).subscribe(data=>{
-      
-      // })
-
- 
- 
-
- 
- 
-
- 
-
-
-
-
-    
-   
-    
-   
- 
- 	 
- 	 
- 	
-    
-
-      
- 	
-
-
-   
- 	 
- 	 
- 	
-    
-    
     
     
     

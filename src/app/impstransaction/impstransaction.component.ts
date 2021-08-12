@@ -12,6 +12,8 @@ import { AccountDetails } from 'Models/account-details';
   styleUrls: ['./impstransaction.component.css']
 })
 export class IMPSTransactionComponent implements OnInit {
+  isHidden1:boolean=true;
+  isHidden2:boolean=false;
   FromAccountBalance:AccountDetails={
     AccountNumber:0,
     AadharCardNumber:"",
@@ -62,6 +64,14 @@ export class IMPSTransactionComponent implements OnInit {
   }
   u_msg:string="";
   m:any;
+  ReceiptReferenceId:number=Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000;
+
+  ReceiptMode:string="RTGS";
+  ReceiptToAccount:number=0;
+  ReceiptAmount:number=0;
+  RecieptFromAccount:number=0;
+  ReceiptOn:Date=new Date();
+  ReceiptRemarks:string="";
 
   
   
@@ -84,8 +94,17 @@ export class IMPSTransactionComponent implements OnInit {
   }
 
   )
+  
+
+
   post_update_api(data:any):void{
     console.log(data.From_Account);
+    this.ReceiptToAccount=data.To_Account;
+   this.ReceiptAmount=data.Amount;
+   this.RecieptFromAccount=data.From_Account;
+   this.ReceiptOn=data.Transaction_Date;
+   this.ReceiptRemarks=data.Remark;
+    
 
     
       this.obj.getAccountDetailsById(data.From_Account)
@@ -173,6 +192,9 @@ this.q=data.From_Account;
         })
       
       })
+      this.isHidden1=false;
+      this.isHidden2=true;
+
 
 
      
@@ -187,6 +209,7 @@ this.q=data.From_Account;
       // })
 
     }
+
  
  
 
