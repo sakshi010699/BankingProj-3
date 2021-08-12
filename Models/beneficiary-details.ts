@@ -1,4 +1,5 @@
 export class BeneficiaryDetails {
+    
 
     BeneficiaryAccNo:number=0;
     UserAccountNo:number=0;

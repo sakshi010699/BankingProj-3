@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import * as M from 'minimatch';
 import { UserOpenAccount } from 'Models/user-open-account';
 import { UserOpenAccount2Service } from '../Services/user-open-account2.service';
 
@@ -15,17 +16,17 @@ export class OpenAccount2Component implements OnInit {
   Validators.minLength(12)]),
   Title:new FormControl("",[Validators.required]),
   FirstName:new FormControl("",[Validators.required]),
-  MiddleName:new FormControl("",[Validators.required]),
+  MiddleName:new FormControl(""),
   LastName:new FormControl("",[Validators.required]),
   FathersName:new FormControl("",[Validators.required]),
   MobileNumber:new FormControl("",[Validators.required, Validators.minLength(10), 
     Validators.maxLength(10),Validators.pattern("[0-9]*")]),
-  EmailID:new FormControl("",[Validators.required,Validators.email]),
+  EmailID:new FormControl("",[Validators.email]),
   DateOfBirth:new FormControl("",[Validators.required]),
   ResidentialAddrLine1:new FormControl("",[Validators.required]),
   ResidentialAddrLine2:new FormControl("",[Validators.required]),
-  ResidentialLandmark:new FormControl("",[Validators.required]),
-  ResidentialPincode:new FormControl("",[Validators.required]),
+  ResidentialLandmark:new FormControl(""),
+  ResidentialPincode:new FormControl("",[Validators.required, Validators.pattern("[0-9]*"), Validators.minLength(6), Validators.maxLength(6)]),
   ResidentialState: new FormControl("",[Validators.required, Validators.pattern("[a-z A-Z]*")]),
       ResidentialCity: new FormControl("",[Validators.required, Validators.pattern("[a-z A-Z]*")]),
   PermEqualRes:new FormControl("",[Validators.required]),
@@ -38,10 +39,10 @@ export class OpenAccount2Component implements OnInit {
   OccupationType:new FormControl("",[Validators.required]),
   SourceOfIncome:new FormControl("",[Validators.required]),
   GrossAnnualIncome:new FormControl("",[Validators.required]),
-  DebitCard:new FormControl("",[Validators.required]),
-  NetBanking:new FormControl("",[Validators.required]),
+  DebitCard:new FormControl(false,[Validators.required]),
+  NetBanking:new FormControl(false,[Validators.required]),
   ApprovalStatus:new FormControl(false,[Validators.required]),
-
+  Agree:new FormControl(null,[Validators.required])
 
 
   
@@ -52,15 +53,25 @@ export class OpenAccount2Component implements OnInit {
   agreeWarning:string="";
   todayDate=new Date();
   y:string=this.todayDate.getFullYear().toString();
-  m:string=this.todayDate.getMonth().toString();
+  m:number=this.todayDate.getMonth()+1;
+  mm:string=this.m.toString();
   d:string=this.todayDate.getDate().toString();
-  date:string= this.y + "-" + this.m + "-" + this.d;
+  date:string="";
+  //date:string= this.y + "-" + this.m + "-" + this.d;
+  
   addCheck:boolean=false;
+  isDisabled:string="";
   temp=new FormControl("");
 
   constructor(private obj:UserOpenAccount2Service) { }
 
   ngOnInit(): void {
+    if(this.d.length==1)
+    this.d="0"+this.d;
+
+    if(this.mm.length==1)
+    this.mm="0"+this.mm;
+    this.date=this.y+"-"+this.mm+"-"+this.d;
   }
   onSubmit(){
     console.log(this.UserBasicInfo.value);
@@ -76,23 +87,27 @@ export class OpenAccount2Component implements OnInit {
   sameAddress(){
     if(this.addCheck==false)
     {
-      this.UserBasicInfo.controls.pLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);      
-      this.UserBasicInfo.controls.pLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);      
-      this.UserBasicInfo.controls.pLandmark.setValue(this.UserBasicInfo.controls.ResidentialLandmark.value);
-      this.UserBasicInfo.controls.pPinCode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
-      this.UserBasicInfo.controls.pCity.setValue(this.UserBasicInfo.controls.rCity.value); 
-      this.UserBasicInfo.controls.pState.setValue(this.UserBasicInfo.controls.rState.value);           
+      this.UserBasicInfo.controls.PermanentAddrLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);
+      this.UserBasicInfo.controls.PermanentAddrLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);
+      this.UserBasicInfo.controls.PermanentLandmark.setValue(this.UserBasicInfo.controls.ResidentialLandmark.value);      
+      this.UserBasicInfo.controls.PermanentPincode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
+      this.UserBasicInfo.controls.PermanentCity.setValue(this.UserBasicInfo.controls.ResidentialCity.value); 
+      this.UserBasicInfo.controls.PermanentState.setValue(this.UserBasicInfo.controls.ResidentialState.value);           
       this.addCheck=true;
+
+      console.log(this.date);
+      this.isDisabled="disabled";
     }
     else
     {
-      this.UserBasicInfo.controls.pLine1.setValue("");      
-      this.UserBasicInfo.controls.pLine2.setValue("");      
-      this.UserBasicInfo.controls.pLandmark.setValue("");
-      this.UserBasicInfo.controls.pPinCode.setValue("");            
-      this.UserBasicInfo.controls.pCity.setValue(""); 
-      this.UserBasicInfo.controls.pState.setValue("");           
+      this.UserBasicInfo.controls.PermanentAddrLine1.setValue("");
+      this.UserBasicInfo.controls.PermanentAddrLine2.setValue("");
+      this.UserBasicInfo.controls.PermanentLandmark.setValue("");      
+      this.UserBasicInfo.controls.PermanentPincode.setValue("");            
+      this.UserBasicInfo.controls.PermanentCity.setValue(""); 
+      this.UserBasicInfo.controls.PermanentState.setValue("");           
       this.addCheck=false;
+      this.isDisabled="";
     }
 
     console.log(this.date);

@@ -15,7 +15,7 @@
         <span class="error" *ngIf="RTGSForm.controls.To_Account.invalid&&(RTGSForm.controls.To_Account.touched && !RTGSForm.controls.To_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="RTGSForm.controls.To_Account.invalid&&(RTGSForm.controls.To_Account.touched && RTGSForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
 
-        <button>Add New +</button>
+        <button  routerLink="/AddPayee">Add New +</button>
 
         
     </p>  <p>
@@ -49,7 +49,7 @@
         <button type="submit" [disabled]="RTGSForm.invalid">Save</button>
         <button type="reset">Reset</button>
         <button>Save as Template</button>
-        <button type="submit" [disabled]="RTGSForm.invalid" id="continue" style = "margin: auto;">Continue</button>
+        <button type="submit" [disabled]="RTGSForm.invalid" id="continue" style="margin: auto;">Continue</button>
         
     </p>
 
