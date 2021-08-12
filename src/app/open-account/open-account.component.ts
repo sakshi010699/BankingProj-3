@@ -12,26 +12,26 @@ export class OpenAccountComponent{
   msg:string="";
   a:UserOpenAccount[]=[];
   b:UserOpenAccount={
-    AadharCardNumber:"",
-    Title:"",
-    FirstName:"",
-    MiddleName:"",
-    LastName:"",
-    FathersName:"",
-    MobileNumber:"",
-    EmailID:"",
-    DateOfBirth:new Date(),
-    ResidentialAddrLine1:"",
-    ResidentialAddrLine2:"",
-    ResidentialLandmark:"",
-    ResidentialPincode:"",
-    PermEqualRes:false,
-    OccupationType:"",
-    SourceOfIncome:"",
-    GrossAnnualIncome:"",
-    DebitCard:false,
-    NetBanking:false,
-    ApprovalStatus:false,
+    aadharCardNumber:"",
+    title:"",
+    firstName:"",
+    middleName:"",
+    lastName:"",
+    fathersName:"",
+    mobileNumber:"",
+    emailId:"",
+    dateOfBirth:new Date(),
+    residentialAddrLine1:"",
+    residentialAddrLine2:"",
+    residentialLandmark:"",
+    residentialPincode:"",
+    permEqualRes:false,
+    occupationType:"",
+    sourceOfIncome:"",
+    grossAnnualIncome:"",
+    debitCard:false,
+    netBanking:false,
+    approvalStatus:false,
 
 
 
@@ -97,7 +97,7 @@ export class OpenAccountComponent{
   {
     console.log(data);
     this.obj.createUser(data).subscribe(data=>{
-    this.msg="Successfully created "+ data.FirstName;
+    this.msg="Successfully created "+ data.firstName;
     //Logging the response received from web api.
     console.log(data);
     })

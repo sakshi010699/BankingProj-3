@@ -154,11 +154,15 @@
         <label for="NetBanking">Net Banking: </label>
         <input type="checkbox" id="NetBanking" name="NetBanking" formControlName="NetBanking">
         <span class="error" *ngIf="UserBasicInfo.controls.NetBanking.invalid&&(UserBasicInfo.controls.NetBanking.touched)" >This field is mandatory</span>
-      </p><p>
+      </p>
+      <!--
+        <p>
         <label for="ApprovalStatus">Aproval Status: </label>
         <input type="checkbox" id="ApprovalStatus" name="ApprovalStatus" formControlName="ApprovalStatus">
         <span class="error" *ngIf="UserBasicInfo.controls.ApprovalStatus.invalid&&(UserBasicInfo.controls.ApprovalStatus.touched)" >This field is mandatory</span>
       </p>
+      -->
+     
       <p>
         <button type="submit">Submit</button>
     </p>

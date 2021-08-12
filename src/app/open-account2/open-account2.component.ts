@@ -40,7 +40,7 @@ export class OpenAccount2Component implements OnInit {
   GrossAnnualIncome:new FormControl("",[Validators.required]),
   DebitCard:new FormControl("",[Validators.required]),
   NetBanking:new FormControl("",[Validators.required]),
-  ApprovalStatus:new FormControl("",[Validators.required]),
+  ApprovalStatus:new FormControl(false,[Validators.required]),
 
 
 
@@ -68,7 +68,7 @@ export class OpenAccount2Component implements OnInit {
   post_api(data:any):void
   {
     this.obj.CreateBeneficiary(data).subscribe(data=>{
-    this.msg="Successfully created "+data.FirstName;
+    this.msg="Successfully created "+data.firstName;
     //Logging the response received from web api.
     console.log(data);
     })

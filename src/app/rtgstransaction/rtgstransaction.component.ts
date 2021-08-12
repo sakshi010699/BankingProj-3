@@ -55,17 +55,32 @@ export class RTGSTransactionComponent implements OnInit {
 
 
   post_update_api(data:any):void{
+    console.log(data.From_Account);
 
-    this.obj.getAccountDetailsById(data).subscribe(data=>{
-    this.FromAccountBalance.AccountBalance = data.AccountBalance;});
+  
+   
+
+      this.obj.getAccountDetailsById(data.From_Account)
+        .subscribe(
+          data => {
+            this.FromAccountBalance.AccountBalance = data.accountBalance;
+            console.log("data",data);
+            console.log(data.accountBalance);
+            console.log(this.FromAccountBalance.AccountBalance);
+            
+          });
+          console.log("Hello"+this.FromAccountBalance);
+          console.log(this.Transaction);
+          this.Transaction.AccountNumber = this.RTGSForm.controls.From_Account.value;
+          this.Transaction.TransactionDate=this.RTGSForm.controls.Transaction_Date.value;
+          this.Transaction.TransactionType="RTGS Debit";
+          this.Transaction.AccountBalance= this.FromAccountBalance.AccountBalance - this.RTGSForm.controls.Amount.value;
+          this.Transaction.Remark=this.RTGSForm.controls.Remark.value;
+          console.log(this.Transaction);
 
 
-    this.obj.createTransaction(data).subscribe(data=>{
-      this.Transaction.AccountNumber=this.RTGSForm.controls.From_Account.value;
-      this.Transaction.TransactionDate=this.RTGSForm.controls.TransactionDate.value;
-      this.Transaction.TransactionType="RTGS Debit";
-      this.Transaction.AccountBalance=this.FromAccountBalance.AccountBalance - this.RTGSForm.controls.Amount.value;
-      this.Transaction.Remark=this.RTGSForm.controls.Remark.value;
+          this.obj.createTransaction(this.Transaction).subscribe(response=>{
+      
     })    
     
   }

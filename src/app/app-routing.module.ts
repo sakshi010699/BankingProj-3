@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { IMPSTransactionComponent } from './impstransaction/impstransaction.component';
 import { NEFTTransactionComponent } from './nefttransaction/nefttransaction.component';
@@ -16,11 +16,12 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
 import { OpenAccount2Component } from './open-account2/open-account2.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 
 const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
-{ path: "Home", component: HomeComponent },
+{ path: "", component: HomeComponent },
 { path: "Login", component: LoginComponent },
 { path: "Register", component: NetbankingRegisterComponent },
 { path: "IMPS", component: IMPSTransactionComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "OpenSavingsAccount", component: OpenAccount2Component },
 { path: "FundsTransfer", component: FundsTransferComponent },
 { path: "UpdateCredentials", component: UpdateCredentialsComponent },
+{ path: "AdminDashboard", component: AdminDashboardComponent},
 
 
 

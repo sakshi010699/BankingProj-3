@@ -12,7 +12,7 @@ import { UserTransaction } from 'Models/user-transaction';
 export class STransactionService {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api/";
+  req:string="https://localhost:44346/api/";
 
    updateUser(id:number,a:any):Observable<any>
   {
@@ -42,10 +42,11 @@ export class STransactionService {
 
 }
 
-getAccountDetailsById(Id: number): Observable<AccountDetails> 
+getAccountDetailsById(Id: number): Observable<any> 
 {  
-  return this.http.get<AccountDetails>(this.req+"AccountDetails/" + Id);
+  return this.http.get(this.req+"AccountDetails/" + Id);
 } 
 
-
 }
+
+
