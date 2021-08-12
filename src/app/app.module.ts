@@ -21,6 +21,9 @@ import { FundsTransferComponent } from './funds-transfer/funds-transfer.componen
 import {HttpClientModule} from '@angular/common/http';
 import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
 import { OpenAccount2Component } from './open-account2/open-account2.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component'
+import { FormsModule } from '@angular/forms';
+import { AccountStatementComponent } from './account-statement/account-statement.component'; 
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
@@ -43,6 +46,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     FundsTransferComponent,
     UpdateCredentialsComponent,
     OpenAccount2Component,
+    AccountSummaryComponent,
+    AccountStatementComponent,
     AdminDashboardComponent
   ],
   imports: [
@@ -50,7 +55,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

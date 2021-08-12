@@ -16,6 +16,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 import { UpdateCredentialsComponent } from './update-credentials/update-credentials.component';
 import { OpenAccount2Component } from './open-account2/open-account2.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
@@ -36,8 +37,8 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "OpenSavingsAccount", component: OpenAccount2Component },
 { path: "FundsTransfer", component: FundsTransferComponent },
 { path: "UpdateCredentials", component: UpdateCredentialsComponent },
-{ path: "AdminDashboard", component: AdminDashboardComponent},
-
+{ path: "AccountSummary" , component: AccountSummaryComponent},
+{ path : "AdminDashboard", component:AdminDashboardComponent},
 
 
 

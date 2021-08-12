@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { AccountDetails } from 'Models/account-details';
 import { UserTransaction } from 'Models/user-transaction';
 import { BeneficiaryDetails } from 'Models/beneficiary-details';
+import { UserOpenAccount } from 'Models/user-open-account';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,18 @@ export class STransactionService {
   getAllUsers():Observable<BeneficiaryDetails[]>
   {
     return this.http.get<BeneficiaryDetails[]>(this.req+"/BeneficiaryDetails");
+  }
+  getAllTransactionDetails():Observable<UserTransaction[]>
+  {
+    return this.http.get<UserTransaction[]>(this.req+"/UserTransactions");
+  }
+  getAllAccountDetails():Observable<AccountDetails[]>
+  {
+    return this.http.get<AccountDetails[]>(this.req+"/AccountDetails");
+  }
+  getAllUserOpenAccountDetails():Observable<UserOpenAccount[]>
+  {
+    return this.http.get<UserOpenAccount[]>(this.req+"/UserOpenAccounts1");
   }
    updateAccount(id:number,a:AccountDetails):Observable<any>
   {
@@ -58,6 +71,13 @@ export class STransactionService {
    // console.log(`${this.req}/${"AccountDetails"}/${id}`);
     return this.http.get(`${this.req}/${"AccountDetails"}/${id}`);
   }
+
+  getTransactionDetailsByAccountNo(id:number): Observable<any> {
+
+    // console.log(`${this.req}/${"UserTransactions"}/${id}`);
+     return this.http.get(`${this.req}/${"UserTransactions"}/${id}`);
+   }
+  
   
 
 }

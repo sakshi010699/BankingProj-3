@@ -1,20 +1,20 @@
 export class UserTransaction {
-    TransactionID:number=0;
-    AccountNumber:number=0;
-   TransactionDate:Date=new Date();
-    TransactionType:string="";
-    AccountBalance:number=0;
-    Remark:string="";
+    transactionId:number=0;
+    accountNumber:number=0;
+   transactionDate:Date=new Date();
+    transactionType:string="";
+    accountBalance:number=0;
+    remark:string="";
 
 
     constructor (a:number, b:number, c:Date, d:string, e:number, f:string)
     {
-        this.TransactionID=a;
-        this.AccountNumber=b;
-        this.TransactionDate=c;
-        this.TransactionType=d;
-        this.AccountBalance=e;
-        this.Remark=f;
+        this.transactionId=a;
+        this.accountNumber=b;
+        this.transactionDate=c;
+        this.transactionType=d;
+        this.accountBalance=e;
+        this.remark=f;
     }
 
 }

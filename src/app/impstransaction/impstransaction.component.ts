@@ -44,21 +44,21 @@ export class IMPSTransactionComponent implements OnInit {
 
 
   Transaction:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
 
   Transaction1:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
   u_msg:string="";
   m:any;
@@ -97,11 +97,11 @@ export class IMPSTransactionComponent implements OnInit {
             //console.log(this.FromAccountBalance.AccountBalance);
             //console.log("Hello"+this.FromAccountBalance);
            // console.log(this.Transaction);
-            this.Transaction.AccountNumber = this.IMPSForm.controls.From_Account.value;
-            this.Transaction.TransactionDate=this.IMPSForm.controls.Transaction_Date.value;
-            this.Transaction.TransactionType="IMPS Debit";
-            this.Transaction.AccountBalance= this.FromAccountBalance.AccountBalance;
-            this.Transaction.Remark=this.IMPSForm.controls.Remark.value;
+            this.Transaction.accountNumber = this.IMPSForm.controls.From_Account.value;
+            this.Transaction.transactionDate=this.IMPSForm.controls.Transaction_Date.value;
+            this.Transaction.transactionType="IMPS Debit";
+            this.Transaction.accountBalance= this.FromAccountBalance.AccountBalance;
+            this.Transaction.remark=this.IMPSForm.controls.Remark.value;
         //console.log(this.Transaction);
   
   
@@ -123,11 +123,11 @@ export class IMPSTransactionComponent implements OnInit {
            // console.log(data.accountBalance);
            // console.log("Hello"+this.ToAccountBalance);
           //console.log(this.Transaction1);
-          this.Transaction1.AccountNumber = this.IMPSForm.controls.To_Account.value;
-          this.Transaction1.TransactionDate=this.IMPSForm.controls.Transaction_Date.value;
-          this.Transaction1.TransactionType="IMPS Credit";
-          this.Transaction1.AccountBalance= this.ToAccountBalance.AccountBalance;
-          this.Transaction1.Remark=this.IMPSForm.controls.Remark.value;
+          this.Transaction1.accountNumber = this.IMPSForm.controls.To_Account.value;
+          this.Transaction1.transactionDate=this.IMPSForm.controls.Transaction_Date.value;
+          this.Transaction1.transactionType="IMPS Credit";
+          this.Transaction1.accountBalance= this.ToAccountBalance.AccountBalance;
+          this.Transaction1.remark=this.IMPSForm.controls.Remark.value;
       //console.log(this.Transaction1);
 
 

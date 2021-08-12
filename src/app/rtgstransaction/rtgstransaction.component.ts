@@ -45,21 +45,21 @@ export class RTGSTransactionComponent implements OnInit {
 
 
   Transaction:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
 
   Transaction1:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
   u_msg:string="";
   m:any;
@@ -92,11 +92,11 @@ export class RTGSTransactionComponent implements OnInit {
             //console.log(this.FromAccountBalance.AccountBalance);
             //console.log("Hello"+this.FromAccountBalance);
            // console.log(this.Transaction);
-            this.Transaction.AccountNumber = this.RTGSForm.controls.From_Account.value;
-            this.Transaction.TransactionDate=this.RTGSForm.controls.Transaction_Date.value;
-            this.Transaction.TransactionType="RTGS Debit";
-            this.Transaction.AccountBalance= this.FromAccountBalance.AccountBalance;
-            this.Transaction.Remark=this.RTGSForm.controls.Remark.value;
+            this.Transaction.accountNumber = this.RTGSForm.controls.From_Account.value;
+            this.Transaction.transactionDate=this.RTGSForm.controls.Transaction_Date.value;
+            this.Transaction.transactionType="RTGS Debit";
+            this.Transaction.accountBalance= this.FromAccountBalance.AccountBalance;
+            this.Transaction.remark=this.RTGSForm.controls.Remark.value;
         //console.log(this.Transaction);
   
   
@@ -118,11 +118,11 @@ export class RTGSTransactionComponent implements OnInit {
            // console.log(data.accountBalance);
            // console.log("Hello"+this.ToAccountBalance);
           //console.log(this.Transaction1);
-          this.Transaction1.AccountNumber = this.RTGSForm.controls.To_Account.value;
-          this.Transaction1.TransactionDate=this.RTGSForm.controls.Transaction_Date.value;
-          this.Transaction1.TransactionType="RTGS Credit";
-          this.Transaction1.AccountBalance= this.ToAccountBalance.AccountBalance;
-          this.Transaction1.Remark=this.RTGSForm.controls.Remark.value;
+          this.Transaction1.accountNumber = this.RTGSForm.controls.To_Account.value;
+          this.Transaction1.transactionDate=this.RTGSForm.controls.Transaction_Date.value;
+          this.Transaction1.transactionType="RTGS Credit";
+          this.Transaction1.accountBalance= this.ToAccountBalance.AccountBalance;
+          this.Transaction1.remark=this.RTGSForm.controls.Remark.value;
       //console.log(this.Transaction1);
 
 
