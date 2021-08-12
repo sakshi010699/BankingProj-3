@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { STransactionService } from '../Services/stransaction.service';
 import { UserTransaction } from 'Models/user-transaction';
 import { AccountDetails } from 'Models/account-details';
-
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 
 @Component({
@@ -86,12 +86,12 @@ export class IMPSTransactionComponent implements OnInit {
   )
   post_update_api(data:any):void{
     console.log(data.From_Account);
-
+    console.log(data.To_Account);
     
       this.obj.getAccountDetailsById(data.From_Account)
         .subscribe(
           data => {
-            this.FromAccountBalance.AccountBalance = data.accountBalance- this.IMPSForm.controls.Amount.value;
+            this.FromAccountBalance.AccountBalance = data.accountBalance - this.IMPSForm.controls.Amount.value;
             //console.log("data",data);
             //console.log(data.accountBalance);
             //console.log(this.FromAccountBalance.AccountBalance);
@@ -173,22 +173,6 @@ this.q=data.From_Account;
         })
       
       })
-
-
-     
-      
-      
-      
-
- 
-     
-      //  this.obj.updateAccount(data.From_Account,this.acc).subscribe(data=>{
-      
-      // })
-
     }
- 
- 
-
-
+    
 }

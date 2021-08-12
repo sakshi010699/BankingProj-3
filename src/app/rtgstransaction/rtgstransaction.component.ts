@@ -4,7 +4,7 @@ import { UserTransaction } from 'Models/user-transaction';
 import { STransactionService } from '../Services/stransaction.service';
 import { AccountDetails } from 'Models/account-details';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 @Component({
   selector: 'app-rtgstransaction',
@@ -64,9 +64,12 @@ export class RTGSTransactionComponent implements OnInit {
   u_msg:string="";
   m:any;
 
+ 
+
   constructor(private obj:STransactionService) { }
 
   ngOnInit(): void {
+    
   }
 
   RTGSForm = new FormGroup({
@@ -169,56 +172,10 @@ this.q=data.From_Account;
       
       })
 
-
      
       
-      
-      
-
- 
-     
-      //  this.obj.updateAccount(data.From_Account,this.acc).subscribe(data=>{
-      
-      // })
-
- 
- 
-
- 
- 
-
- 
-
-
-
-
-    
-   
-    
-   
- 
- 	 
- 	 
- 	
-    
-
-      
- 	
-
-
-   
- 	 
- 	 
- 	
-    
-    
-    
-    
-    
+        
   }
-
-
- 
   
 }
 

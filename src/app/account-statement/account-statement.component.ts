@@ -10,25 +10,38 @@ import { UserOpenAccount } from 'Models/user-open-account';
   styleUrls: ['./account-statement.component.css']
 })
 export class AccountStatementComponent implements OnInit {
-  Account:AccountDetails[]=[];
-  Transaction:UserTransaction[]=[];
-  OpenAccount:UserOpenAccount[]=[];
+
+  UserAccountNumber:any=0;
+
+  isHidden:boolean=true;
 
 
-  UserAccountNumber:number=0;
- UserDate:Date=new Date();
+  UserTransactionRecord:UserTransaction[]=[];
+  
+  UserDateFrom:Date=new Date();
+  UserDateTill:Date=new Date();
 
-
-  constructor() { }
+  constructor(private obj:STransactionService) { }
 
   ngOnInit(): void {
   }
 
   GetAccountStatement(){
-    
+  
+    this.obj.getAllTransactionDetails().subscribe(data=>{
+      console.log(data);
+      for(let d of data){
+        if(d.accountNumber==this.UserAccountNumber && (d.transactionDate <this.UserDateTill || d.transactionDate == this.UserDateTill && (d.transactionDate >= this.UserDateFrom))){
+          this.UserTransactionRecord.push(d);
+        }
+      }
+      //this.UserTransactionRecord=data;
+      console.log(this.UserTransactionRecord);
+      this.isHidden=false;
+
+      //Logging the response recieved from web api.
+     // console.log(this.UserTransactionRecord);
+    });
 
   }
-
-  FilterByDate(){}
-
 }

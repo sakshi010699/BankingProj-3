@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { STransactionService } from '../Services/stransaction.service';
 import { AccountDetails } from 'Models/account-details';
 import { UserTransaction } from 'Models/user-transaction';
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 @Component({
   selector: 'app-nefttransaction',
@@ -41,6 +42,7 @@ export class NEFTTransactionComponent implements OnInit {
 
 
 
+
   Transaction:UserTransaction={
     transactionId:0,
     accountNumber:0,
@@ -61,6 +63,7 @@ export class NEFTTransactionComponent implements OnInit {
   u_msg:string="";
   m:any;
 
+ 
   constructor(private obj:STransactionService) { }
 
   ngOnInit(): void {
@@ -70,7 +73,7 @@ export class NEFTTransactionComponent implements OnInit {
     From_Account:new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     To_Account : new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     Amount : new FormControl("",[Validators.required]),
-    Transaction_Date : new FormControl("",[Validators.required]),
+    Transaction_Date : new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     Remark : new FormControl("",[Validators.required])
 
 
@@ -166,51 +169,6 @@ this.q=data.From_Account;
       
       })
 
-
-     
-      
-      
-      
-
- 
-     
-      //  this.obj.updateAccount(data.From_Account,this.acc).subscribe(data=>{
-      
-      // })
-
- 
- 
-
- 
- 
-
- 
-
-
-
-
-    
-   
-    
-   
- 
- 	 
- 	 
- 	
-    
-
-      
- 	
-
-
-   
- 	 
- 	 
- 	
-    
-    
-    
-    
-    
   }
+  
 }

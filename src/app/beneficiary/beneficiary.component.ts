@@ -12,10 +12,10 @@ import { AddBeneficiaryDetailsService } from '../Services/add-beneficiary-detail
 export class BeneficiaryComponent implements OnInit {
   bDetails:BeneficiaryDetails[]=[];
   bDetail:BeneficiaryDetails={
-    BeneficiaryAccNo:0,
-    UserAccountNo:0,
-    BeneficiaryName:"",
-    NickName:""
+    beneficiaryAccNo:0,
+    userAccountNo:0,
+    beneficiaryName:"",
+    nickName:""
     
   };
   msg:string="";
@@ -42,7 +42,7 @@ export class BeneficiaryComponent implements OnInit {
   post_api(data:any):void
   {
     this.obj.CreateBeneficiary(data).subscribe(data=>{
-    this.msg="Successfully created "+data.NickName;
+    this.msg="Successfully created "+data.nickName;
     //Logging the response received from web api.
     console.log(data);
     })

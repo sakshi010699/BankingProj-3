@@ -25,6 +25,7 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { FormsModule } from '@angular/forms';
 import { AccountStatementComponent } from './account-statement/account-statement.component'; 
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     OpenAccount2Component,
     AccountSummaryComponent,
     AccountStatementComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    TransactionSlipComponent
   ],
   imports: [
     BrowserModule,
