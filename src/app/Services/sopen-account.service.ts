@@ -11,7 +11,7 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class SOpenAccountService {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api/";
+  req:string="https://localhost:44390/api/";
   createUser(a:UserOpenAccount):Observable<UserOpenAccount>
   {
     console.log(a);

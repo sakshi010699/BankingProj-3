@@ -11,13 +11,13 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api/UserOpenAccounts1";
+  req:string="https://localhost:44390/api/";
 
   
   CreateBeneficiary(bDetails:UserOpenAccount):Observable<UserOpenAccount>
   {
     console.log(bDetails);
-    return this.http.post<UserOpenAccount>(this.req,bDetails,{
+    return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts",bDetails,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

@@ -13,7 +13,7 @@ import { BeneficiaryDetails } from 'Models/beneficiary-details';
 export class STransactionService {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api";
+  req:string="https://localhost:44390/api";
   getAllUsers():Observable<BeneficiaryDetails[]>
   {
     return this.http.get<BeneficiaryDetails[]>(this.req+"/BeneficiaryDetails");
