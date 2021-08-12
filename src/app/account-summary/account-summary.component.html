@@ -1,0 +1,19 @@
+<input type="text" [(ngModel)]=" UserAccountNumber" >
+<input type="button" value="Enter Account Number" (click)="GetAccountSummary()">
+
+
+<table  [hidden]="isHidden" border='1' style="height: 4cm; width: 20cm; font-size: larger; " >
+    <th>Transaction ID</th>
+    <th>Date Of Transaction</th>
+    <th>Transaction Type</th>
+    <th>Account Balance</th>
+    <th>Comments</th>
+    <tr *ngFor="let item of  UserTransactionRecord">
+        <td *ngIf="item.accountNumber==UserAccountNumber">{{item.transactionId}}</td>
+        <td *ngIf="item.accountNumber==UserAccountNumber">{{item.transactionDate}}</td>
+        <td *ngIf="item.accountNumber==UserAccountNumber">{{item.transactionType}}</td>
+        <td *ngIf="item.accountNumber==UserAccountNumber">{{item.accountBalance}}</td>
+        <td *ngIf="item.accountNumber==UserAccountNumber">{{item.remark}}</td>
+    </tr>
+</table>
+

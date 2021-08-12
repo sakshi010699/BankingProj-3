@@ -42,21 +42,21 @@ export class NEFTTransactionComponent implements OnInit {
 
 
   Transaction:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
 
   Transaction1:UserTransaction={
-    TransactionID:0,
-    AccountNumber:0,
-    TransactionDate:new Date(),
-    TransactionType:"",
-    AccountBalance:0,
-    Remark:""
+    transactionId:0,
+    accountNumber:0,
+    transactionDate:new Date(),
+    transactionType:"",
+    accountBalance:0,
+    remark:""
   }
   u_msg:string="";
   m:any;
@@ -89,11 +89,11 @@ export class NEFTTransactionComponent implements OnInit {
             //console.log(this.FromAccountBalance.AccountBalance);
             //console.log("Hello"+this.FromAccountBalance);
            // console.log(this.Transaction);
-            this.Transaction.AccountNumber = this.NEFTForm.controls.From_Account.value;
-            this.Transaction.TransactionDate=this.NEFTForm.controls.Transaction_Date.value;
-            this.Transaction.TransactionType="NEFT Debit";
-            this.Transaction.AccountBalance= this.FromAccountBalance.AccountBalance;
-            this.Transaction.Remark=this.NEFTForm.controls.Remark.value;
+            this.Transaction.accountNumber = this.NEFTForm.controls.From_Account.value;
+            this.Transaction.transactionDate=this.NEFTForm.controls.Transaction_Date.value;
+            this.Transaction.transactionType="NEFT Debit";
+            this.Transaction.accountBalance= this.FromAccountBalance.AccountBalance;
+            this.Transaction.remark=this.NEFTForm.controls.Remark.value;
         //console.log(this.Transaction);
   
   
@@ -115,11 +115,11 @@ export class NEFTTransactionComponent implements OnInit {
            // console.log(data.accountBalance);
            // console.log("Hello"+this.ToAccountBalance);
           //console.log(this.Transaction1);
-          this.Transaction1.AccountNumber = this.NEFTForm.controls.To_Account.value;
-          this.Transaction1.TransactionDate=this.NEFTForm.controls.Transaction_Date.value;
-          this.Transaction1.TransactionType="NEFT Credit";
-          this.Transaction1.AccountBalance= this.ToAccountBalance.AccountBalance;
-          this.Transaction1.Remark=this.NEFTForm.controls.Remark.value;
+          this.Transaction1.accountNumber = this.NEFTForm.controls.To_Account.value;
+          this.Transaction1.transactionDate=this.NEFTForm.controls.Transaction_Date.value;
+          this.Transaction1.transactionType="NEFT Credit";
+          this.Transaction1.accountBalance= this.ToAccountBalance.AccountBalance;
+          this.Transaction1.remark=this.NEFTForm.controls.Remark.value;
       //console.log(this.Transaction1);
 
 
