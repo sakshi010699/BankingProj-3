@@ -4,7 +4,7 @@
     
     <p>
         <label for="From_Account" >From Account<span style="color: red;">*</span></label>
-        <input type="text " pattern="\d*" id="From_Account" name="From_Account" formControlName="From_Account"  >
+        <input type="text " pattern="\d*" id="From_Account" name="From_Account" formControlName="From_Account" >
         <span class="error" *ngIf="NEFTForm.controls.From_Account.invalid&&(NEFTForm.controls.From_Account.touched && !NEFTForm.controls.From_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="NEFTForm.controls.From_Account.invalid&&(NEFTForm.controls.From_Account.touched && NEFTForm.controls.From_Account.dirty)" >Invalid Account Number</span>           
 

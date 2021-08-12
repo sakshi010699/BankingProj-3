@@ -17,8 +17,8 @@
         <span class="error" *ngIf="RTGSForm.controls.To_Account.invalid&&(RTGSForm.controls.To_Account.touched && RTGSForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
 
         <button  routerLink="/AddPayee">Add New +</button>
-
-        
+        <!-- *ngIf="item.UserAccountNo==RTGSForm.controls.From_Account.value" -->
+        <!-- type="number" id="To_Account" name="To_Account" -->
     </p>  <p>
         <label for="Amount" >Amount<span style="color: red;">*</span></label>
         <input type="Amount" id="Amount" name="Amount" formControlName="Amount">

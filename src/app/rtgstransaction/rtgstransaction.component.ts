@@ -6,7 +6,6 @@ import { AccountDetails } from 'Models/account-details';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
-
 @Component({
   selector: 'app-rtgstransaction',
   templateUrl: './rtgstransaction.component.html',
@@ -67,6 +66,8 @@ export class RTGSTransactionComponent implements OnInit {
   }
   u_msg:string="";
   m:any;
+
+ 
 
   constructor(private obj:STransactionService) { }
 
@@ -210,9 +211,6 @@ this.q=data.From_Account;
     
     
   }
-
-
- 
   
 }
 
