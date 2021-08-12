@@ -2,11 +2,13 @@
 <form [formGroup]="UserBasicInfo" (ngSubmit)="post_api(UserBasicInfo.value)">
     <h1 id = "Login">Net Banking Registration</h1>
        <p>
-         <label for="AadharCardNumber">Aadharcard Number: </label>
+         <label for="AadharCardNumber">Aadhar Card Number: </label>
          <input type="text" id="AadharCardNumber" name="AadharCardNumber" formControlName="AadharCardNumber">
          <span *ngIf="UserBasicInfo.controls.AadharCardNumber.invalid && (UserBasicInfo.controls.AadharCardNumber.touched && 
     UserBasicInfo.controls.AadharCardNumber.dirty)" class="error">Please enter a valid Aadhar number.</span>
-         <span class="error" *ngIf="UserBasicInfo.controls.AadharCardNumber.invalid&&(UserBasicInfo.controls.AadharCardNumber.touched)" >This field is mandatory</span>
+         <span class="error" *ngIf="UserBasicInfo.controls.AadharCardNumber.invalid&&
+         (UserBasicInfo.controls.AadharCardNumber.touched && !UserBasicInfo.controls.AadharCardNumber.dirty)" >
+         This field is mandatory</span>
        </p>
        <p>
         <label for="Title">Title: </label>
@@ -17,95 +19,124 @@
             <option value="Ms.">Ms.</option>
             <option value="Dr.">Dr.</option>
         </select>
-        <span class="error" *ngIf="UserBasicInfo.controls.Title.invalid&&(UserBasicInfo.controls.Title.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.Title.invalid&&(UserBasicInfo.controls.Title.touched)" >
+          This field is mandatory</span>
       </p> <p>
         <label for="FirstName">First Name: </label>
         <input type="text" id="FirstName" name="FirstName" formControlName="FirstName">
-        <span class="error" *ngIf="UserBasicInfo.controls.FirstName.invalid&&(UserBasicInfo.controls.FirstName.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.FirstName.invalid&&(UserBasicInfo.controls.FirstName.touched)" >
+          This field is mandatory</span>
       </p> <p>
         <label for="MiddleName">Middle Name: </label>
         <input type="text" id="MiddleName" name="MiddleName" formControlName="MiddleName">
-        <span class="error" *ngIf="UserBasicInfo.controls.MiddleName.invalid&&(UserBasicInfo.controls.MiddleName.touched)" >This field is mandatory</span>
       </p> <p>
         <label for="LastName">Last Name: </label>
         <input type="text" id="LastName" name="LastName" formControlName="LastName">
-        <span class="error" *ngIf="UserBasicInfo.controls.LastName.invalid&&(UserBasicInfo.controls.LastName.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.LastName.invalid&&(UserBasicInfo.controls.LastName.touched)" >
+          This field is mandatory</span>
       </p> <p>
         <label for="FathersName">Father's Name: </label>
         <input type="text" id="FathersName" name="FathersName" formControlName="FathersName">
-        <span class="error" *ngIf="UserBasicInfo.controls.FathersName.invalid&&(UserBasicInfo.controls.FathersName.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.FathersName.invalid&&(UserBasicInfo.controls.FathersName.touched)" >
+          This field is mandatory</span>
       </p> <p>
         <label for="MobileNumber">Mobile Number: </label>
-        <input type="text" id="MobileNumber" name="MobileNumber" formControlName="MobileNumber">
-        
-        <span class="error" *ngIf="UserBasicInfo.controls.MobileNumber.invalid&&(UserBasicInfo.controls.MobileNumber.touched)" >This field is mandatory</span>
+        <input type="text" id="MobileNumber" name="MobileNumber" formControlName="MobileNumber">        
+        <span class="error" *ngIf="UserBasicInfo.controls.MobileNumber.invalid&&(UserBasicInfo.controls.MobileNumber.touched
+        && !UserBasicInfo.controls.MobileNumber.dirty)" >
+          This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.MobileNumber.invalid&&(UserBasicInfo.controls.MobileNumber.touched
+          && !UserBasicInfo.controls.MobileNumber.dirty)" >
+            Please enter a valid Mobile Number</span>
       </p> <p>
         <label for="EmailID">Email ID: </label>
         <input type="text" id="EmailID" name="EmailID" formControlName="EmailID">
-        <span class="error" *ngIf="UserBasicInfo.controls.EmailID.invalid&&(UserBasicInfo.controls.EmailID.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.EmailID.invalid" >Please enter a valid e-mail ID</span>
       </p> <p>
         <label for="DateOfBirth">Date of Birth: </label>
-        <input type="date" id="DateOfBirth" name="DateOfBirth" formControlName="DateOfBirth">
-        <span class="error" *ngIf="UserBasicInfo.controls.DateOfBirth.invalid&&(UserBasicInfo.controls.DateOfBirth.touched)" >This field is mandatory</span>
+        <input type="date" id="DateOfBirth" name="DateOfBirth" formControlName="DateOfBirth" max="{{date}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.DateOfBirth.invalid&&(UserBasicInfo.controls.DateOfBirth.touched)" >
+          This field is mandatory</span>
       </p>  <p>
         <label for="ResidentialAddrLine1">Address Line1: </label>
         <input type="text" id="ResidentialAddrLine1" name="ResidentialAddrLine1" formControlName="ResidentialAddrLine1">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialAddrLine1.invalid&&(UserBasicInfo.controls.ResidentialAddrLine1.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialAddrLine1.invalid&&
+        (UserBasicInfo.controls.ResidentialAddrLine1.touched)" >This field is mandatory</span>
       </p> <p>
         <label for="ResidentialAddrLine2">Address Line2: </label>
         <input type="text" id="ResidentialAddrLine2" name="ResidentialAddrLine2" formControlName="ResidentialAddrLine2">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialAddrLine2.invalid&&(UserBasicInfo.controls.ResidentialAddrLine2.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialAddrLine2.invalid&&
+        (UserBasicInfo.controls.ResidentialAddrLine2.touched)" >This field is mandatory</span>
       </p> <p>
         <label for="ResidentialLandmark">Landmark: </label>
         <input type="text" id="ResidentialLandmark" name="ResidentialLandmark" formControlName="ResidentialLandmark">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialLandmark.invalid&&(UserBasicInfo.controls.ResidentialLandmark.touched)" >This field is mandatory</span>
       </p>
       <p>
         <label for="ResidentialPincode">Pincode: </label>
         <input type="text" id="ResidentialPincode" name="ResidentialPincode" formControlName="ResidentialPincode">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialPincode.invalid&&(UserBasicInfo.controls.ResidentialPincode.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialPincode.invalid&&
+        (UserBasicInfo.controls.ResidentialPincode.touched && UserBasicInfo.controls.ResidentialPincode.dirty)" >
+        Please enter a valid pincode.
+        </span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialPincode.invalid&&
+        (UserBasicInfo.controls.ResidentialPincode.touched && !UserBasicInfo.controls.ResidentialPincode.dirty)" >
+        This field is mandatory
+        </span>
       </p>
       <p>
         <label for="ResidentialState">State: </label>
         <input type="text" id="ResidentialState" name="ResidentialState" formControlName="ResidentialState">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialState.invalid&&(UserBasicInfo.controls.ResidentialState.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialState.invalid&&
+        (UserBasicInfo.controls.ResidentialState.touched)" >This field is mandatory</span>
       </p><p>
         <label for="ResidentialCity">City: </label>
         <input type="text" id="ResidentialCity" name="ResidentialCity" formControlName="ResidentialCity">
-        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialCity.invalid&&(UserBasicInfo.controls.ResidentialCity.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.ResidentialCity.invalid&&
+        (UserBasicInfo.controls.ResidentialCity.touched)" >This field is mandatory</span>
       </p>
       
       <p>
         <label for="PermEqualRes">Is your residential address same as permanent address: </label>
-        <input type="checkbox" id="PermEqualRes" name="PermEqualRes" formControlName="PermEqualRes" >
-        <span class="error" *ngIf="UserBasicInfo.controls.PermEqualRes.invalid&&(UserBasicInfo.controls.PermEqualRes.touched)" >This field is mandatory</span>
+        <input type="checkbox" id="PermEqualRes" name="PermEqualRes" formControlName="PermEqualRes" (click)="sameAddress()">
+        <!---<span class="error" *ngIf="UserBasicInfo.controls.PermEqualRes.invalid&&
+        (UserBasicInfo.controls.PermEqualRes.touched)" >This field is mandatory</span>--->
       </p>
       <p>
         <label for="PermanentAddrLine1">Address Line1: </label>
-        <input type="text" id="PermanentAddrLine1" name="PermanentAddrLine1" formControlName="PermanentAddrLine1">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine1.invalid&&(UserBasicInfo.controls.PermanentAddrLine1.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentAddrLine1" name="PermanentAddrLine1" formControlName="PermanentAddrLine1" 
+        class="{{isDisabled}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine1.invalid&&
+        (UserBasicInfo.controls.PermanentAddrLine1.touched)" >This field is mandatory</span>
       </p> <p>
         <label for="PermanentAddrLine2">Address Line2: </label>
-        <input type="text" id="PermanentAddrLine2" name="PermanentAddrLine2" formControlName="PermanentAddrLine2">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine2.invalid&&(UserBasicInfo.controls.PermanentAddrLine2.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentAddrLine2" name="PermanentAddrLine2" formControlName="PermanentAddrLine2"
+        class="{{isDisabled}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine2.invalid&&
+        (UserBasicInfo.controls.PermanentAddrLine2.touched)" >This field is mandatory</span>
       </p> <p>
         <label for="PermanentLandmark">Landmark: </label>
-        <input type="text" id="PermanentLandmark" name="PermanentLandmark" formControlName="PermanentLandmark">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentLandmark.invalid&&(UserBasicInfo.controls.PermanentLandmark.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentLandmark" name="PermanentLandmark" formControlName="PermanentLandmark"
+        class="{{isDisabled}}">
       </p>
       <p>
         <label for="PermanentPincode">Pincode: </label>
-        <input type="text" id="PermanentPincode" name="PermanentPincode" formControlName="PermanentPincode">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentPincode.invalid&&(UserBasicInfo.controls.PermanentPincode.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentPincode" name="PermanentPincode" formControlName="PermanentPincode"
+        class="{{isDisabled}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.PermanentPincode.invalid&&
+        (UserBasicInfo.controls.PermanentPincode.touched)" >This field is mandatory</span>
       </p>
       <p>
         <label for="PermanentState">State: </label>
-        <input type="text" id="PermanentState" name="PermanentState" formControlName="PermanentState">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentState.invalid&&(UserBasicInfo.controls.PermanentState.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentState" name="PermanentState" formControlName="PermanentState"
+        class="{{isDisabled}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.PermanentState.invalid&&
+        (UserBasicInfo.controls.PermanentState.touched)" >This field is mandatory</span>
       </p><p>
         <label for="PermanentCity">City: </label>
-        <input type="text" id="PermanentCity" name="PermanentCity" formControlName="PermanentCity">
-        <span class="error" *ngIf="UserBasicInfo.controls.PermanentCity.invalid&&(UserBasicInfo.controls.PermanentCity.touched)" >This field is mandatory</span>
+        <input type="text" id="PermanentCity" name="PermanentCity" formControlName="PermanentCity"
+        class="{{isDisabled}}">
+        <span class="error" *ngIf="UserBasicInfo.controls.PermanentCity.invalid&&
+        (UserBasicInfo.controls.PermanentCity.touched)" >This field is mandatory</span>
       </p>
       <p>
         <label for="OccupationType">Occupation Type: </label>
@@ -118,7 +149,8 @@
             <option>Unemployed</option>
 
             </select>
-        <span class="error" *ngIf="UserBasicInfo.controls.OccupationType.invalid&&(UserBasicInfo.controls.OccupationType.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.OccupationType.invalid&&
+        (UserBasicInfo.controls.OccupationType.touched)" >This field is mandatory</span>
       </p>
       <p>
         <label for="SourceOfIncome">Source Of Income: </label>
@@ -133,34 +165,41 @@
 
 
         </select>
-        <span class="error" *ngIf="UserBasicInfo.controls.SourceOfIncome.invalid&&(UserBasicInfo.controls.SourceOfIncome.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.SourceOfIncome.invalid&&
+        (UserBasicInfo.controls.SourceOfIncome.touched)" >This field is mandatory</span>
       </p><p>
         <label for="GrossAnnualIncome">Gross Annual Income: </label>
         <select type="text" id="GrossAnnualIncome" name="GrossAnnualIncome" formControlName="GrossAnnualIncome">
+            <option value="" disabled selected>Select</option>
             <option>10,00,000 - 25,00,000</option>
             <option>5,00,000 - 10,00,000 </option>
             <option>Above 25,00,000</option>
-            <option>Below 5,00,000</option>
-            
+            <option>Below 5,00,000</option>   
 
         </select>
-        <span class="error" *ngIf="UserBasicInfo.controls.GrossAnnualIncome.invalid&&(UserBasicInfo.controls.GrossAnnualIncome.touched)" >This field is mandatory</span>
+        <span class="error" *ngIf="UserBasicInfo.controls.GrossAnnualIncome.invalid&&
+        (UserBasicInfo.controls.GrossAnnualIncome.touched)" >This field is mandatory</span>
       </p>
       <p>
         <label for="DebitCard">Debit Card: </label>
         <input type="checkbox" id="DebitCard" name="DebitCard" formControlName="DebitCard">
-        <span class="error" *ngIf="UserBasicInfo.controls.DebitCard.invalid&&(UserBasicInfo.controls.DebitCard.touched)" >This field is mandatory</span>
       </p><p>
         <label for="NetBanking">Net Banking: </label>
         <input type="checkbox" id="NetBanking" name="NetBanking" formControlName="NetBanking">
-        <span class="error" *ngIf="UserBasicInfo.controls.NetBanking.invalid&&(UserBasicInfo.controls.NetBanking.touched)" >This field is mandatory</span>
-      </p><p>
+      </p>
+      <!---<p>
         <label for="ApprovalStatus">Aproval Status: </label>
         <input type="checkbox" id="ApprovalStatus" name="ApprovalStatus" formControlName="ApprovalStatus">
-        <span class="error" *ngIf="UserBasicInfo.controls.ApprovalStatus.invalid&&(UserBasicInfo.controls.ApprovalStatus.touched)" >This field is mandatory</span>
-      </p>
+        <span class="error" *ngIf="UserBasicInfo.controls.ApprovalStatus.invalid&&
+        (UserBasicInfo.controls.ApprovalStatus.touched)" >This field is mandatory</span>
+      </p>--->
+    <p>
+      <label for="NetBanking">I have read, and accept the terms and conditions of Loanly bank. </label>
+      <input type="checkbox" id="Agree" name="Agree" formControlName="Agree">
+    </p>
+
       <p>
-        <button type="submit">Submit</button>
+        <button type="submit" [disabled]="UserBasicInfo.invalid">Submit</button>
     </p>
      
 </form>

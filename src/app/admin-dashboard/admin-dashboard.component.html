@@ -1,0 +1,61 @@
+<p>admin-dashboard works!</p>
+<h2>All Users Details</h2>
+<!-- <button type="submit" class="btn btn-outline-primary btn-lg mt-5 ml-5" (click)="get_api()">GET</button> -->
+
+<!-- <div class="card-text m-2 border border-warning p-2" *ngFor="let item of allUser" style="display: inline-block;">
+    <b><span class="text-success">Name:&nbsp;</span></b>{{item.aadharCardNumber}}<br>
+    <b><span class="text-success">Age:&nbsp;</span></b>{{item.p_Age+" "}}yrs<br>
+    <b><span class="text-success">Category:&nbsp;</span></b>{{item.p_Category}}<br>
+    <b><span class="text-success">Jersey No:&nbsp;</span></b>{{item.p_Jno}}
+</div> -->
+
+<table border='1' style="height:auto; font-size: large;" >
+    <th>Aadharcard Number</th>
+    <th>Title</th><th>First Name</th><th>Middle Name</th><th>Last Name</th>
+    <th>Father's Name</th>
+    <th>Mobile Number</th>
+    <th>Email ID</th>
+    <th>Date of Birth</th>
+    <th>Residential Address line1</th>
+    <th>Residential Address line2</th>
+    <th>Residential Landmak</th>
+    <th>Residential Pincode</th>
+    <th>permanent equal Residential</th>
+    <th>Occupation Type</th>
+    <th>Source of Income</th>
+    <th>Gross Annual Income</th>
+    <th>Debit Card</th>
+    <th>Net Banking</th>
+
+    <tr *ngFor="let item of allUser">
+        <!-- <tr *ngIf = "item.approvalStatus==false"> -->
+
+        
+
+        
+            <td *ngIf = "item.approvalStatus==false">{{item.aadharCardNumber}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.title}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.firstName}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.middleName}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.lastName}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.fathersName}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.mobileNumber}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.emailId}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.dateOfBirth}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.residentialAddrLine1}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.residentialAddrLine2}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.residentialLandmark}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.residentialPincode}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.permEqualRes}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.occupationType}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.sourceOfIncome}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.grossAnnualIncome}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.debitCard}}</td>
+            <td *ngIf = "item.approvalStatus==false">{{item.netBanking}}</td>
+            
+            <button type="submit" (click) = "approve(item)" *ngIf = "item.approvalStatus==false">Approve</button>
+
+        </tr>
+  
+</table>
+

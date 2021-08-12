@@ -24,6 +24,8 @@ import { OpenAccount2Component } from './open-account2/open-account2.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component'
 import { FormsModule } from '@angular/forms';
 import { AccountStatementComponent } from './account-statement/account-statement.component'; 
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { AccountStatementComponent } from './account-statement/account-statement
     UpdateCredentialsComponent,
     OpenAccount2Component,
     AccountSummaryComponent,
-    AccountStatementComponent
+    AccountStatementComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

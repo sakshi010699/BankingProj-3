@@ -1,49 +1,49 @@
 
 
 export class UserOpenAccount {
-    AadharCardNumber:string="";
-    Title:string="";
-    FirstName:string="";
-    MiddleName:string=""
-    LastName:string="";
-    FathersName:string="";
-    MobileNumber:string="";
-    EmailID:string="";
-    DateOfBirth:Date= new Date();
-    ResidentialAddrLine1:string="";
-    ResidentialAddrLine2:string="";
-    ResidentialLandmark:string="";
-    ResidentialPincode:string="";
-    PermEqualRes:boolean=false;
+    aadharCardNumber:string="";
+    title:string="";
+    firstName:string="";
+    middleName:string=""
+    lastName:string="";
+    fathersName:string="";
+    mobileNumber:string="";
+    emailId:string="";
+    dateOfBirth:Date= new Date();
+    residentialAddrLine1:string="";
+    residentialAddrLine2:string="";
+    residentialLandmark:string="";
+    residentialPincode:string="";
+    permEqualRes:boolean=false;
     
-    OccupationType:string="";
-    SourceOfIncome:string="";
-    GrossAnnualIncome:string="";
-    DebitCard:boolean=false;
-    NetBanking:boolean=false;
-    ApprovalStatus:boolean=false;
+    occupationType:string="";
+    sourceOfIncome:string="";
+    grossAnnualIncome:string="";
+    debitCard:boolean=false;
+    netBanking:boolean=false;
+    approvalStatus:boolean=false;
     constructor(a:string,b:string,c:string,d:string,e:string,f:string,g:string,h:string,i:Date,j:string,k:string,l:string,m:string,n:boolean,o:string,p:string,q:string,r:boolean,s:boolean,t:boolean){
 
-        this.AadharCardNumber=a;
-        this.Title=b;
-        this.FirstName=c;
-        this.MiddleName=d;
-        this.LastName=e;
-        this.FathersName=f;
-        this.MobileNumber=g;
-        this.EmailID=h;
-        this.DateOfBirth=i;
-        this.ResidentialAddrLine1=j;
-        this.ResidentialAddrLine2=k;
-        this.ResidentialLandmark=l;
-        this.ResidentialPincode=m;
-        this.PermEqualRes=n;
-        this.OccupationType=o;
-        this.SourceOfIncome=p;
-        this.GrossAnnualIncome=q;
-        this.DebitCard=r;
-        this.NetBanking=s;
-        this.ApprovalStatus=t;
+        this.aadharCardNumber=a;
+        this.title=b;
+        this.firstName=c;
+        this.middleName=d;
+        this.lastName=e;
+        this.fathersName=f;
+        this.mobileNumber=g;
+        this.emailId=h;
+        this.dateOfBirth=i;
+        this.residentialAddrLine1=j;
+        this.residentialAddrLine2=k;
+        this.residentialLandmark=l;
+        this.residentialPincode=m;
+        this.permEqualRes=n;
+        this.occupationType=o;
+        this.sourceOfIncome=p;
+        this.grossAnnualIncome=q;
+        this.debitCard=r;
+        this.netBanking=s;
+        this.approvalStatus=t;
     }
 
 

@@ -9,12 +9,26 @@
     <label for="UserId">Password</label>
     <input type="text" id="Password" name="Password" formControlName="Password">
     </p>
-    <button type="submit" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">Login</button>
+    <div *ngIf = "LoginForm.value.UserId == 666 && LoginForm.value.Password == 'admin' ; else elseBlock">
+        <button type="submit" [disabled]="LoginForm.invalid" routerLink="/AdminDashboard">
+            Login
+        </button>
+    </div>
+    <ng-template #elseBlock>
+        <button type="submit" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">
+            Login
+        </button>
+    </ng-template>
+    
     <div>
     <p><a routerLink="/Register">First time user? Register</a></p>
     <p><a routerLink="/ForgotUserId">Forgot User ID</a></p>
     <p><a routerLink="/ForgotPassword">Forgot Password</a></p>
     </div>
+<!--
+<div *ngIf="condition; else elseBlock">Content to render when condition is true.
 
+</div> <ng-template #elseBlock>Content to render when condition is false.</ng-template>
+-->
 
 </form>
