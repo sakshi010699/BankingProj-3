@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     userPassword:"",
     transactionPass:""
   };
-  constructor(private obj:SNetbankingUserService) { }
+  constructor(private obj:SNetbankingUserService, private router:Router) { }
 
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   })
 
   validateBool : boolean = false;
-  apnarouter : string = "/Login";
+  
 
   userValidate(data:any){
     console.log("Hello");
@@ -42,9 +43,9 @@ export class LoginComponent implements OnInit {
       if(item.userId == data.UserId){
         this.validateBool = true;
         if(item.userPassword == data.Password){
-          alert('Login Successful');
           
-          return this.apnarouter="/UserDashboard";
+          this.router.navigate(["/UserDashboard"]);  
+          //return this.temprouter="/UserDashboard";
         }
         else{
           return alert('Wrong Password');
