@@ -48,10 +48,10 @@ export class SadminApproveService {
     return this.http.get(this.req + "UserOpenAccounts/" + id );
   }
 
-  // getAllAccounts():Observable<AccountDetails>
-  // {
-  //   return this.http.get<AccountDetails[]>(this.req+"")
-  // }
+  getAllAccounts():Observable<AccountDetails[]>
+  {
+    return this.http.get<AccountDetails[]>(this.req+"AccountDetails");
+  }
 
   updateAccount(id:string,player:UserOpenAccount):Observable<any>
   {
