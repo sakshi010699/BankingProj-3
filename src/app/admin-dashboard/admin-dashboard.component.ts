@@ -21,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
 
   netBankingData:NetBankingUserDetails={
     userId:0,
-    accountNumber:"",
+    accountNumber:0,
     userPassword:"",
     transactionPass:""
   }
@@ -51,6 +51,9 @@ export class AdminDashboardComponent implements OnInit {
     netBanking:false,
     approvalStatus:false
   };
+  
+  allAccounts:AccountDetails[]=[];
+
   constructor(private obj:SadminApproveService) { }
 
   ngOnInit(): void {
@@ -82,18 +85,39 @@ export class AdminDashboardComponent implements OnInit {
     this.appendAccount.accountBalance=10000;
 
     this.obj.createAccount(this.appendAccount).subscribe(data=>{
+      if(item.netBanking==true)
+    {
+      //console.log("Hello!");
+      this.obj.getAllAccounts().subscribe(res=>{
+        this.allAccounts=res;
+        console.log(res);
+
+        for(let acc of this.allAccounts)
+        {
+          console.log("Helloooooo");
+          if(acc.aadharCardNumber==item.aadharCardNumber)
+          {
+            this.netBankingData.accountNumber=acc.accountNumber;
+            this.netBankingData.userPassword=item.dateOfBirth.toString();
+            this.netBankingData.transactionPass=item.aadharCardNumber.toString();
+            console.log("Hello"+this.netBankingData);
+            this.obj.createNetBanking(this.netBankingData).subscribe(ress=>{
+
+            })
+            
+          }
+        }
+        
+      });    
+
       
+    }
 
     })
 
     
 
-    /* if(item.netBanking==true){
-      this.netBankingData.accountNumber=item
-      this.obj.createNetBanking(this.netBankingData).subscribe(data=>{
-        
-      })
-    } */
+    
 
     }
 

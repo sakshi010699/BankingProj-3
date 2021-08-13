@@ -12,7 +12,7 @@ export class SetNewPasswordComponent implements OnInit {
   u:NetBankingUserDetails[]=[];
   v:NetBankingUserDetails={
     userId:0,
-    accountNumber:"",
+    accountNumber:0,
     userPassword:"",
     transactionPass:""
   };

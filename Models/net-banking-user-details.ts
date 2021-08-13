@@ -1,6 +1,6 @@
 export class NetBankingUserDetails {
     userId:number=0;
-    accountNumber:string="";
+    accountNumber:number=0;
     userPassword:string="";
     transactionPass:string="";
 }
