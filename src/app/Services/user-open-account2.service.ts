@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { UserOpenAccount } from 'Models/user-open-account';
+//import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,10 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
-<<<<<<< HEAD
-  req:string="https://localhost:44390/api/";
-=======
-  req:string="https://localhost:44346/api/UserOpenAccounts";
->>>>>>> 6063e75dd3504071f49dfc8e52bf19e10ddb63c0
+  req:string="https://localhost:44333/api/";
 
-  
-  CreateBeneficiary(bDetails:UserOpenAccount):Observable<UserOpenAccount>
+
+  CreateUser(bDetails:UserOpenAccount):Observable<UserOpenAccount>
   {
     console.log(bDetails);
     return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts",bDetails,{

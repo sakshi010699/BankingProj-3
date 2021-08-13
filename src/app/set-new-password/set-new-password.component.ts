@@ -11,10 +11,10 @@ import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 export class SetNewPasswordComponent implements OnInit {
   u:NetBankingUserDetails[]=[];
   v:NetBankingUserDetails={
-    UserId:0,
-    AccountNumber:"",
-    UserPassword:"",
-    TransactionPass:""
+    userId:0,
+    accountNumber:"",
+    userPassword:"",
+    transactionPass:""
   };
   u_msg:string="";
   update_id:number=0;

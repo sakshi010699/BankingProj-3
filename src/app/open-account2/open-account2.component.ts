@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import * as M from 'minimatch';
 import { UserOpenAccount } from 'Models/user-open-account';
 import { UserOpenAccount2Service } from '../Services/user-open-account2.service';
+// import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 
 @Component({
   selector: 'app-open-account2',
@@ -10,6 +11,13 @@ import { UserOpenAccount2Service } from '../Services/user-open-account2.service'
   styleUrls: ['./open-account2.component.css']
 })
 export class OpenAccount2Component implements OnInit {
+
+  // netBankingData:NetBankingUserDetails={
+  //   userId:0,
+  //   accountNumber:"",
+  //   userPassword:"",
+  //   transactionPass:""
+  // }
 
   UserBasicInfo= new FormGroup({
   AadharCardNumber:new FormControl("",[Validators.required, Validators.pattern("[0-9]*"),Validators.maxLength(12),
@@ -29,7 +37,7 @@ export class OpenAccount2Component implements OnInit {
   ResidentialPincode:new FormControl("",[Validators.required, Validators.pattern("[0-9]*"), Validators.minLength(6), Validators.maxLength(6)]),
   ResidentialState: new FormControl("",[Validators.required, Validators.pattern("[a-z A-Z]*")]),
       ResidentialCity: new FormControl("",[Validators.required, Validators.pattern("[a-z A-Z]*")]),
-  PermEqualRes:new FormControl("",[Validators.required]),
+  PermEqualRes:new FormControl(false,[Validators.required]),
   PermanentAddrLine1: new FormControl("",[Validators.required]),
       PermanentAddrLine2: new FormControl("",[Validators.required]),
       PermanentLandmark: new FormControl(""),
@@ -75,15 +83,28 @@ export class OpenAccount2Component implements OnInit {
   }
   onSubmit(){
     console.log(this.UserBasicInfo.value);
+    
   }
-  post_api(data:any):void
+  
+  post_api(data:any)
   {
-    this.obj.CreateBeneficiary(data).subscribe(data=>{
-    this.msg="Successfully created "+data.firstName;
-    //Logging the response received from web api.
-    console.log(data);
+    
+      this.obj.CreateUser(data).subscribe(data=>{
+      this.msg="Successfully created "+data.firstName;
+      //Logging the response received from web api.
+      console.log(data);
     })
   }
+
+  //   if(this.UserBasicInfo.controls.NetBanking.value==true)
+  //   {
+  //     this.obj.createNetBanking(this.netBankingData).subscribe(data=>{
+  //       this.netBankingData.accountNumber=
+  //     })
+  //   }
+    
+  // }
+
   sameAddress(){
     if(this.addCheck==false)
     {

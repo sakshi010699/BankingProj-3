@@ -14,31 +14,31 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 export class RTGSTransactionComponent implements OnInit {
   FromAccountBalance:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   p:number=0;
   q:number=0;
 
   ToAccountBalance:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   acc:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   acc1:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   a:number=0;
 
@@ -86,7 +86,7 @@ export class RTGSTransactionComponent implements OnInit {
       this.obj.getAccountDetailsById(data.From_Account)
         .subscribe(
           data => {
-            this.FromAccountBalance.AccountBalance = data.accountBalance- this.RTGSForm.controls.Amount.value;
+            this.FromAccountBalance.accountBalance = data.accountBalance- this.RTGSForm.controls.Amount.value;
             //console.log("data",data);
             //console.log(data.accountBalance);
             //console.log(this.FromAccountBalance.AccountBalance);
@@ -95,7 +95,7 @@ export class RTGSTransactionComponent implements OnInit {
             this.Transaction.accountNumber = this.RTGSForm.controls.From_Account.value;
             this.Transaction.transactionDate=this.RTGSForm.controls.Transaction_Date.value;
             this.Transaction.transactionType="RTGS Debit";
-            this.Transaction.accountBalance= this.FromAccountBalance.AccountBalance;
+            this.Transaction.accountBalance= this.FromAccountBalance.accountBalance;
             this.Transaction.remark=this.RTGSForm.controls.Remark.value;
         //console.log(this.Transaction);
   
@@ -113,7 +113,7 @@ export class RTGSTransactionComponent implements OnInit {
     this.obj.getAccountDetailsById(data.To_Account)
         .subscribe(
           data => {
-            this.ToAccountBalance.AccountBalance = data.accountBalance - (- this.RTGSForm.controls.Amount.value);
+            this.ToAccountBalance.accountBalance = data.accountBalance - (- this.RTGSForm.controls.Amount.value);
             //console.log("data",data);
            // console.log(data.accountBalance);
            // console.log("Hello"+this.ToAccountBalance);
@@ -121,7 +121,7 @@ export class RTGSTransactionComponent implements OnInit {
           this.Transaction1.accountNumber = this.RTGSForm.controls.To_Account.value;
           this.Transaction1.transactionDate=this.RTGSForm.controls.Transaction_Date.value;
           this.Transaction1.transactionType="RTGS Credit";
-          this.Transaction1.accountBalance= this.ToAccountBalance.AccountBalance;
+          this.Transaction1.accountBalance= this.ToAccountBalance.accountBalance;
           this.Transaction1.remark=this.RTGSForm.controls.Remark.value;
       //console.log(this.Transaction1);
 
@@ -141,10 +141,10 @@ this.q=data.From_Account;
     .subscribe(
       data => {
 
-        this.acc.AadharCardNumber=data.aadharCardNumber;
-        this.acc.AccountBalance=this.ToAccountBalance.AccountBalance;
-        this.acc.AccountNumber=data.accountNumber;
-        this.acc.AccountType=data.accountType;
+        this.acc.aadharCardNumber=data.aadharCardNumber;
+        this.acc.accountBalance=this.ToAccountBalance.accountBalance;
+        this.acc.accountNumber=data.accountNumber;
+        this.acc.accountType=data.accountType;
         console.log(this.acc);
 
         this.obj.updateAccount(this.p,this.acc).subscribe(data=>{
@@ -157,10 +157,10 @@ this.q=data.From_Account;
     .subscribe(
       data => {
 
-        this.acc1.AadharCardNumber=data.aadharCardNumber;
-        this.acc1.AccountBalance=this.FromAccountBalance.AccountBalance;
-        this.acc1.AccountNumber=data.accountNumber;
-        this.acc1.AccountType=data.accountType;
+        this.acc1.aadharCardNumber=data.aadharCardNumber;
+        this.acc1.accountBalance=this.FromAccountBalance.accountBalance;
+        this.acc1.accountNumber=data.accountNumber;
+        this.acc1.accountType=data.accountType;
         console.log(this.acc);
 
         this.obj.updateAccount(this.q,this.acc1).subscribe(data=>{

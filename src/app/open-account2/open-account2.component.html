@@ -46,7 +46,7 @@
         && !UserBasicInfo.controls.MobileNumber.dirty)" >
           This field is mandatory</span>
         <span class="error" *ngIf="UserBasicInfo.controls.MobileNumber.invalid&&(UserBasicInfo.controls.MobileNumber.touched
-          && !UserBasicInfo.controls.MobileNumber.dirty)" >
+          && UserBasicInfo.controls.MobileNumber.dirty)" >
             Please enter a valid Mobile Number</span>
       </p> <p>
         <label for="EmailID">Email ID: </label>
