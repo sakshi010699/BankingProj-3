@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { STransactionService } from '../Services/stransaction.service';
 import { AccountDetails } from 'Models/account-details';
 import { UserTransaction } from 'Models/user-transaction';
+import { BeneficiaryDetails } from 'Models/beneficiary-details';
 
 @Component({
   selector: 'app-nefttransaction',
@@ -10,6 +11,8 @@ import { UserTransaction } from 'Models/user-transaction';
   styleUrls: ['./nefttransaction.component.css']
 })
 export class NEFTTransactionComponent implements OnInit {
+  isHidden1:boolean=true;
+  isHidden2:boolean=false;
   FromAccountBalance:AccountDetails={
     accountNumber:0,
     aadharCardNumber:"",
@@ -41,6 +44,7 @@ export class NEFTTransactionComponent implements OnInit {
 
 
 
+
   Transaction:UserTransaction={
     transactionId:0,
     accountNumber:0,
@@ -61,6 +65,7 @@ export class NEFTTransactionComponent implements OnInit {
   u_msg:string="";
   m:any;
 
+ 
   constructor(private obj:STransactionService) { }
 
   ngOnInit(): void {
@@ -70,14 +75,26 @@ export class NEFTTransactionComponent implements OnInit {
     From_Account:new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     To_Account : new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     Amount : new FormControl("",[Validators.required]),
-    Transaction_Date : new FormControl("",[Validators.required]),
+    Transaction_Date : new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4)]),
     Remark : new FormControl("",[Validators.required])
 
 
   })
+  ReceiptReferenceId:number=Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000;
+  ReceiptMode:string="RTGS";
+  ReceiptToAccount:number=0;
+  ReceiptAmount:number=0;
+  RecieptFromAccount:number=0;
+  ReceiptOn:Date=new Date();
+  ReceiptRemarks:string="";
 
   post_update_api(data:any):void{
     console.log(data.From_Account);
+    this.ReceiptToAccount=data.To_Account;
+   this.ReceiptAmount=data.Amount;
+   this.RecieptFromAccount=data.From_Account;
+   this.ReceiptOn=data.Transaction_Date;
+   this.ReceiptRemarks=data.Remark;
 
     
       this.obj.getAccountDetailsById(data.From_Account)
@@ -165,52 +182,9 @@ this.q=data.From_Account;
         })
       
       })
+      this.isHidden1=false;
+      this.isHidden2=true;
 
-
-     
-      
-      
-      
-
- 
-     
-      //  this.obj.updateAccount(data.From_Account,this.acc).subscribe(data=>{
-      
-      // })
-
- 
- 
-
- 
- 
-
- 
-
-
-
-
-    
-   
-    
-   
- 
- 	 
- 	 
- 	
-    
-
-      
- 	
-
-
-   
- 	 
- 	 
- 	
-    
-    
-    
-    
-    
   }
+  
 }

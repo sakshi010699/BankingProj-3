@@ -18,6 +18,7 @@ export class STransactionService {
   getAllUsers():Observable<BeneficiaryDetails[]>
   {
     return this.http.get<BeneficiaryDetails[]>(this.req+"/BeneficiaryDetails");
+    
   }
   getAllTransactionDetails():Observable<UserTransaction[]>
   {
@@ -74,7 +75,9 @@ export class STransactionService {
      return this.http.get(`${this.req}/${"UserTransactions"}/${id}`);
    }
   
-  
+  getBeneficiaryDetailsByID(id:number):Observable<any>{
+    return this.http.get(this.req+"/BeneficiaryDetails/"+id);
+  }
 
 }
 

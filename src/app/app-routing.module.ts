@@ -18,8 +18,8 @@ import { UpdateCredentialsComponent } from './update-credentials/update-credenti
 import { OpenAccount2Component } from './open-account2/open-account2.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-
-
+import { AccountStatementComponent } from './account-statement/account-statement.component';
+import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
 
 const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "", component: HomeComponent },
@@ -38,9 +38,9 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "FundsTransfer", component: FundsTransferComponent },
 { path: "UpdateCredentials", component: UpdateCredentialsComponent },
 { path: "AccountSummary" , component: AccountSummaryComponent},
-{ path : "AdminDashboard", component:AdminDashboardComponent},
-
-
+{ path: "AdminDashboard", component:AdminDashboardComponent},
+{ path: "AccountStatement", component:AccountStatementComponent},
+{ path: "TransactionSlip", component:TransactionSlipComponent},
 
 { path: '**', redirectTo: '' }];
 export const appRoutingModule = RouterModule.forRoot(routes);

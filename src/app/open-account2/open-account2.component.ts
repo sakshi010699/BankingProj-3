@@ -145,7 +145,6 @@ export class OpenAccount2Component implements OnInit {
     else
     {
       this.agree=false;
-    }
-    
+    }    
   }
 }

@@ -1,5 +1,25 @@
-<input type="text" [(ngModel)]=" UserAccountNumber" >
-<input type="button" value="Enter Account Number" (click)="GetAccountStatement()">
-<input type="text" [(ngModel)]=" UserDate" >
-<input type="button" value="Filter By Date" (click)="FilterByDate()">
+<label for="Account Number">Account Number</label>
+<span> <input type="text" [(ngModel)]=" UserAccountNumber" ></span>
+
+<label for="Date From">From Date</label>
+<span><input type="date" [(ngModel)]="UserDateFrom"></span>
+
+<label for="Date Till">Till Date</label>
+<span><input type="date" [(ngModel)]="UserDateTill"></span>
+
+<input type="button" value="Submit" (click)="GetAccountStatement()">
+
+<table  [hidden]="isHidden" border='1' style="height: 4cm; width: 20cm; font-size: larger; " >
+    
+    <th>Date Of Transaction</th>
+    <th>Transaction Type</th>
+    <th>Account Balance</th>
+    <th>Description</th>
+    <tr *ngFor="let item of  UserTransactionRecord">
+        <td>{{item.transactionDate}}</td>
+        <td >{{item.transactionType}}</td>
+        <td>{{item.accountBalance}}</td>
+        <td>{{item.remark}}</td>
+    </tr>
+</table>
 

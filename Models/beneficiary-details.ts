@@ -1,15 +1,15 @@
 export class BeneficiaryDetails {
     
 
-    BeneficiaryAccNo:number=0;
-    UserAccountNo:number=0;
-    BeneficiaryName:string="";
-    NickName:string="";
+    beneficiaryAccNo:number=0;
+    userAccountNo:number=0;
+    beneficiaryName:string="";
+    nickName:string="";
     constructor(a:number,b:number,c:string,d:string){
-        this.BeneficiaryAccNo=a;
-        this.UserAccountNo=b;
-        this.BeneficiaryName=c;
-        this.NickName=d;
+        this.beneficiaryAccNo=a;
+        this.userAccountNo=b;
+        this.beneficiaryName=c;
+        this.nickName=d;
         
     }
 

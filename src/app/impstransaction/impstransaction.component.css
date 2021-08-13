@@ -3,7 +3,8 @@
     border-width: 2px;
     width: fit-content;
     text-align: center;
-    margin: auto;
+    margin:auto;
+    padding: 1mm;
   
 }
 form{
@@ -18,6 +19,10 @@ form{
 input.ng-invalid.ng-touched{
     border:1px solid red;
 }
+#receipt{
+    float: right;
+}
+ 
 
 p{
     line-height: 200%;
