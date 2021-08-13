@@ -4,10 +4,15 @@
     width: fit-content;
     text-align: center;
     margin: auto;
+    padding: 1mm;
 
 
   
 }
+#receipt{
+    float: right;
+}
+ 
 form{
     margin-left: 6cm;
     margin-right: 6cm;

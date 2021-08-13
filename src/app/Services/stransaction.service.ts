@@ -14,10 +14,11 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class STransactionService {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44346/api";
+  req:string="https://localhost:44333/api";
   getAllUsers():Observable<BeneficiaryDetails[]>
   {
     return this.http.get<BeneficiaryDetails[]>(this.req+"/BeneficiaryDetails");
+    
   }
   getAllTransactionDetails():Observable<UserTransaction[]>
   {

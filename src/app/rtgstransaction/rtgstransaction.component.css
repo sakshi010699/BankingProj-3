@@ -2,7 +2,7 @@
     border-style: solid;
     border-width: 2px;
     width: fit-content;
-    
+    padding: 1mm;
     margin: auto;
 
 }
@@ -29,6 +29,9 @@ button{
 }
  
 input{
+    float: right;
+}
+#receipt{
     float: right;
 }
  
