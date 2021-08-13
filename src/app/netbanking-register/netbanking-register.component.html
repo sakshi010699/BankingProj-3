@@ -1,4 +1,4 @@
-<form [formGroup]="netBankingReg" (ngSubmit)="onSubmit()">
+<form [formGroup]="netBankingReg" (ngSubmit)="generate_credentials(netBankingReg.value)">
     <h1 id = "Login">Net Banking Registration</h1>
        <p>
          <label for="accountNo">Account Number </label>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { NetBankingUserDetails } from 'Models/net-banking-user-details';
+import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
+
+
 @Component({
   selector: 'app-netbanking-register',
   templateUrl: './netbanking-register.component.html',
@@ -8,7 +12,15 @@ import { Validators } from '@angular/forms';
 })
 export class NetbankingRegisterComponent implements OnInit {
 
-  constructor() { }
+  allNetBankingUser : NetBankingUserDetails[]=[];
+
+  NetBankingUser: NetBankingUserDetails={
+    userId:0,
+    accountNumber:"",
+    userPassword:"",
+    transactionPass:""
+  };
+  constructor(private obj:SNetbankingUserService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +36,18 @@ export class NetbankingRegisterComponent implements OnInit {
   onSubmit() {
     console.log(this.netBankingReg.value);
   }
+
+  generate_credentials(data:any):void
+  {
+    this.NetBankingUser.accountNumber = data.accountNo;
+    this.NetBankingUser.userPassword = data.setPass;
+    this.NetBankingUser.transactionPass = data.setTranPass; 
+    this.obj.createNetBankingCredentials(this.NetBankingUser).subscribe(data=>{
+    //Logging the response received from web api.
+    console.log(data);
+    })
+  }
+
 
 
 }
