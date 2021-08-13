@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
+import { AccountDetails } from 'Models/account-details';
+import { UserOpenAccount } from 'Models/user-open-account';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +30,15 @@ export class SNetbankingUserService {
   
   }
 
+  getAccountsByID(id:number):Observable<AccountDetails>{
+    return this.http.get<AccountDetails>(this.req+"/AccountDetails/"+id);
+  }
+
   getNetBankingUserCredentials():Observable<NetBankingUserDetails[]>{
     return this.http.get<NetBankingUserDetails[]>(this.req+"/NetBankingUserDetails");
+  }
+
+  getUserDetailsByID(id:string):Observable<UserOpenAccount>{
+    return this.http.get<UserOpenAccount>(this.req+"/UserOpenAccounts/"+id);
   }
 }

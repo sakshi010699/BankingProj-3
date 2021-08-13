@@ -28,7 +28,9 @@
            <span  class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && netBankingReg.controls.confirmTranPass.dirty)" >Password doesn't match</span>           
                            <span class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && !netBankingReg.controls.confirmTranPass.dirty)" >This field is mandatory</span>
        </p>
-       
+       <p>
+           <button (click)="getPhoneNo(netBankingReg.value.accountNo)">Send OTP</button>
+       </p>
        <p>
            <label for="enterOtp">Enter OTP </label>
            <input type="text" id="enterOtp" name="enterOtp" formControlName="enterOtp">
