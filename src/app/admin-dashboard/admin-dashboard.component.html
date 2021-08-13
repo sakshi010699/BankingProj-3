@@ -54,8 +54,12 @@
             <td *ngIf = "item.approvalStatus==false">{{item.netBanking}}</td>
             
             <button type="submit" (click) = "approve(item)" *ngIf = "item.approvalStatus==false">Approve</button>
+<<<<<<< HEAD
+            <button type="submit" (click) = "notapprove(item)" *ngIf = "item.approvalStatus==false" routerLink="/AdminDashboard"> Not Approve</button>
+=======
             
 
+>>>>>>> 9cb2951e65d1c342a622ff3511d4c51ab9529dd9
         </tr>
   
 </table>

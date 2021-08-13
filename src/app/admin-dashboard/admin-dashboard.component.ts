@@ -72,8 +72,8 @@ export class AdminDashboardComponent implements OnInit {
   approve(item:UserOpenAccount){
 
     this.obj.getUserAccountById(item.aadharCardNumber)
-   .subscribe(
-   data => {
+    .subscribe(
+    data => {
    
     item.approvalStatus=true;
     this.obj.updateAccount(item.aadharCardNumber,item).subscribe(data=>{
@@ -120,5 +120,11 @@ export class AdminDashboardComponent implements OnInit {
     
 
     }
-
+    
+  
+  notapprove(item:UserOpenAccount){
+    this.obj.deleteUser(item.aadharCardNumber).subscribe(data => {
+      item.approvalStatus = false;
+    })
+  }
 }

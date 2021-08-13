@@ -1,5 +1,5 @@
 
-<form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="LoginForm" (ngSubmit)="userValidate(LoginForm.value)">
     <h2 id="neft">Login to your Account</h2>
     <p>
 <label>User ID</label>
@@ -15,7 +15,7 @@
         </button>
     </div>
     <ng-template #elseBlock>
-        <button type="submit" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">
+        <button type="submit" [disabled]="LoginForm.invalid" routerLink = "{{apnarouter}}">
             Login
         </button>
     </ng-template>

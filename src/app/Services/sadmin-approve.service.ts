@@ -63,4 +63,17 @@ export class SadminApproveService {
   })
   });
   }
+
+  deleteUser(id:string):Observable<any>
+  {
+    return this.http.delete<any>(this.req + "UserOpenAccounts/" + id ,{
+      headers:new HttpHeaders({
+        'Content-Type':'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Method':'*'
+      })
+    });
+  }
+
+
 }
