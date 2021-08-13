@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   NetBankingUser: NetBankingUserDetails={
     userId:0,
-    accountNumber:"",
+    accountNumber:0,
     userPassword:"",
     transactionPass:""
   };
