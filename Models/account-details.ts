@@ -1,13 +1,13 @@
 export class AccountDetails {
-    AccountNumber:number=0;
-    AadharCardNumber:string="";
-    AccountType:string="";
-    AccountBalance: number=0;
+    accountNumber:number=0;
+    aadharCardNumber:string="";
+    accountType:string="";
+    accountBalance: number=0;
     constructor(a:number,b:string,c:string,d:number){
- this.AccountNumber=a;
- this.AadharCardNumber=b;
- this.AccountType=c;
- this.AccountBalance=d;
+ this.accountNumber=a;
+ this.aadharCardNumber=b;
+ this.accountType=c;
+ this.accountBalance=d;
 
 
     }

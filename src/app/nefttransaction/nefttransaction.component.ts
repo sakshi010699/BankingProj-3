@@ -14,31 +14,31 @@ export class NEFTTransactionComponent implements OnInit {
   isHidden1:boolean=true;
   isHidden2:boolean=false;
   FromAccountBalance:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   p:number=0;
   q:number=0;
 
   ToAccountBalance:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   acc:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   acc1:AccountDetails={
-    AccountNumber:0,
-    AadharCardNumber:"",
-    AccountType:"",
-    AccountBalance:0
+    accountNumber:0,
+    aadharCardNumber:"",
+    accountType:"",
+    accountBalance:0
   }
   a:number=0;
 
@@ -100,7 +100,7 @@ export class NEFTTransactionComponent implements OnInit {
       this.obj.getAccountDetailsById(data.From_Account)
         .subscribe(
           data => {
-            this.FromAccountBalance.AccountBalance = data.accountBalance- this.NEFTForm.controls.Amount.value;
+            this.FromAccountBalance.accountBalance = data.accountBalance- this.NEFTForm.controls.Amount.value;
             //console.log("data",data);
             //console.log(data.accountBalance);
             //console.log(this.FromAccountBalance.AccountBalance);
@@ -109,7 +109,7 @@ export class NEFTTransactionComponent implements OnInit {
             this.Transaction.accountNumber = this.NEFTForm.controls.From_Account.value;
             this.Transaction.transactionDate=this.NEFTForm.controls.Transaction_Date.value;
             this.Transaction.transactionType="NEFT Debit";
-            this.Transaction.accountBalance= this.FromAccountBalance.AccountBalance;
+            this.Transaction.accountBalance= this.FromAccountBalance.accountBalance;
             this.Transaction.remark=this.NEFTForm.controls.Remark.value;
         //console.log(this.Transaction);
   
@@ -127,7 +127,7 @@ export class NEFTTransactionComponent implements OnInit {
     this.obj.getAccountDetailsById(data.To_Account)
         .subscribe(
           data => {
-            this.ToAccountBalance.AccountBalance = data.accountBalance - (- this.NEFTForm.controls.Amount.value);
+            this.ToAccountBalance.accountBalance = data.accountBalance - (- this.NEFTForm.controls.Amount.value);
             //console.log("data",data);
            // console.log(data.accountBalance);
            // console.log("Hello"+this.ToAccountBalance);
@@ -135,7 +135,7 @@ export class NEFTTransactionComponent implements OnInit {
           this.Transaction1.accountNumber = this.NEFTForm.controls.To_Account.value;
           this.Transaction1.transactionDate=this.NEFTForm.controls.Transaction_Date.value;
           this.Transaction1.transactionType="NEFT Credit";
-          this.Transaction1.accountBalance= this.ToAccountBalance.AccountBalance;
+          this.Transaction1.accountBalance= this.ToAccountBalance.accountBalance;
           this.Transaction1.remark=this.NEFTForm.controls.Remark.value;
       //console.log(this.Transaction1);
 
@@ -155,10 +155,10 @@ this.q=data.From_Account;
     .subscribe(
       data => {
 
-        this.acc.AadharCardNumber=data.aadharCardNumber;
-        this.acc.AccountBalance=this.ToAccountBalance.AccountBalance;
-        this.acc.AccountNumber=data.accountNumber;
-        this.acc.AccountType=data.accountType;
+        this.acc.aadharCardNumber=data.aadharCardNumber;
+        this.acc.accountBalance=this.ToAccountBalance.accountBalance;
+        this.acc.accountNumber=data.accountNumber;
+        this.acc.accountType=data.accountType;
         console.log(this.acc);
 
         this.obj.updateAccount(this.p,this.acc).subscribe(data=>{
@@ -171,10 +171,10 @@ this.q=data.From_Account;
     .subscribe(
       data => {
 
-        this.acc1.AadharCardNumber=data.aadharCardNumber;
-        this.acc1.AccountBalance=this.FromAccountBalance.AccountBalance;
-        this.acc1.AccountNumber=data.accountNumber;
-        this.acc1.AccountType=data.accountType;
+        this.acc1.aadharCardNumber=data.aadharCardNumber;
+        this.acc1.accountBalance=this.FromAccountBalance.accountBalance;
+        this.acc1.accountNumber=data.accountNumber;
+        this.acc1.accountType=data.accountType;
         console.log(this.acc);
 
         this.obj.updateAccount(this.q,this.acc1).subscribe(data=>{

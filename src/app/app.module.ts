@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { AccountStatementComponent } from './account-statement/account-statement.component'; 
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
+import { SWindowService } from './Services/s-window.service';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { TransactionSlipComponent } from './transaction-slip/transaction-slip.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SWindowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
