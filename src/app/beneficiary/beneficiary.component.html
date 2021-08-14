@@ -1,45 +1,76 @@
+<div class="container align-center border" style="margin-top: 1cm; width:25cm">
 <form [formGroup]="beneficiary" (ngSubmit)="post_api(beneficiary.value)">
+    <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Add Beneficiary</h1>
 
-    <h2 id ="BenHeading">Add Beneficiary</h2>
-    <p>
-      <label for="beneficiaryname">Beneficiary Name </label>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+      <label for="beneficiaryname">Beneficiary Name <span class="text-danger">*</span></label>
+      </div>
+      <div class="col-md-6">
       <input type="text" id="beneficiaryname" name="beneficiaryname" formControlName="BeneficiaryName">
       <span class="error" *ngIf="beneficiary.controls.BeneficiaryName.invalid&&(beneficiary.controls.BeneficiaryName.touched)" >This field is mandatory</span> 
-    </p>
-
-    <p>
-        <label for="beneficiaryAccNo">Beneficiary Account Number </label>
+   </div>
+   </div>
+   <div class="row mt-5 form-group">
+    <div class="col-md-6">
+        <label for="beneficiaryAccNo">Beneficiary Account Number <span class="text-danger">*</span> </label>
+    </div>
+    <div class="col-md-6">
         <input type="text" pattern="\d*" id="beneficiaryAccNo" name="beneficiaryAccNo" formControlName="BeneficiaryAccNo">
         <span class="error" *ngIf="beneficiary.controls.BeneficiaryAccNo.invalid&&(beneficiary.controls.BeneficiaryAccNo.touched && !beneficiary.controls.BeneficiaryAccNo.dirty)" >This field is mandatory</span>
         <span class="error" *ngIf="beneficiary.controls.BeneficiaryAccNo.invalid&&(beneficiary.controls.BeneficiaryAccNo.touched && beneficiary.controls.BeneficiaryAccNo.dirty)" >Account Number is Invalid</span>
-    </p>
-    <p>
-        <label for="UserAccountNo">User Account Number </label>
+    </div>
+
+</div>   
+<div class="row mt-5 form-group">
+    <div class="col-md-6">
+ 
+        <label for="UserAccountNo">User Account Number <span class="text-danger">*</span> </label>
+    </div>
+    <div class="col-md-6">
         <input type="text" pattern="\d*" id="UserAccountNumber" name="UserAccountNumber" formControlName="UserAccountNo">
         <span class="error" *ngIf="beneficiary.controls.UserAccountNo.invalid&&(beneficiary.controls.UserAccountNo.touched && !beneficiary.controls.UserAccountNo.dirty)" >This field is mandatory</span>
         <span class="error" *ngIf="beneficiary.controls.UserAccountNo.invalid&&(beneficiary.controls.UserAccountNo.touched && beneficiary.controls.UserAccountNo.dirty)" >Account Number is Invalid</span>
-    </p>
+    </div>
+    </div>
 
-    <p>
-        <label for="reEnterBeneficiaryAccNo">Re - Enter Beneficiary Account Number </label>
+    <div class="row mt-5 form-group">
+        <div class="col-md-6">
+        <label for="reEnterBeneficiaryAccNo">Re - Enter Beneficiary Account Number<span class="text-danger">*</span> </label>
+    </div>
+    <div class="col-md-6">
         <input type="text" pattern="\d*" id="reEnterBeneficiaryAccNo" name="reEnterBeneficiaryAccNo" formControlName="reEnterBeneficiaryAccNo">
         <span class="error" *ngIf="beneficiary.controls.reEnterBeneficiaryAccNo.invalid&&(beneficiary.controls.reEnterBeneficiaryAccNo.touched && !beneficiary.controls.reEnterBeneficiaryAccNo.dirty)" >This field is mandatory</span>
             <span class="error" *ngIf="beneficiary.controls.reEnterBeneficiaryAccNo.invalid&&(beneficiary.controls.reEnterBeneficiaryAccNo.touched && beneficiary.controls.reEnterBeneficiaryAccNo.dirty)" >Account Number doesn't match</span>           
             
-    </p>
+    </div>
+    </div>
 
-    <p>
+    <div class="row mt-5 form-group">
+        <div class="col-md-6">
+    
         <label for="saveBeneficiary">Save Beneficiary </label>
+    </div>
+    <div class="col-md-6">
         <input type="checkbox" id="saveBeneficiary" (click) = "saveDetails()" name="saveBeneficiary" formControlName="saveBeneficiary">
-    </p>
+    </div>
+    </div>
 
-    <p>
-        <label for="nickName"> Nick Name </label>
+    <div class="row mt-5 form-group">
+        <div class="col-md-6">
+    
+        <label for="nickName"> Nick Name <span class="text-danger">*</span> </label>
+    </div>
+    <div class="col-md-6">
         <input type="text" id="nickName" name="nickName" formControlName="NickName">
-    </p>
+    </div>
+    </div>
 
-    <p>
-        <button type="submit" >Save as Beneficiary</button>
-    </p>
+    <div class="col-md-6">
+        <button type="submit" class="float-end btn btn-primary mt-3" style="background-color: #6f7177;color: white;" >Save as Beneficiary</button>
+    </div>
+    </div>
      
 </form>
+</div>

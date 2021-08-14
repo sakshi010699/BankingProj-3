@@ -1,4 +1,4 @@
-#neft{
+/* #neft{
     border-style: solid;
     border-width: 2px;
     width: fit-content;
@@ -42,4 +42,24 @@ input[type=checkbox]{
 
 input [type=date]{
     width: 159px;
+} */
+.error{
+    color:red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+label{
+padding-left: 1cm;
+
+}
+input{
+    float: right;
+}
+form{
+    padding-bottom: 1mm;
+    
+}
+button{
+    margin-right: 1mm;
+   margin-left:1mm;
+   
 }

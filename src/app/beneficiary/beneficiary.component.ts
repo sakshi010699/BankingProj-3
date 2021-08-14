@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { BeneficiaryDetails } from 'Models/beneficiary-details';
 import { AddBeneficiaryDetailsService } from '../Services/add-beneficiary-details.service';
 
+
 @Component({
   selector: 'app-beneficiary',
   templateUrl: './beneficiary.component.html',

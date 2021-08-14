@@ -1,20 +1,49 @@
-<label for="Account Number">Account Number</label>
-<span> <input type="text" [(ngModel)]=" UserAccountNumber" ></span>
+<div class="container  align-center border " style="margin-top: 2cm; width:30cm; padding: 2mm;">
+    <h2 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Account Statement</h2>
 
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+<label for="Account Number">Account Number</label>
+</div>
+<div class="col-md-6">
+<span> <input type="text" [(ngModel)]=" UserAccountNumber" ></span>
+</div>
+</div>
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
 <label for="Date From">From Date</label>
+</div>
+<div class="col-md-6">
 <span><input type="date" [(ngModel)]="UserDateFrom"></span>
+</div>
+</div>
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
 
 <label for="Date Till">Till Date</label>
+</div>
+<div class="col-md-6">
 <span><input type="date" [(ngModel)]="UserDateTill"></span>
+</div>
+<div class="col-md-6">
 
-<input type="button" value="Submit" (click)="GetAccountStatement()">
 
-<table  [hidden]="isHidden" border='1' style="height: 4cm; width: 20cm; font-size: larger; " >
+
+<input type="button" value="Submit" class="float-end btn btn-primary mt-3" style="background-color: #6f7177;color: white;" (click)="GetAccountStatement()">
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
+<table  [hidden]="isHidden" border='1'class="container align-center border" >
     
-    <th>Date Of Transaction</th>
-    <th>Transaction Type</th>
-    <th>Account Balance</th>
-    <th>Description</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Date Of Transaction</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Transaction Type</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Account Balance</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Description</th>
     <tr *ngFor="let item of  UserTransactionRecord">
         <td>{{item.transactionDate}}</td>
         <td >{{item.transactionType}}</td>

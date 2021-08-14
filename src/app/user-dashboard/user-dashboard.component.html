@@ -1,15 +1,6 @@
 
-<div class="vertical-menu">
-    <h2 id ="Udash">User Dashboard</h2>
-    <a href="#" [routerLinkActive]="['active']" class="active">Home</a>
-    <a href="#" [routerLinkActive]="['active']" routerLink="/AccountSummary">Account Summary</a>
-    <a href="#" [routerLinkActive]="['active']" routerLink="/FundsTransfer">Funds Transfer</a>
-    <a href="#" [routerLinkActive]="['active']" routerLink="/AccountStatement">Account Statement</a>
-    <a href="#" [routerLinkActive]="['active']" routerLink="/UpdateCredentials">Update credentials</a>
 
 
-    
-  </div>
   <div class="jumbotron">
     <div class="container">
         <div class="row">
@@ -18,4 +9,84 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
+<div class="container" style="margin-left: 5cm; margin-top: 1cm;" >
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Welcome User!</h1>
+            <ol class="breadcrumb">
+                <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+            </ol>
+            
+        </div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-md-3">
+            <div class="panel panel-default ">
+                <div class="panel-body panel-tw panel-content">
+                    <a href="#" [routerLinkActive]="['active']" routerLink="/AccountSummary" style="text-align: center; font-size: x-large; color: white;" >Account Summary</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default ">
+                <div class="panel-body panel-fb panel-content">
+                    <div class="col-xs-5">
+                        <i class="fa fa-facebook fa-5x"></i>
+                    </div>
+                    <a href="#" [routerLinkActive]="['active']" routerLink="/FundsTransfer" style="text-align: center; font-size: x-large; color: white;"  class="active">Funds Transfer</a>
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default ">
+                <div class="panel-body panel-in panel-content">
+                    <div class="col-xs-5">
+                        <i class="fa fa-money fa-5x"></i>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <a href="#" [routerLinkActive]="['active']" routerLink="/AccountStatement" style="text-align: center; font-size: x-large; color: white;">Account Statement</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default ">
+                <div class="panel-body panel-dl panel-content">
+                    <div class="col-xs-5">
+                        <i class="fa fa-download fa-5x"></i>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <a href="#" [routerLinkActive]="['active']" routerLink="/UpdateCredentials" style="text-align: center; font-size: x-large; color: white;">Update credentials</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>      
+    <br>
+                    
+    <div class="vertical-menu" style="margin-left: 1mm;">
+        <p>
+    <a href="#" [routerLinkActive]="['active']"  class="active" style="font-size: x-large;">Home</a>
+</p>
+<p>
+    <a href="#" [routerLinkActive]="['active']" routerLink="/AccountSummary" style="font-size: x-large;">Account Summary</a>
+    </p>
+    <p>
+    <a href="#" [routerLinkActive]="['active']" routerLink="/FundsTransfer" style="font-size: x-large;">Funds Transfer</a>
+    </p>
+    <p>
+    <a href="#" [routerLinkActive]="['active']" routerLink="/AccountStatement" style="font-size: x-large;">Account Statement</a>
+    </p>
+    <p>
+    <a href="#" [routerLinkActive]="['active']" routerLink="/UpdateCredentials" style="font-size: x-large;">Update credentials</a>
+    </p>
+
+
+    
+  </div>

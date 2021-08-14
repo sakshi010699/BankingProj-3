@@ -1,16 +1,21 @@
-<input type="text" [(ngModel)]=" UserAccountNumber" >
+
+<div class="container  align-center border " style="margin-top: 2cm; width:fit-content; padding: 2mm;">
+    <h2 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Account Summary</h2>
+
+
+<input type="text" [(ngModel)]=" UserAccountNumber" style="margin-right: 2mm;" >
 
 <input type="button" value="Enter Account Number" (click)="GetAccountSummary()">
-
-
-
-<table  [hidden]="isHidden" border='1' style="height: 4cm; width: 20cm; font-size: larger; " >
-    <th>Transaction ID</th>
-    <th>Account Number</th>
-    <th>Date Of Transaction</th>
-    <th>Transaction Type</th>
-    <th>Account Balance</th>
-    <th>Comments</th>
+</div>
+<br>
+<br>
+<table border='1'  class="container align-center border" >
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Transaction ID</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Account Number</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: larger;">Date Of Transaction</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white; font-size: large;">Transaction Type</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white;font-size: large;">Account Balance</th>
+    <th style="background-color:rgb(141, 212, 74) ; color: white;font-size: large;">Comments</th>
     <tr *ngFor="let item of  UserTransactionRecord">
         <td *ngIf="item.accountNumber==UserAccountNumber">{{item.transactionId}}</td>
         <td *ngIf="item.accountNumber==UserAccountNumber">{{item.accountNumber}}</td>
@@ -20,4 +25,3 @@
         <td *ngIf="item.accountNumber==UserAccountNumber">{{item.remark}}</td>
     </tr>
 </table>
-

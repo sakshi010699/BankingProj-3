@@ -1,30 +1,35 @@
+<div class="text-center" style="margin-top: 3cm;">
+    <img class="mb-4" src="assets\Loanly.jpg" alt width="450" height="125" >
+
 
 <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-    <h2 id="neft">Login to your Account</h2>
-    <p>
-<label>User ID</label>
-<input type="number" id="UserId" name="UserId" formControlName="UserId">
-</p>
-<p>
-    <label for="UserId">Password</label>
-    <input type="text" id="Password" name="Password" formControlName="Password">
-    </p>
+    <h1 class="h3 mb-3 font-weight-normal" style="background-color: rgb(141, 212, 74); color: white; font-size: xx-large; width: 10cm; height: 1.4cm;  margin: auto;">Login to your Account</h1>
+    
+
+<input type="number" class="form-control" id="UserId" name="UserId" placeholder="User Id" formControlName="UserId" >
+
+
+    
+    <input type="text" id="Password" class="form-control" name="Password" placeholder="Password" formControlName="Password">
+    
     <div *ngIf = "LoginForm.value.UserId == 666 && LoginForm.value.Password == 'admin' ; else elseBlock">
-        <button type="submit" [disabled]="LoginForm.invalid" routerLink="/AdminDashboard">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" routerLink="/AdminDashboard" >
             Login
         </button>
     </div>
     <ng-template #elseBlock>
-        <button type="submit" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">
             Login
         </button>
     </ng-template>
+    <p class="mt-5 mb-3 text-muted">@ 2021-2022</p>
     
     <div>
-    <p><a routerLink="/Register">First time user? Register</a></p>
+    <p><a routerLink="/Register" >First time user? Register</a></p>
     <p><a routerLink="/ForgotUserId">Forgot User ID</a></p>
     <p><a routerLink="/ForgotPassword">Forgot Password</a></p>
     </div>
+    
 <!--
 <div *ngIf="condition; else elseBlock">Content to render when condition is true.
 
@@ -32,3 +37,4 @@
 -->
 
 </form>
+</div>

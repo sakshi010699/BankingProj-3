@@ -1,94 +1,166 @@
-<form [formGroup]="RTGSForm" [hidden]="isHidden2" (ngSubmit)="post_update_api(RTGSForm.value)" style=" border: solid black" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ;">
+<div class="container align-center border" style="margin-top: 1cm; width:25cm"  [hidden]="isHidden2" >
 
-    <h3 id="neft"  style="margin-top: 0.5cm;font-size: x-large ">Initiate RTGS Payment</h3>
-    <p>
-        <label for="From_Account" >From Account<span style="color: red;">*</span></label>
+<form [formGroup]="RTGSForm" (ngSubmit)="post_update_api(RTGSForm.value)" >
+
+    <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Initiate RTGS Payment</h1>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+        <label for="From_Account" >From Account<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="number" id="From_Account" name="From_Account" formControlName="From_Account">
         <span class="error" *ngIf="RTGSForm.controls.From_Account.invalid&&(RTGSForm.controls.From_Account.touched && !RTGSForm.controls.From_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="RTGSForm.controls.From_Account.invalid&&(RTGSForm.controls.From_Account.touched && RTGSForm.controls.From_Account.dirty)" >Invalid Account Number</span>           
 
+    </div>
+</div>
 
-    </p>
-    <p>
-        <label for="To_Account" >To Account<span style="color: red;">*</span></label>
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
+        <label for="To_Account" >To Account<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input  type="number" name="To_Account"  formControlName="To_Account">
             
         <span class="error" *ngIf="RTGSForm.controls.To_Account.invalid&&(RTGSForm.controls.To_Account.touched && !RTGSForm.controls.To_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="RTGSForm.controls.To_Account.invalid&&(RTGSForm.controls.To_Account.touched && RTGSForm.controls.To_Account.dirty)" >Invalid Account Number</span>           
 
-        <button  routerLink="/AddPayee">Add New +</button>
+        <button  routerLink="/AddPayee" class="float-end btn btn-primary mt-3"class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Add New +</button>
         <!-- *ngIf="item.UserAccountNo==RTGSForm.controls.From_Account.value" -->
         <!-- type="number" id="To_Account" name="To_Account" -->
-    </p>  <p>
-        <label for="Amount" >Amount<span style="color: red;">*</span></label>
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
+        <label for="Amount" >Amount<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="Amount" id="Amount" name="Amount" formControlName="Amount">
         <span class="error" *ngIf="RTGSForm.controls.Amount.invalid&&(RTGSForm.controls.Amount.touched)" >This field is mandatory</span>           
+    </div>
+</div>
 
-        
-    </p>  <p>
-        <label for="Transaction_Date" >Transaction Date<span style="color: red;">*</span></label>
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
+        <label for="Transaction_Date" >Transaction Date<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="date" id="Transaction_Date" name="Transaction_Date" formControlName="Transaction_Date">
         <span class="error" *ngIf="RTGSForm.controls.Transaction_Date.invalid&&(RTGSForm.controls.Transaction_Date.touched)" >This field is mandatory</span>           
 
         
-    </p>  <p>
-        <label for="Maturity_Instructions" >Maturity Instructions<span style="color: red;">*</span></label>
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">   
+          <label for="Maturity_Instructions" >Maturity Instructions<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-6">
         <input type="text" id="Maturity_Instructions" name="Maturity_Instructions" formControlName="Maturity_Instructions">
         <span class="error" *ngIf="RTGSForm.controls.Maturity_Instructions.invalid&&(RTGSForm.controls.Maturity_Instructions.touched)" >This field is mandatory</span>           
 
         
-    </p>
-    <p>
-        <label for="Remark" >Remark<span style="color: red;">*</span></label>
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">   
+        <label for="Remark" >Remark<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="text" id="Remark" name="Remark" formControlName="Remark">
         <span class="error" *ngIf="RTGSForm.controls.Remark.invalid&&(RTGSForm.controls.Remark.touched)" >This field is mandatory</span>           
 
         
-    </p>
-    <p>
+    </div>
+</div>
 
-        <button type="submit" [disabled]="RTGSForm.invalid">Save</button>
-        <button type="reset">Reset</button>
-        <button>Save as Template</button>
-        <button type="submit" [disabled]="RTGSForm.invalid" id="continue" style="margin: auto;">Continue</button>
+
+ <div class="col-md-6">  
+
+        <button type="submit" [disabled]="RTGSForm.invalid" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Save</button>
+        </div>
+        <div class="col-md-6">  
+        <button type="reset" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Reset</button>
+    </div>
+    <div class="col-md-6">
+        <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Save as Template</button>
+    </div>
+    <div class="col-md-6">
+        <button  type="submit" [disabled]="RTGSForm.invalid" class="float-end btn btn-primary mt-3" id="continue" style="background-color: #6f7177; color: white;">Continue</button>
         
-    </p>
+    </div>
 
-
+</div>
 
 
 </form>
+</div>
+<div class="container align-center border" style="margin-top: 1cm; width:25cm" [hidden]="isHidden1">
 
-<form [hidden]="isHidden1" style=" border: solid black" style=" border: solid black; padding-left: 8cm; padding-right: 8cm  ; ">
-    <h1 style=" font-size: xx-large; text-align: center;">Transaction Successful</h1>
-    <p>
-        <label for="RefrenceId" style="text-align: right;" >Reference ID:</label>
+<form >
+    <h1 class="text-center mt-3">Transaction Successful</h1>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+        <label for="RefrenceId"  style=" padding-left: 3cm;" >Reference ID:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt" >{{ReceiptReferenceId}}</span>
-    </p>
-    <p>
-        <label for="Mode">Mode:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Mode"  style=" padding-left: 3cm;">Mode:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{ReceiptMode}}</span>
-    </p>
-    <p>
-        <label for="Paid_To_Account">Paid to Account:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Paid_To_Account"  style=" padding-left: 3cm;">Paid to Account:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{ReceiptToAccount}}</span>
-    </p>
-    <p>
-        <label for="Amount">Amount:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Amount"  style=" padding-left: 3cm;">Amount:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{ReceiptAmount}}</span>
-    </p>
-    <p>
-        <label for="From_Account">From Account:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="From_Account"  style=" padding-left: 3cm;">From Account:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{RecieptFromAccount}}</span>
-    </p>
-
-    <p>
-        <label for="On">On:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="On"  style=" padding-left: 3cm;">On:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{ReceiptOn}}</span>
-    </p>
-    <p>
-        <label for="Remarks">Remarks:</label>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Remarks"  style=" padding-left: 3cm;">Remarks:</label>
+    </div>
+    <div class="col-md-6">
         <span id="receipt">{{ReceiptRemarks}}</span>
-    </p>
+    </div>
+    </div>
+    </div>
 
 </form>
+</div>

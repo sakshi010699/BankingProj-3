@@ -1,92 +1,173 @@
-<form [formGroup]="IMPSForm" (ngSubmit)="post_update_api(IMPSForm.value)" [hidden]="isHidden2" style=" border: solid black; padding-left: 6cm; padding-right: 6cm ; margin-top: 2cm;" >
-    <h3 id="neft" style="margin-top: 0.5cm; font-size: x-large">Initiate IMPS Payment</h3>
-    <p>
-        <label for="From_Account" >From Account <span style="color: red;">*</span></label>
+<div class="container align-center border" style="margin-top: 1cm; width:25cm"  [hidden]="isHidden2" >
+<form [formGroup]="IMPSForm" (ngSubmit)="post_update_api(IMPSForm.value)" >
+    
+    <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Initiate IMPS Payment</h1>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+        <label for="From_Account" >From Account <span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="number" id="From_Account" name="From_Account" formControlName="From_Account">
         <span class="error" *ngIf="IMPSForm.controls.From_Account.invalid&&(IMPSForm.controls.From_Account.touched && !IMPSForm.controls.From_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="IMPSForm.controls.From_Account.invalid&&(IMPSForm.controls.From_Account.touched && IMPSForm.controls.From_Account.dirty)" >Invalid Account Number</span>           
 
 
-    </p>
-    <p>
-        <label for="To_Account" >To Account<span style="color: red;">*</span></label>
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
+        <label for="To_Account" >To Account<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="number" pattern="\d*" id="To_Account" name="To_Account" formControlName="To_Account" maxlength="10"  required>
         <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && !IMPSForm.controls.To_Account.dirty)" >This field is mandatory</span>           
         <span class="error" *ngIf="IMPSForm.controls.To_Account.invalid&&(IMPSForm.controls.To_Account.touched && IMPSForm.controls.To_Account.dirty)" >Invalid Account Number</span>   
 
-        <button  routerLink="/AddPayee">Add New +</button>
+        <button  routerLink="/AddPayee"  class="float-end btn btn-primary mt-3" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Add New +</button>
 
         
-    </p>  <p>
-        <label for="Amount" >Amount<span style="color: red;">*</span></label>
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
+
+        <label for="Amount" >Amount<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="Amount" id="Amount" name="Amount" formControlName="Amount">
         <span class="error" *ngIf="IMPSForm.controls.Amount.invalid&&(IMPSForm.controls.Amount.touched)" >This field is mandatory</span>           
+    </div>
+</div>
 
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
         
-    </p>  <p>
-        <label for="Transaction_Date" >Transaction Date<span style="color: red;">*</span></label>
+   
+        <label for="Transaction_Date" >Transaction Date<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="date" id="Transaction_Date" name="Transaction_Date" formControlName="Transaction_Date">
         <span class="error" *ngIf="IMPSForm.controls.Transaction_Date.invalid&&(IMPSForm.controls.Transaction_Date.touched)" >This field is mandatory</span>           
 
+    </div>
+</div>
+
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
         
-    </p>  <p>
-        <label for="Maturity_Instructions" >Maturity Instructions<span style="color: red;">*</span></label>
+        <label for="Maturity_Instructions" >Maturity Instructions<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="text" id="Maturity_Instructions" name="Maturity_Instructions" formControlName="Maturity_Instructions">
         <span class="error" *ngIf="IMPSForm.controls.Maturity_Instructions.invalid&&(IMPSForm.controls.Maturity_Instructions.touched)" >This field is mandatory</span>           
+    </div>
+</div>
 
+<div class="row mt-5 form-group">
+ <div class="col-md-6">
         
-    </p>
-    <p>
-        <label for="Remark" >Remark<span style="color: red;">*</span></label>
+    
+        <label for="Remark" >Remark<span class="text-danger">*</span></label>
+    </div>
+    <div class="col-md-6">
         <input type="text" id="Remark" name="Remark" formControlName="Remark">
         <span class="error" *ngIf="IMPSForm.controls.Remark.invalid&&(IMPSForm.controls.Remark.touched)" >This field is mandatory</span>           
 
         
-    </p>
-    <p>
+    </div>
+</div>
 
-        <button type="submit"[disabled]="IMPSForm.invalid">Save</button>
-        <button type="reset"  >Reset</button>
-        <button>Save as Template</button>
-        <button type="submit" [disabled]="IMPSForm.invalid"  id="continue" style="margin: auto;">Continue</button>
+
+ <div class="col-md-6">
+
+        <button type="submit"[disabled]="IMPSForm.invalid" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Save</button>
+        </div>
+
+        <div class="col-md-6">
+        <button type="reset" class="float-end btn btn-primary mt-3"  style="background-color: #6f7177; color: white;" >Reset</button>
+    </div>
+
+    <div class="col-md-6">
+        <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Save as Template</button>
+    </div>
+
+    <div class="col-md-6">
+        <button type="submit" [disabled]="IMPSForm.invalid" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; margin: auto;" id="continue" >Continue</button>
         
-    </p>
+    </div>
+    </div>
 
 
 
 
 </form>
-<form [hidden]="isHidden1" style=" border: solid black" style=" border: solid black; padding-left: 8cm; padding-right: 8cm  ; ">
-    <h1 style=" font-size: xx-large; text-align: center;">Transaction Successful</h1>
-    <p>
-        <label for="RefrenceId" style="text-align: right;" >Reference ID:</label>
-        <span id="receipt" >{{ReceiptReferenceId}}</span>
-    </p>
-    <p>
-        <label for="Mode">Mode:</label>
-        <span id="receipt">{{ReceiptMode}}</span>
-    </p>
-    <p>
-        <label for="Paid_To_Account">Paid to Account:</label>
-        <span id="receipt">{{ReceiptToAccount}}</span>
-    </p>
-    <p>
-        <label for="Amount">Amount:</label>
-        <span id="receipt">{{ReceiptAmount}}</span>
-    </p>
-    <p>
-        <label for="From_Account">From Account:</label>
-        <span id="receipt">{{RecieptFromAccount}}</span>
-    </p>
+</div>
 
-    <p>
-        <label for="On">On:</label>
-        <span id="receipt">{{ReceiptOn}}</span>
-    </p>
-    <p>
-        <label for="Remarks">Remarks:</label>
-        <span id="receipt">{{ReceiptRemarks}}</span>
-    </p>
+<div class="container align-center border" style="margin-top: 1cm; width:25cm" [hidden]="isHidden1">
+<form>
+    <h1 class="text-center mt-3">Transaction Successful</h1>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+        <label for="RefrenceId" style=" padding-left: 3cm;" >Reference ID:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptReferenceId}}</span>
+    </div>
+    </div>
+    <div class="row mt-5 form-group">
+    <div class="col-md-6">
+        <label for="Mode"  style=" padding-left: 3cm;">Mode:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptMode}}</span>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Paid_To_Account"  style=" padding-left: 3cm;">Paid to Account:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptToAccount}}</span>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Amount"  style=" padding-left: 3cm; padding-right: 3cm;">Amount:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptAmount}}</span>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="From_Account" style=" padding-left: 3cm; padding-right: 3cm;">From Account:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{RecieptFromAccount}}</span>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="On"  style=" padding-left: 3cm;">On:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptOn}}</span>
+    </div>
+</div>
+<div class="row mt-5 form-group">
+<div class="col-md-6">
+        <label for="Remarks"  style=" padding-left: 3cm; ">Remarks:</label>
+    </div>
+    <div class="col-md-6">
+        <span id="receipt" style="margin-right: 3cm;">{{ReceiptRemarks}}</span>
+    </div>
+    </div>
+    </div>
 
 </form>
+</div>
 
