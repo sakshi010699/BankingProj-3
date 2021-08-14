@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 <div class="container align-center border" style="margin-top: 1cm; width:25cm">
 
-<form [formGroup]="netBankingReg" (ngSubmit)="onSubmit()">
+<form [formGroup]="netBankingReg" (ngSubmit)="generate_credentials(netBankingReg.value)">
     <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Net Banking Registration</h1>
     <div class="">
         <div class="row mt-5 form-group">
@@ -10,12 +9,7 @@
          <label for="accountNo">Account Number <span class="text-danger">*</span>  </label>
         </div>
         <div class="col-md-6">
-=======
-<form [formGroup]="netBankingReg" (ngSubmit)="generate_credentials(netBankingReg.value)">
-    <h1 id = "Login">Net Banking Registration</h1>
-       <p>
-         <label for="accountNo">Account Number </label>
->>>>>>> 7d0863bd454095841c627af980677e091cd294e8
+
          <input type="text" id="accountNo" name="accountNo" formControlName="accountNo">
          <span class="error" *ngIf="netBankingReg.controls.accountNo.invalid&&(netBankingReg.controls.accountNo.touched)" >This field is mandatory</span>
         </div>
@@ -68,7 +62,7 @@
            <label for="enterOtp">Enter OTP <span class="text-danger">*</span> </label>
         </div>
         <div class="col-md-6">
-       </p>
+       
        <p>
            <button (click)="getPhoneNo(netBankingReg.value.accountNo)">Send OTP</button>
        </p>

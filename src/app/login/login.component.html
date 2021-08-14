@@ -2,7 +2,7 @@
     <img class="mb-4" src="assets\Loanly.jpg" alt width="450" height="125" >
 
 
-<form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="LoginForm" (ngSubmit)="userValidate(LoginForm.value)">
     <h1 class="h3 mb-3 font-weight-normal" style="background-color: rgb(141, 212, 74); color: white; font-size: xx-large; width: 10cm; height: 1.4cm;  margin: auto;">Login to your Account</h1>
     
 
@@ -18,7 +18,7 @@
         </button>
     </div>
     <ng-template #elseBlock>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" routerLink="/UserDashboard">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" >
             Login
         </button>
     </ng-template>
