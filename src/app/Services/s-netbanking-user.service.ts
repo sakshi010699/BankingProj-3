@@ -41,4 +41,8 @@ export class SNetbankingUserService {
   getUserDetailsByID(id:string):Observable<UserOpenAccount>{
     return this.http.get<UserOpenAccount>(this.req+"/UserOpenAccounts/"+id);
   }
+
+  getNetBankingByID(id:number):Observable<NetBankingUserDetails>{
+    return this.http.get<NetBankingUserDetails>(this.req+"/NetBankingUserDetails/"+id);
+  }
 }

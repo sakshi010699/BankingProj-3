@@ -24,7 +24,7 @@ export class SetNewTranPaswordComponent implements OnInit {
   ngOnInit(): void {
   }
   SetNewTranPasswordForm = new FormGroup({
-    UserPassword: new FormControl("",[Validators.required]),
+    UserPassword: new FormControl("",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}')]),
     Confirm_Login_Password: new FormControl("",[Validators.required,accNumbercompare]),
     UserId: new FormControl(),
     AccountNumber: new FormControl(),

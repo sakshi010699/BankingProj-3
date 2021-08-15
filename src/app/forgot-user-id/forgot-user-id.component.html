@@ -10,9 +10,14 @@
 <label for="Enter_Account_Number">Enter Account Number <span class="text-danger">*</span></label>
 </div>
 <div class="col-md-6">
-<input type="number" id="Enter_Account_Number" name="Enter_Account_Number" formControlName="Enter_Account_Number">
+<input type="number" id="Enter_Account_Number" name="Enter_Account_Number" formControlName="Enter_User_Id">
 </div>
 </div>
+<div>
+    <button class="float-end btn btn-primary mt-3" style="background-color:blue; color:white" 
+    (click)="sendOTP(ForgotUserIdForm.value.Enter_User_Id)">Send OTP</button>
+</div>
+<br>
 <div class="row mt-5 form-group">
     <div class="col-md-6">
     <label for="Enter_OTP">Enter OTP <span class="text-danger">*</span></label>

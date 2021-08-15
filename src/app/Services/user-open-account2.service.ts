@@ -4,6 +4,9 @@ import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { UserOpenAccount } from 'Models/user-open-account';
+import { LocationPinCodeCity } from 'Models/location-pin-code-city';
+import { LocationCityState } from 'Models/location-city-state';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 //import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 
 @Injectable({
@@ -31,5 +34,17 @@ export class UserOpenAccount2Service {
   {
     return this.http.get(this.req+"UserOpenAccounts/" +id);
   }
+  getCityByID(pincode:string):Observable<LocationPinCodeCity>{
+    return this.http.get<LocationPinCodeCity>(this.req + "LocationPinCodeCities/"+pincode);
+  }
+
+  getStateByID(id:string):Observable<LocationCityState>{
+    return this.http.get<LocationCityState>(this.req+"LocationCityStates/"+id);
+  }
 }
-//  return this.http.get(`${this.req}${"UserTransactions"}/${id}`);
+
+  
+
+
+  
+

@@ -3,7 +3,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import * as M from 'minimatch';
 import { UserOpenAccount } from 'Models/user-open-account';
 import { UserOpenAccount2Service } from '../Services/user-open-account2.service';
-// import { NetBankingUserDetails } from 'Models/net-banking-user-details';
+import { LocationCityState } from 'Models/location-city-state';
+import { LocationPinCodeCity } from 'Models/location-pin-code-city';
 
 @Component({
   selector: 'app-open-account2',
@@ -12,12 +13,6 @@ import { UserOpenAccount2Service } from '../Services/user-open-account2.service'
 })
 export class OpenAccount2Component implements OnInit {
 
-  // netBankingData:NetBankingUserDetails={
-  //   userId:0,
-  //   accountNumber:"",
-  //   userPassword:"",
-  //   transactionPass:""
-  // }
 
   UserBasicInfo= new FormGroup({
   AadharCardNumber:new FormControl("",[Validators.required, Validators.pattern("[0-9]*"),Validators.maxLength(12),
@@ -69,9 +64,22 @@ export class OpenAccount2Component implements OnInit {
   
   addCheck:boolean=false;
   isDisabled:string="";
+  isDisabledPerm:string="";
+  isDisabledRes:string="";
   temp=new FormControl("");
 
   constructor(private obj:UserOpenAccount2Service) { }
+
+  city:LocationPinCodeCity={
+    pincode:"",
+    city:""
+  }
+
+  state:LocationCityState={
+    city:"",
+    cityState:""
+  }
+
 
   ngOnInit(): void {
     if(this.d.length==1)
@@ -83,6 +91,38 @@ export class OpenAccount2Component implements OnInit {
   }
   onSubmit(){
     console.log(this.UserBasicInfo.value);
+    
+  }
+
+  getCityState(data:string){
+    this.obj.getCityByID(data).subscribe(res=>{
+      this.city.city=res.city;
+      console.log(res);
+      
+      if(this.UserBasicInfo.controls.ResidentialPincode.value==data)
+        this.UserBasicInfo.controls.ResidentialCity.setValue(this.city.city);
+      if(this.UserBasicInfo.controls.PermanentPincode.value==data)
+        this.UserBasicInfo.controls.PermanentCity.setValue(this.city.city);
+      console.log(this.city.city);
+
+      this.obj.getStateByID(this.city.city).subscribe(ress=>{
+        this.state.city=ress.city;
+        this.state.cityState=ress.cityState;
+        console.log(ress.cityState);
+        
+        if(this.UserBasicInfo.controls.ResidentialPincode.value==data){
+          this.UserBasicInfo.controls.ResidentialState.setValue(this.state.cityState);
+        }
+        if(this.UserBasicInfo.controls.PermanentPincode.value==data)
+        {
+          this.UserBasicInfo.controls.PermanentState.setValue(this.state.cityState);
+        }
+                
+      })
+    
+    })
+
+          
     
   }
   
@@ -107,7 +147,7 @@ export class OpenAccount2Component implements OnInit {
   // }
 
   sameAddress(){
-    if(this.addCheck==false)
+    if(this.UserBasicInfo.controls.PermEqualRes.value==false)
     {
       this.UserBasicInfo.controls.PermanentAddrLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);
       this.UserBasicInfo.controls.PermanentAddrLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);
@@ -115,10 +155,10 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
       this.UserBasicInfo.controls.PermanentCity.setValue(this.UserBasicInfo.controls.ResidentialCity.value); 
       this.UserBasicInfo.controls.PermanentState.setValue(this.UserBasicInfo.controls.ResidentialState.value);           
-      this.addCheck=true;
+      //this.addCheck=true;
 
-      console.log(this.date);
-      this.isDisabled="disabled";
+      //console.log(this.date);
+      //this.isDisabled="disabled";
     }
     else
     {
@@ -128,8 +168,8 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue("");            
       this.UserBasicInfo.controls.PermanentCity.setValue(""); 
       this.UserBasicInfo.controls.PermanentState.setValue("");           
-      this.addCheck=false;
-      this.isDisabled="";
+      //this.addCheck=false;
+      //this.isDisabled="";
     }
 
     console.log(this.date);

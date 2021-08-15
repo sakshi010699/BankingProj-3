@@ -1,4 +1,4 @@
 export class LocationCityState {
-    City:string="";
-    City_State="";
+    city:string="";
+    cityState:string ="";
 }

@@ -20,8 +20,9 @@
            <label for="setPass">Set Password <span class="text-danger">*</span> </label>
         </div>
         <div class="col-md-6">
-           <input type="text" id="setPass" name="setPass" formControlName="setPass">
-           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid && (netBankingReg.controls.setPass.touched && !netBankingReg.controls.setPass.dirty)" >This field is mandatory</span>
+           <input type="password" id="setPass" name="setPass" formControlName="setPass">
+           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid&&(netBankingReg.controls.setPass.touched && !netBankingReg.controls.accountNo.dirty)" >This field is mandatory</span>
+           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid&&(netBankingReg.controls.setPass.touched && netBankingReg.controls.accountNo.dirty)" >The password should be 8-30 characters and contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character</span>
         </div>
     </div>
  
@@ -42,7 +43,8 @@
         </div>
         <div class="col-md-6">
            <input type="password" id="setTranPass" name="setTranPass" formControlName="setTranPass">
-           <span class="error" *ngIf="netBankingReg.controls.setTranPass.invalid&&(netBankingReg.controls.setTranPass.touched)" >This field is mandatory</span>
+           <span class="error" *ngIf="netBankingReg.controls.setTranPass.invalid&&(netBankingReg.controls.setTranPass.touched && !netBankingReg.controls.setTranPass.dirty)" >This field is mandatory</span>
+           <span class="error" *ngIf="netBankingReg.controls.setTranPass.invalid&&(netBankingReg.controls.setTranPass.touched && netBankingReg.controls.setTranPass.dirty)" >The password should be 8-30 characters and contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character</span>
         </div>
     </div>
  

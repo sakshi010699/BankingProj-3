@@ -23,11 +23,12 @@ h1{
 .error{
     color:red;
     font-family:Arial, Helvetica, sans-serif;
-}
+}*/
 
 .disabled{
     pointer-events: none;
-} */
+    
+}
 .error{
     color:red;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
