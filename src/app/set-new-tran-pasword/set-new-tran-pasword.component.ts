@@ -42,7 +42,7 @@ export class SetNewTranPaswordComponent implements OnInit {
       this.u_msg="Successfully updated user details "+id;
       console.log(data);
     })
-   
+    alert("Transaction Password has been updated Successfully");
 
     }
 

@@ -81,7 +81,9 @@ export class NetbankingRegisterComponent implements OnInit {
     this.obj.createNetBankingCredentials(this.NetBankingUser).subscribe(data=>{
     //Logging the response received from web api.
     console.log(data);
+    alert("Successfully Registered for Net Banking");
     })
+    
   }
 
   getPhoneNo(data:number){

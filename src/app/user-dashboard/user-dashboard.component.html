@@ -10,10 +10,14 @@
         </div>
     </div>
 </div> 
+
 <div class="container" style="margin-left: 5cm; margin-top: 1cm;" >
     <div class="row">
         <div class="col-lg-12">
-            <h1>Welcome User!</h1>
+            <h1>Welcome {{this.global.GlobalUser_Name}}!</h1>
+            <span>
+                <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; float: right; margin-bottom: 2mm;" routerLink="/Login">Log Out</button>
+            </span>
             <ol class="breadcrumb">
                 <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
             </ol>
@@ -69,13 +73,21 @@
     </div>
     </div>      
     <br>
-                    
+    <div class="row">
+        <div class = "column">
+
+        
+          
     <div class="vertical-menu" style="margin-left: 1mm;">
+      
+       
         <p>
     <a href="#" [routerLinkActive]="['active']"  class="active" style="font-size: x-large;">Home</a>
 </p>
+
 <p>
     <a href="#" [routerLinkActive]="['active']" routerLink="/AccountSummary" style="font-size: x-large;">Account Summary</a>
+    
     </p>
     <p>
     <a href="#" [routerLinkActive]="['active']" routerLink="/FundsTransfer" style="font-size: x-large;">Funds Transfer</a>
@@ -85,8 +97,21 @@
     </p>
     <p>
     <a href="#" [routerLinkActive]="['active']" routerLink="/UpdateCredentials" style="font-size: x-large;">Update credentials</a>
-    </p>
-
-
+    </p>    
     
-  </div>
+</div>
+    </div>
+    <div class="column">
+   
+        <span>
+            <img class = "mb-4" src = "assets\loanlyInfo.jpeg" alt height = "500" width = "1100">
+        </span>
+        
+    </div>
+    <div class = "column1">
+        <span>
+            <img class = "mb-4" src = "assets\loanlyAD.jpeg" alt height = "350" width = "250">
+        </span>
+    </div>
+    </div>
+ 

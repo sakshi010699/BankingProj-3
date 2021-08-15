@@ -12,7 +12,7 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api/";
+  req:string="https://localhost:44346/api/";
 
 
   CreateUser(bDetails:UserOpenAccount):Observable<UserOpenAccount>
@@ -26,5 +26,10 @@ export class UserOpenAccount2Service {
         
       })
     });
+  }
+  getUserOpenAccountDetailsById(id : string):Observable<any>
+  {
+    return this.http.get(this.req+"UserOpenAccounts/" +id);
+  }
 }
-}
+//  return this.http.get(`${this.req}${"UserTransactions"}/${id}`);

@@ -47,6 +47,7 @@ export class BeneficiaryComponent implements OnInit {
     //Logging the response received from web api.
     console.log(data);
     })
+    alert("Successfully Added");
   }
 
 }

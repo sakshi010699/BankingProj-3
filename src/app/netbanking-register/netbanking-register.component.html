@@ -20,14 +20,14 @@
            <label for="setPass">Set Password <span class="text-danger">*</span> </label>
         </div>
         <div class="col-md-6">
-           <input type="password" id="setPass" name="setPass" formControlName="setPass">
-           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid&&(netBankingReg.controls.setPass.touched)" >This field is mandatory</span>
+           <input type="text" id="setPass" name="setPass" formControlName="setPass">
+           <span class="error" *ngIf="netBankingReg.controls.setPass.invalid && (netBankingReg.controls.setPass.touched && !netBankingReg.controls.setPass.dirty)" >This field is mandatory</span>
         </div>
     </div>
  
     <div class="row mt-5 form-group">
      <div class="col-md-6">
-           <label for="confirmPass">Confirm Password <span class="text-danger">*</span>  </label>
+           <label for="text">Confirm Password <span class="text-danger">*</span>  </label>
         </div>
         <div class="col-md-6">
            <input type="password" id="confirmPass" name="confirmPass" formControlName="confirmPass">
@@ -74,8 +74,11 @@
     </div>
  
 
-     <div class="col-md-6">
-           <button type="submit" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Submit</button>
+      <div class="col-md-6">
+           <button type="submit" [disabled]="netBankingReg.invalid" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Submit</button>
+      </div>
+      <div class="col-md-6">
+         <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; margin-right:2mm;" routerLink = "">Back</button>
        </div>
     </div>
         

@@ -45,7 +45,7 @@ put_api(id:number,data:any):void
       console.log(data);
     })
    
-
+    alert("Password has been updated Successfully");
     }
 }
 export function accNumbercompare(control:AbstractControl):any{

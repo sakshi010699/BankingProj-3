@@ -3,6 +3,7 @@ import { UserTransaction } from 'Models/user-transaction';
 import { STransactionService } from '../Services/stransaction.service';
 import { AccountDetails } from 'Models/account-details';
 import { UserOpenAccount } from 'Models/user-open-account';
+import { GlobalAccountService } from '../Services/global-account.service';
 
 @Component({
   selector: 'app-account-statement',
@@ -11,7 +12,7 @@ import { UserOpenAccount } from 'Models/user-open-account';
 })
 export class AccountStatementComponent implements OnInit {
 
-  UserAccountNumber:any=0;
+  UserAccountNumber:number = this.global.GlobalAcc_Number;
 
   isHidden:boolean=true;
 
@@ -21,7 +22,7 @@ export class AccountStatementComponent implements OnInit {
   UserDateFrom:Date=new Date();
   UserDateTill:Date=new Date();
 
-  constructor(private obj:STransactionService) { }
+  constructor(private obj:STransactionService, public global : GlobalAccountService) { }
 
   ngOnInit(): void {
   }

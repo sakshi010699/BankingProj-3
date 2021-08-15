@@ -12,11 +12,7 @@ import { UserOpenAccount } from 'Models/user-open-account';
 export class SNetbankingUserService {
 
   constructor(private http:HttpClient ) { }
-<<<<<<< HEAD
   req:string="https://localhost:44346/api";
-=======
-  req:string="https://localhost:44327/api";
->>>>>>> 1b9e1d6beae8a16ae02e4256803a380ead1dad0e
 
   createNetBankingCredentials(user:NetBankingUserDetails):Observable<NetBankingUserDetails>
 

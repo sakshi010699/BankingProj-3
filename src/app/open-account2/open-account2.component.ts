@@ -93,6 +93,7 @@ export class OpenAccount2Component implements OnInit {
       this.msg="Successfully created "+data.firstName;
       //Logging the response received from web api.
       console.log(data);
+      alert("Registration Successful");
     })
   }
 
