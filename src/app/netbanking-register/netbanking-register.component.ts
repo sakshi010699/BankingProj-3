@@ -94,7 +94,7 @@ export class NetbankingRegisterComponent implements OnInit {
         console.log(ress.mobileNumber);
 
         this.phoneNo=this.phNumber.country+this.phNumber.phNo;
-        console.log(this.phNumber);
+        console.log(this.phoneNo);
       })
     })
 

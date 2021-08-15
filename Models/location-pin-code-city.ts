@@ -1,4 +1,4 @@
 export class LocationPinCodeCity {
-    Pincode:string="";
-    City:string="";
+    pincode:string="";
+    city:string="";
 }

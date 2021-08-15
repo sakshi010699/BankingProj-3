@@ -140,7 +140,8 @@
         <label for="ResidentialPincode">Pincode: <span class="text-danger">*</span> </label>
       </div>
       <div class="col-md-6">
-        <input type="text" id="ResidentialPincode" name="ResidentialPincode" formControlName="ResidentialPincode">
+        <input type="text" id="ResidentialPincode" name="ResidentialPincode" 
+        formControlName="ResidentialPincode" (focusout)="getCityState(UserBasicInfo.value.ResidentialPincode)">
         <span class="error" *ngIf="UserBasicInfo.controls.ResidentialPincode.invalid&&
         (UserBasicInfo.controls.ResidentialPincode.touched && UserBasicInfo.controls.ResidentialPincode.dirty)" >
         Please enter a valid pincode.
@@ -218,7 +219,7 @@
       </div>
       <div class="col-md-6">
         <input type="text" id="PermanentPincode" name="PermanentPincode" formControlName="PermanentPincode"
-        class="{{isDisabled}}">
+        class="{{isDisabled}}" (focusout)="getCityState(UserBasicInfo.value.PermanentPincode)">
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentPincode.invalid&&
         (UserBasicInfo.controls.PermanentPincode.touched)" >This field is mandatory</span>
       </div>

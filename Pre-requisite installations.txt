@@ -1,0 +1,5 @@
+The following commands will have to be run before the project can be served.
+
+1. npm install --save-dev @angular-devkit/build-angular
+
+(Note: Numbering is NOT a part of the command. Eg. if the command in the list is written as "1. npm install --save-dev @angular-devkit/build-angular", the command run would be "npm install --save-dev @angular-devkit/build-angular", without the quotes.)
