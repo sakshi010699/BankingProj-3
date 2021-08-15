@@ -66,7 +66,7 @@ export class IMPSTransactionComponent implements OnInit {
   m:any;
   ReceiptReferenceId:number=Math.floor(Math.random() * (10000000 - 10000 + 1)) + 10000;
 
-  ReceiptMode:string="RTGS";
+  ReceiptMode:string="IMPS";
   ReceiptToAccount:number=0;
   ReceiptAmount:number=0;
   RecieptFromAccount:number=0;

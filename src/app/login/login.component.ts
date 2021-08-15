@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   })
 
   validateBool : boolean = false;
-  
+  loginCounter : number = 0;
 
   userValidate(data:any){
     console.log("Hello");
@@ -48,7 +48,13 @@ export class LoginComponent implements OnInit {
           //return this.temprouter="/UserDashboard";
         }
         else{
-          return alert('Wrong Password');
+          this.loginCounter +=1;
+          alert("Wrong Password please try again.");
+          if(this.loginCounter == 3){
+            this.loginCounter = 0;
+            return alert('Your Account is Locked. Please use Forgot Password');
+          }
+          
         }
       }
      
@@ -56,6 +62,7 @@ export class LoginComponent implements OnInit {
     if(this.validateBool==false){
       return alert('Wrong User Id');
     }
+    
     
   }
 
