@@ -1,4 +1,4 @@
-form{
+/* form{
     margin-left: 10cm;
     margin-right: 10cm;
     border:solid Black ;
@@ -22,10 +22,7 @@ input{
   
 }
 
-.error{
-    color:red;
-    font-family:Arial, Helvetica, sans-serif;
-}
+
 input.ng-invalid.ng-touched{
     border:1px solid red;
 }
@@ -34,12 +31,12 @@ button{
 }
 #continue{
     margin-left: 14cm;
-}
+} */
 
  
 
  
-input[type=checkbox]{
+/* input[type=checkbox]{
     margin-left:5cm ;
     size: 25px;
 }
@@ -47,5 +44,18 @@ input[type=checkbox]{
 button{
     left: 50%;
     top: 50%;
+} */
+.error{
+    color:red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
- 
+label{
+padding-left: 1cm;
+
+}
+input{
+    float: right;
+}
+form{
+    padding-bottom: 1mm;
+}

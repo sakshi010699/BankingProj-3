@@ -1,17 +1,20 @@
- <!-- <h1 style="border-style: solid black; width:fit-content; margin: auto; font-weight: bolder; " >Home</h1> -->
-<div>
-    <img src="assets\Loanly.jpg" width="500px" height="300px" style="padding-left: 13cm; margin-top: 0mm;" >
+<body>
+<!-- <h1 style="border-style: solid black; width:fit-content; margin: auto; font-weight: bolder; " >Home</h1> -->
+ <div class="text-center" style="margin-top: 3cm; ">
+    <img class="mb-4" src="assets\Loanly.jpg" alt width="450" height="125" >
 </div>
-  <table style="height: 7cm; width: 7cm;">
-
-    
-<th >Login Internet Banking</th>
-<tr><td><a routerLink="/Login">Login</a></td></tr>
-<tr><td><a routerLink="/Register">New User? Register</a></td></tr>
-<tr><td><a routerLink="/OpenSavingsAccount">Apply Online for Account</a></td></tr>
 
 
-</table>
+<div class="container align-center border" style="width: max-content; margin-top: 0mm;">
+    <div class="vertical-menu" style="margin-left: 1cm; margin-top: 1cm; margin-bottom: 1cm; width: fit-content;margin-right: 1cm; ">
+<h2 style="font-weight: bolder;" class="active" style="background-color:rgb(141, 212, 74);color: white;">Login Internet Banking</h2>
+<a href="#" [routerLinkActive]="['active']" routerLink="/Login" class="list-group-item-text" >Login</a>
+<a href="#" [routerLinkActive]="['active']" routerLink="/Register" class="list-group-item-text">New User? Register</a>
+<a href="#" [routerLinkActive]="['active']" routerLink="/OpenSavingsAccount" class="list-group-item-text">Apply Online for Account</a>
+
+</div>
+</div>
+
 
 <br>
 <br>

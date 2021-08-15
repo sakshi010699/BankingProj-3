@@ -1,7 +1,12 @@
-<h1 style="font-weight: bolder;">Select the payment mode</h1>
-<h2 ><a routerLink="/AddPayee">Add Payee</a></h2>
+<div class="container align-center border" style="width: max-content; margin-top: 4cm;">
+<div class="vertical-menu" style="margin-left: 1cm; margin-top: 1cm; margin-bottom: 1cm; width: fit-content;margin-right: 1cm; ">
+    
+<h2 style="font-weight: bolder;" class="active" style="background-color: rgb(141, 212, 74); color: white;">Select the payment mode</h2>
+<a href="#" [routerLinkActive]="['active']"  routerLink="/AddPayee" class="list-group-item-text" >Add Payee</a>
+<a href="#" [routerLinkActive]="['active']"  routerLink="/IMPS" class="list-group-item-text">IMPS</a>
+<a href="#" [routerLinkActive]="['active']"  routerLink="/RTGS" class="list-group-item-text">RTGS</a>
+<a href="#" [routerLinkActive]="['active']"  routerLink="/NEFT" class="list-group-item-text">NEFT</a>
 
-<h2 ><a routerLink="/IMPS">IMPS</a></h2>
-<h2 ><a routerLink="/RTGS">RTGS</a></h2>
-<h2 ><a routerLink="/NEFT">NEFT</a></h2>
+</div>
+</div>
 

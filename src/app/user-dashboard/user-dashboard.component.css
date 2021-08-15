@@ -1,20 +1,47 @@
+                        
+.panel-blue{
+  background:rgb(141, 212, 74);    
+}
+.panel-tw{
+  background:rgb(141, 212, 74);    
+}
+.panel-fb {
+  background:rgb(141, 212, 74)   
+}
+.panel-in{
+  background:rgb(141, 212, 74);    
+}
+.panel-content .fa {
+  color:#ffffff;    
+}
+.panel-dl{
+ background:rgb(141, 212, 74);   
+}
+.panel-content p{
+  font-weight:bold !important; 
+  color:#FFFFFF;
+}
+
 .vertical-menu {
-    width: 200px; /* Set a width if you like */
-  }
-  
-  .vertical-menu a {
-    background-color: #eee; /* Grey background color */
-    color: black; /* Black text color */
-    display: block; /* Make the links appear below each other */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  .vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
-  }
-  
-  .vertical-menu a.active {
-    background-color: rgb(131, 61, 61); /* Add a green color to the "active/current" link */
-    color: white;
-  }
+  width: 200px; /* Set a width if you like */
+}
+a{
+    text-align: center;
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color:#6f7177; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: rgb(141, 212, 74); /* Add a green color to the "active/current" link */
+  color: white;
+}

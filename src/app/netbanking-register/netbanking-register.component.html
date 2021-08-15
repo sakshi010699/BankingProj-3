@@ -1,42 +1,83 @@
+<div class="container align-center border" style="margin-top: 1cm; width:25cm">
+
 <form [formGroup]="netBankingReg" (ngSubmit)="generate_credentials(netBankingReg.value)">
-    <h1 id = "Login">Net Banking Registration</h1>
-       <p>
-         <label for="accountNo">Account Number </label>
+    <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Net Banking Registration</h1>
+    <div class="">
+        <div class="row mt-5 form-group">
+            <div class="col-md-6">
+    
+         <label for="accountNo">Account Number <span class="text-danger">*</span>  </label>
+        </div>
+        <div class="col-md-6">
+
          <input type="text" id="accountNo" name="accountNo" formControlName="accountNo">
          <span class="error" *ngIf="netBankingReg.controls.accountNo.invalid&&(netBankingReg.controls.accountNo.touched)" >This field is mandatory</span>
-       </p>
-       <p>
-           <label for="setPass">Set Password </label>
+        </div>
+    </div>
+ 
+    <div class="row mt-5 form-group">
+     <div class="col-md-6">
+           <label for="setPass">Set Password <span class="text-danger">*</span> </label>
+        </div>
+        <div class="col-md-6">
            <input type="password" id="setPass" name="setPass" formControlName="setPass">
            <span class="error" *ngIf="netBankingReg.controls.setPass.invalid&&(netBankingReg.controls.setPass.touched)" >This field is mandatory</span>
-       </p>
-       <p>
-           <label for="confirmPass">Confirm Password </label>
+        </div>
+    </div>
+ 
+    <div class="row mt-5 form-group">
+     <div class="col-md-6">
+           <label for="confirmPass">Confirm Password <span class="text-danger">*</span>  </label>
+        </div>
+        <div class="col-md-6">
            <input type="password" id="confirmPass" name="confirmPass" formControlName="confirmPass">
            <span  class="error" *ngIf="netBankingReg.controls.confirmPass.invalid&&(netBankingReg.controls.confirmPass.touched && netBankingReg.controls.confirmPass.dirty)" >Password doesn't match</span>           
                            <span class="error" *ngIf="netBankingReg.controls.confirmPass.invalid&&(netBankingReg.controls.confirmPass.touched && !netBankingReg.controls.confirmPass.dirty)" >This field is mandatory</span>
-           
-       </p>
-       <p>
-           <label for="setTranPass">Set Transaction Password </label>
+                        </div>
+                    </div>
+                 
+                    <div class="row mt-5 form-group">
+                     <div class="col-md-6">
+           <label for="setTranPass">Set Transaction Password <span class="text-danger">*</span>  </label>
+        </div>
+        <div class="col-md-6">
            <input type="password" id="setTranPass" name="setTranPass" formControlName="setTranPass">
            <span class="error" *ngIf="netBankingReg.controls.setTranPass.invalid&&(netBankingReg.controls.setTranPass.touched)" >This field is mandatory</span>
-       </p>
-       <p>
-           <label for="confirmTranPass">Confirm Transaction Password </label>
+        </div>
+    </div>
+ 
+    <div class="row mt-5 form-group">
+     <div class="col-md-6">
+           <label for="confirmTranPass">Confirm Transaction Password <span class="text-danger">*</span>  </label>
+        </div>
+        <div class="col-md-6">
            <input type="password" id="confirmTranPass" name="confirmTranPass" formControlName="confirmTranPass">
            <span  class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && netBankingReg.controls.confirmTranPass.dirty)" >Password doesn't match</span>           
                            <span class="error" *ngIf="netBankingReg.controls.confirmTranPass.invalid&&(netBankingReg.controls.confirmTranPass.touched && !netBankingReg.controls.confirmTranPass.dirty)" >This field is mandatory</span>
-       </p>
+                        </div>
+                    </div>
+                 
+                    <div class="row mt-5 form-group">
+                     <div class="col-md-6">
+           <label for="enterOtp">Enter OTP <span class="text-danger">*</span> </label>
+        </div>
+        <div class="col-md-6">
        
+       <p>
+           <button (click)="getPhoneNo(netBankingReg.value.accountNo)">Send OTP</button>
+       </p>
        <p>
            <label for="enterOtp">Enter OTP </label>
            <input type="text" id="enterOtp" name="enterOtp" formControlName="enterOtp">
            <span class="error" *ngIf="netBankingReg.controls.enterOtp.invalid&&(netBankingReg.controls.enterOtp.touched)" >This field is mandatory</span>
-         </p>
-   
-       <p>
-           <button type="submit">Submit</button>
-       </p>
+        </div>
+    </div>
+ 
+
+     <div class="col-md-6">
+           <button type="submit" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Submit</button>
+       </div>
+    </div>
         
    </form>
+   </div>
