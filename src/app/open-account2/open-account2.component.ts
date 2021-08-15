@@ -64,6 +64,8 @@ export class OpenAccount2Component implements OnInit {
   
   addCheck:boolean=false;
   isDisabled:string="";
+  isDisabledPerm:string="";
+  isDisabledRes:string="";
   temp=new FormControl("");
 
   constructor(private obj:UserOpenAccount2Service) { }
@@ -108,11 +110,14 @@ export class OpenAccount2Component implements OnInit {
         this.state.cityState=ress.cityState;
         console.log(ress.cityState);
         
-        if(this.UserBasicInfo.controls.ResidentialPincode.value==data)
+        if(this.UserBasicInfo.controls.ResidentialPincode.value==data){
           this.UserBasicInfo.controls.ResidentialState.setValue(this.state.cityState);
+        }
         if(this.UserBasicInfo.controls.PermanentPincode.value==data)
+        {
           this.UserBasicInfo.controls.PermanentState.setValue(this.state.cityState);
-      
+        }
+                
       })
     
     })
@@ -141,7 +146,7 @@ export class OpenAccount2Component implements OnInit {
   // }
 
   sameAddress(){
-    if(this.addCheck==false)
+    if(this.UserBasicInfo.controls.PermEqualRes.value==false)
     {
       this.UserBasicInfo.controls.PermanentAddrLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);
       this.UserBasicInfo.controls.PermanentAddrLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);
@@ -149,10 +154,10 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
       this.UserBasicInfo.controls.PermanentCity.setValue(this.UserBasicInfo.controls.ResidentialCity.value); 
       this.UserBasicInfo.controls.PermanentState.setValue(this.UserBasicInfo.controls.ResidentialState.value);           
-      this.addCheck=true;
+      //this.addCheck=true;
 
-      console.log(this.date);
-      this.isDisabled="disabled";
+      //console.log(this.date);
+      //this.isDisabled="disabled";
     }
     else
     {
@@ -162,8 +167,8 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue("");            
       this.UserBasicInfo.controls.PermanentCity.setValue(""); 
       this.UserBasicInfo.controls.PermanentState.setValue("");           
-      this.addCheck=false;
-      this.isDisabled="";
+      //this.addCheck=false;
+      //this.isDisabled="";
     }
 
     console.log(this.date);

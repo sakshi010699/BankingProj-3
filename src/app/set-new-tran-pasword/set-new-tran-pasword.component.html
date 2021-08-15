@@ -26,6 +26,11 @@
 </div>
 <div class="col-md-6">
 <input type="text" id="Login_Password" name="Login_Password" formControlName="UserPassword">
+<span class="error" *ngIf="SetNewTranPasswordForm.value.UserPassword.invalid && SetNewTranPasswordForm.value.UserPassword.touched
+&& !SetNewTranPasswordForm.value.UserPassword.dirty">This field is mandatory</span>
+<span class="error" *ngIf="SetNewTranPasswordForm.value.UserPassword.invalid && SetNewTranPasswordForm.value.UserPassword.touched
+&& SetNewTranPasswordForm.value.UserPassword.dirty">
+The password should be 8-30 characters and contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character</span>
 </div>
 </div>
 <div class="row mt-5 form-group">
@@ -60,7 +65,8 @@
         
          <div class="col-md-6">
 
-    <button type="submit" class="float-end btn btn-primary mt-3" [disabled]="SetNewTranPasswordForm.invalid" style="background-color: #6f7177; color: white;">Proceed</button>
+    <button type="submit" class="float-end btn btn-primary mt-3" [disabled]="SetNewTranPasswordForm.invalid" 
+    style="background-color: #6f7177; color: white;">Proceed</button>
          </div>
          </div>
         

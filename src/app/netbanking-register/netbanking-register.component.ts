@@ -63,9 +63,9 @@ export class NetbankingRegisterComponent implements OnInit {
 
   netBankingReg = new FormGroup({
     accountNo : new FormControl("", [Validators.required, Validators.maxLength(10), Validators.minLength(4)]),
-    setPass : new FormControl("", [Validators.required]),
+    setPass : new FormControl("", [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}')]),
     confirmPass : new FormControl("", [Validators.required,passwordcompare]),
-    setTranPass : new FormControl("", [Validators.required]),
+    setTranPass : new FormControl("", [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}')]),
     confirmTranPass : new FormControl("", [Validators.required,tranPasswordcompare]),
     enterOtp : new FormControl("", [Validators.required])
   })
