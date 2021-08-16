@@ -19,6 +19,7 @@ export class NEFTTransactionComponent implements OnInit {
     accountType:"",
     accountBalance:0
   }
+  
   p:number=0;
   q:number=0;
 

@@ -14,7 +14,7 @@ import { LocationCityState } from 'Models/location-city-state';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44333/api/";
+  req:string="https://localhost:44327/api/";
 
 
   CreateUser(bDetails:UserOpenAccount):Observable<UserOpenAccount>
