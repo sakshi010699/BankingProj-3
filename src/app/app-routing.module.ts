@@ -20,6 +20,7 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AccountStatementComponent } from './account-statement/account-statement.component';
 import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
+import { DisplayInitiatedAccountComponent } from './display-initiated-account/display-initiated-account.component';
 
 const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "", component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "AdminDashboard", component:AdminDashboardComponent},
 { path: "AccountStatement", component:AccountStatementComponent},
 { path: "TransactionSlip", component:TransactionSlipComponent},
+{ path: "DisplayInitiatedAccount", component:DisplayInitiatedAccountComponent},
 
 { path: '**', redirectTo: '' }];
 export const appRoutingModule = RouterModule.forRoot(routes);

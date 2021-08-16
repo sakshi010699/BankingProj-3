@@ -27,6 +27,7 @@ import { AccountStatementComponent } from './account-statement/account-statement
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
 import { SWindowService } from './Services/s-window.service';
+import { DisplayInitiatedAccountComponent } from './display-initiated-account/display-initiated-account.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SWindowService } from './Services/s-window.service';
     AccountSummaryComponent,
     AccountStatementComponent,
     AdminDashboardComponent,
-    TransactionSlipComponent
+    TransactionSlipComponent,
+    DisplayInitiatedAccountComponent
   ],
   imports: [
     BrowserModule,

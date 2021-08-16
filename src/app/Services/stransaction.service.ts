@@ -32,6 +32,7 @@ export class STransactionService {
   {
     return this.http.get<UserOpenAccount[]>(this.req+"/UserOpenAccounts1");
   }
+  
    updateAccount(id:number,a:AccountDetails):Observable<any>
   {
     

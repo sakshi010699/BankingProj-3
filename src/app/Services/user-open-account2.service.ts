@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { UserOpenAccount } from 'Models/user-open-account';
 import { LocationPinCodeCity } from 'Models/location-pin-code-city';
 import { LocationCityState } from 'Models/location-city-state';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 //import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 
 @Injectable({
@@ -20,7 +21,7 @@ export class UserOpenAccount2Service {
   CreateUser(bDetails:UserOpenAccount):Observable<UserOpenAccount>
   {
     console.log(bDetails);
-    return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts",bDetails,{
+    return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts1",bDetails,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -28,8 +29,11 @@ export class UserOpenAccount2Service {
         
       })
     });
-}
-
+  }
+  getUserOpenAccountDetailsById(id : string):Observable<any>
+  {
+    return this.http.get(this.req+"UserOpenAccounts1/" +id);
+  }
   getCityByID(pincode:string):Observable<LocationPinCodeCity>{
     return this.http.get<LocationPinCodeCity>(this.req + "LocationPinCodeCities/"+pincode);
   }
@@ -38,3 +42,9 @@ export class UserOpenAccount2Service {
     return this.http.get<LocationCityState>(this.req+"LocationCityStates/"+id);
   }
 }
+
+  
+
+
+  
+

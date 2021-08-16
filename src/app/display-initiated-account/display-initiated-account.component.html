@@ -1,0 +1,58 @@
+
+<div class="container  align-center border " style="margin-top: 2cm; width:fit-content; padding: 2mm;">
+    <h2 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Account Initiated</h2>
+
+
+<input type="text" [(ngModel)]=" AadharCardNumberOfUser" style="margin-right: 2mm;" >
+
+<input type="button" style= "padding-left: 2 cm;" value="Enter Aadharcard Number" (click)="GetAccountDetails()" placeholder="Enter AAdharcard Number">
+</div>
+
+
+
+<div class="container align-center border" style="margin-top: 1cm; width:25cm" [hidden]="isHidden1">
+
+    <form >
+        
+        <div class="">
+            <div class="row mt-5 form-group">
+                <div class="col-md-6">
+            <label   style=" padding-left: 3cm;" >User ID:</label>
+        </div>
+        <div class="col-md-6">
+            <span >{{userId}}</span>
+        </div>
+    </div>
+    <div class="row mt-5 form-group">
+    <div class="col-md-6">
+            <label  style=" padding-left: 3cm;">Account Number:</label>
+        </div>
+        <div class="col-md-6">
+            <span >{{accountNumber}}</span>
+        </div>
+    </div>
+    <div class="row mt-5 form-group">
+    <div class="col-md-6">
+            <label   style=" padding-left: 3cm;">User Password:</label>
+        </div>
+        <div class="col-md-6">
+            <span >{{userPassword}}</span>
+        </div>
+    </div>
+    <div class="row mt-5 form-group">
+    <div class="col-md-6">
+            <label style=" padding-left: 3cm;">Transaction Password:</label>
+        </div>
+        <div class="col-md-6">
+            <span >{{transactionPass}}</span>
+        </div>
+    </div>
+    
+        </div>
+        
+    
+    </form>
+    <div class="col-md-6">
+        <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;" routerLink = "/UserDashboard">Return to Dashboard</button>
+    </div>
+    </div>

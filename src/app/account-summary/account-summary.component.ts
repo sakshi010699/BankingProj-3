@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserTransaction } from 'Models/user-transaction';
+import { GlobalAccountService } from '../Services/global-account.service';
 import { STransactionService } from '../Services/stransaction.service';
 
 @Component({
@@ -8,16 +9,15 @@ import { STransactionService } from '../Services/stransaction.service';
   styleUrls: ['./account-summary.component.css']
 })
 export class AccountSummaryComponent implements OnInit {
- UserAccountNumber:any=0;
+ UserAccountNumber:number= this.global.GlobalAcc_Number;
  isHidden:boolean=true;
  UserTransactionRecord:UserTransaction[]=[];
 
-  constructor(private obj:STransactionService) { }
+  constructor(private obj:STransactionService, public global : GlobalAccountService) { }
 
   ngOnInit(): void {
   }
 
-  
   
 
 

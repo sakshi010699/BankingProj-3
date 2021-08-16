@@ -1,4 +1,4 @@
-<div class="container align-center border" style="margin-top: 1cm; width:25cm">
+<div class="container align-center border" style="margin-top: 1cm; width:25cm"  [hidden]="isHidden2">
 
 <form [formGroup]="UserBasicInfo" (ngSubmit)="post_api(UserBasicInfo.value)">
   <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Open A Savings Account</h1>
@@ -159,7 +159,7 @@
       <div class="col-md-6">
         <input type="text" id="ResidentialState" name="ResidentialState" formControlName="ResidentialState">
         <span class="error" *ngIf="UserBasicInfo.controls.ResidentialState.invalid&&
-        (UserBasicInfo.controls.ResidentialState.touched)" >This field is mandatory</span>
+        (UserBasicInfo.controls.ResidentialState.touched)" readonly>This field is mandatory</span>
       </div>
     </div>
     <div class="row mt-5 form-group">
@@ -169,7 +169,7 @@
       <div class="col-md-6">
         <input type="text" id="ResidentialCity" name="ResidentialCity" formControlName="ResidentialCity">
         <span class="error" *ngIf="UserBasicInfo.controls.ResidentialCity.invalid&&
-        (UserBasicInfo.controls.ResidentialCity.touched)" >This field is mandatory</span>
+        (UserBasicInfo.controls.ResidentialCity.touched)" readonly>This field is mandatory</span>
       </div>
     </div>
     <div class="row mt-5 form-group">
@@ -188,7 +188,7 @@
       </div>
       <div class="col-md-6">
         <input type="text" id="PermanentAddrLine1" name="PermanentAddrLine1" formControlName="PermanentAddrLine1" 
-        class="{{isDisabled}}">
+        [readonly]="UserBasicInfo.value.PermEqualRes">
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine1.invalid&&
         (UserBasicInfo.controls.PermanentAddrLine1.touched)" >This field is mandatory</span>
       </div>
@@ -199,7 +199,7 @@
       </div>
       <div class="col-md-6">
         <input type="text" id="PermanentAddrLine2" name="PermanentAddrLine2" formControlName="PermanentAddrLine2"
-        class="{{isDisabled}}">
+        [readonly]="UserBasicInfo.value.PermEqualRes">
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentAddrLine2.invalid&&
         (UserBasicInfo.controls.PermanentAddrLine2.touched)" >This field is mandatory</span>
       </div>
@@ -210,7 +210,7 @@
       </div>
       <div class="col-md-6">
         <input type="text" id="PermanentLandmark" name="PermanentLandmark" formControlName="PermanentLandmark"
-        class="{{isDisabled}}">
+        class="{{isDisabled}}" [readonly]="UserBasicInfo.value.PermEqualRes">
       </div>
     </div>
     <div class="row mt-5 form-group">
@@ -219,7 +219,8 @@
       </div>
       <div class="col-md-6">
         <input type="text" id="PermanentPincode" name="PermanentPincode" formControlName="PermanentPincode"
-        class="{{isDisabled}}" (focusout)="getCityState(UserBasicInfo.value.PermanentPincode)">
+        (focusout)="getCityState(UserBasicInfo.value.PermanentPincode)" 
+        [readonly]="UserBasicInfo.value.PermEqualRes">
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentPincode.invalid&&
         (UserBasicInfo.controls.PermanentPincode.touched)" >This field is mandatory</span>
       </div>
@@ -229,8 +230,7 @@
         <label for="PermanentState">State: <span class="text-danger">*</span> </label>
       </div>
       <div class="col-md-6">
-        <input type="text" id="PermanentState" name="PermanentState" formControlName="PermanentState"
-        class="{{isDisabled}}">
+        <input type="text" id="PermanentState" name="PermanentState" formControlName="PermanentState" readonly>
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentState.invalid&&
         (UserBasicInfo.controls.PermanentState.touched)" >This field is mandatory</span>
       </div>
@@ -240,8 +240,7 @@
         <label for="PermanentCity">City:  <span class="text-danger">*</span> </label>
       </div>
       <div class="col-md-6">
-        <input type="text" id="PermanentCity" name="PermanentCity" formControlName="PermanentCity"
-        class="{{isDisabled}}">
+        <input type="text" id="PermanentCity" name="PermanentCity" formControlName="PermanentCity" readonly>
         <span class="error" *ngIf="UserBasicInfo.controls.PermanentCity.invalid&&
         (UserBasicInfo.controls.PermanentCity.touched)" >This field is mandatory</span>
       </div>
@@ -289,7 +288,8 @@
         <label for="GrossAnnualIncome">Gross Annual Income: </label>
       </div>
       <div class="dropdown col-md-6">
-        <select type="text" id="GrossAnnualIncome" name="GrossAnnualIncome" formControlName="GrossAnnualIncome" style="margin-right: 1cm;">
+        <select type="text" id="GrossAnnualIncome" name="GrossAnnualIncome" 
+        formControlName="GrossAnnualIncome" style="margin-right: 1cm;">
             <option value="" disabled selected>Select</option>
             <option>10,00,000 - 25,00,000</option>
             <option>5,00,000 - 10,00,000 </option>
@@ -326,10 +326,30 @@
     </div>
   </div>
     <div class="col-md-6">
-        <button type="submit" [disabled]="UserBasicInfo.invalid" class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white;">Submit</button>
+        <button type="submit" [disabled]="UserBasicInfo.invalid" class="float-end btn btn-primary mt-3" 
+        style="background-color: #6f7177; color: white;">Submit</button>
+    </div>
+    <div class="col-md-6">
+      <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; margin-right:2mm;" routerLink = "">Back</button>
     </div>
     </div>
     
      
 </form>
+</div>
+<div class="container  align-center border " style="margin-top: 2cm; width:30cm; padding: 2mm;"  [hidden]="isHidden1">
+  <h2 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Success</h2>
+ 
+
+<div class="">
+      
+            <h5 style="font-style: italic; width: 35cm;"> Thank you for choosing us. Your request for Loanly Savings Account has been placed successfully. </h5>
+            <h5 style="font-style: italic; width: 35cm;">On successful approval, you can check your account details on the given link.</h5>
+
+            <span> <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; margin-right:2mm;" routerLink="/DisplayInitiatedAccount">Get Account Details</button></span>
+
+          </div>
+
+
+
 </div>

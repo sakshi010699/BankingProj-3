@@ -12,7 +12,9 @@ import { LocationPinCodeCity } from 'Models/location-pin-code-city';
   styleUrls: ['./open-account2.component.css']
 })
 export class OpenAccount2Component implements OnInit {
-
+UserIdCounter:number=104;
+isHidden1:boolean=true;
+isHidden2:boolean=false;
 
   UserBasicInfo= new FormGroup({
   AadharCardNumber:new FormControl("",[Validators.required, Validators.pattern("[0-9]*"),Validators.maxLength(12),
@@ -64,6 +66,8 @@ export class OpenAccount2Component implements OnInit {
   
   addCheck:boolean=false;
   isDisabled:string="";
+  isDisabledPerm:string="";
+  isDisabledRes:string="";
   temp=new FormControl("");
 
   constructor(private obj:UserOpenAccount2Service) { }
@@ -108,11 +112,14 @@ export class OpenAccount2Component implements OnInit {
         this.state.cityState=ress.cityState;
         console.log(ress.cityState);
         
-        if(this.UserBasicInfo.controls.ResidentialPincode.value==data)
+        if(this.UserBasicInfo.controls.ResidentialPincode.value==data){
           this.UserBasicInfo.controls.ResidentialState.setValue(this.state.cityState);
+        }
         if(this.UserBasicInfo.controls.PermanentPincode.value==data)
+        {
           this.UserBasicInfo.controls.PermanentState.setValue(this.state.cityState);
-      
+        }
+                
       })
     
     })
@@ -123,12 +130,17 @@ export class OpenAccount2Component implements OnInit {
   
   post_api(data:any)
   {
+
     
       this.obj.CreateUser(data).subscribe(data=>{
       this.msg="Successfully created "+data.firstName;
       //Logging the response received from web api.
       console.log(data);
+      alert("Success! ");
     })
+    this.isHidden1=false;
+    this.isHidden2=true;
+    this.UserIdCounter++;
   }
 
   //   if(this.UserBasicInfo.controls.NetBanking.value==true)
@@ -141,7 +153,7 @@ export class OpenAccount2Component implements OnInit {
   // }
 
   sameAddress(){
-    if(this.addCheck==false)
+    if(this.UserBasicInfo.controls.PermEqualRes.value==false)
     {
       this.UserBasicInfo.controls.PermanentAddrLine1.setValue(this.UserBasicInfo.controls.ResidentialAddrLine1.value);
       this.UserBasicInfo.controls.PermanentAddrLine2.setValue(this.UserBasicInfo.controls.ResidentialAddrLine2.value);
@@ -149,10 +161,10 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue(this.UserBasicInfo.controls.ResidentialPincode.value);            
       this.UserBasicInfo.controls.PermanentCity.setValue(this.UserBasicInfo.controls.ResidentialCity.value); 
       this.UserBasicInfo.controls.PermanentState.setValue(this.UserBasicInfo.controls.ResidentialState.value);           
-      this.addCheck=true;
+      //this.addCheck=true;
 
-      console.log(this.date);
-      this.isDisabled="disabled";
+      //console.log(this.date);
+      //this.isDisabled="disabled";
     }
     else
     {
@@ -162,8 +174,8 @@ export class OpenAccount2Component implements OnInit {
       this.UserBasicInfo.controls.PermanentPincode.setValue("");            
       this.UserBasicInfo.controls.PermanentCity.setValue(""); 
       this.UserBasicInfo.controls.PermanentState.setValue("");           
-      this.addCheck=false;
-      this.isDisabled="";
+      //this.addCheck=false;
+      //this.isDisabled="";
     }
 
     console.log(this.date);

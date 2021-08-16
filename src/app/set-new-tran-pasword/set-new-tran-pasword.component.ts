@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SSetNewTranPassswordService } from '../Services/sset-new-tran-passsword.service';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
+import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
+import { GlobalAccountService } from '../Services/global-account.service';
 
 @Component({
   selector: 'app-set-new-tran-pasword',
@@ -19,31 +21,32 @@ export class SetNewTranPaswordComponent implements OnInit {
   u_msg:string="";
 
 
-  constructor(private obj:SSetNewTranPassswordService) { }
+  constructor(private obj:SSetNewTranPassswordService,private obj1:SNetbankingUserService,private globals:GlobalAccountService) { }
 
   ngOnInit(): void {
   }
   SetNewTranPasswordForm = new FormGroup({
-    UserPassword: new FormControl("",[Validators.required]),
-    Confirm_Login_Password: new FormControl("",[Validators.required,accNumbercompare]),
-    UserId: new FormControl(),
-    AccountNumber: new FormControl(),
+   
     TransactionPass: new FormControl(),
     
     Confirm_Transaction_Password:new FormControl("",[Validators.required,tranpasscompare])
     
     })
-    onSubmit(){
-      console.log(this.SetNewTranPasswordForm.value);
-    }
-    put_api(id:number,data:any):void
-  {
-    this.obj.updateUser(id,data).subscribe(data=>{
-      this.u_msg="Successfully updated user details "+id;
-      console.log(data);
-    })
-   
+    
 
+
+    SetNewTransactionPassword(){
+      this.obj1.getNetBankingByID(this.globals.GlobalUserId_Number).subscribe(data=>
+        {
+          data.transactionPass=this.SetNewTranPasswordForm.controls.TransactionPass.value;
+          this.obj.updateUser(this.globals.GlobalUserId_Number,data).subscribe(data=>{
+            this.u_msg="Successfully updated user details "+this.globals.GlobalUserId_Number;
+            console.log(data);
+          })
+         
+          alert("Password has been updated Successfully");
+        })
+    
     }
 
 }

@@ -32,7 +32,7 @@ export class BeneficiaryComponent implements OnInit {
     BeneficiaryAccNo : new FormControl("",[Validators.required, Validators.maxLength(10),Validators.minLength(4)]),
      reEnterBeneficiaryAccNo : new FormControl("",[Validators.required,Validators.maxLength(10),Validators.minLength(4),accNumbercompare]),
      saveBeneficiary : new FormControl(),
-    NickName : new FormControl(),
+    NickName : new FormControl(""),
     UserAccountNo:new FormControl("",[Validators.required, Validators.maxLength(10),Validators.minLength(4)])
   })
  
@@ -47,6 +47,7 @@ export class BeneficiaryComponent implements OnInit {
     //Logging the response received from web api.
     console.log(data);
     })
+    alert("Successfully Added");
   }
 
 }

@@ -40,12 +40,12 @@ export class SadminApproveService {
   
   getAllUsers():Observable<UserOpenAccount[]>
   {
-    return this.http.get<UserOpenAccount[]>(this.req + "UserOpenAccounts");
+    return this.http.get<UserOpenAccount[]>(this.req + "UserOpenAccounts1");
   }
 
   getUserAccountById(id : string):Observable<any>
   {
-    return this.http.get(this.req + "UserOpenAccounts/" + id );
+    return this.http.get(this.req + "UserOpenAccounts1/" + id );
   }
 
   getAllAccounts():Observable<AccountDetails[]>
@@ -55,7 +55,7 @@ export class SadminApproveService {
 
   updateAccount(id:string,player:UserOpenAccount):Observable<any>
   {
-    return this.http.put<any>(this.req + "UserOpenAccounts/" +id,player,{
+    return this.http.put<any>(this.req + "UserOpenAccounts1/" +id,player,{
     headers:new HttpHeaders({
     'Content-Type':'application/json;charset=UTF-8',
     'Access-Control-Allow-Origin':'*',
@@ -66,7 +66,7 @@ export class SadminApproveService {
 
   deleteUser(id:string):Observable<any>
   {
-    return this.http.delete<any>(this.req + "UserOpenAccounts/" + id ,{
+    return this.http.delete<any>(this.req + "UserOpenAccounts1/" + id ,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',

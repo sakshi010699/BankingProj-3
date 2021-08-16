@@ -37,9 +37,15 @@ export class SNetbankingUserService {
   getNetBankingUserCredentials():Observable<NetBankingUserDetails[]>{
     return this.http.get<NetBankingUserDetails[]>(this.req+"/NetBankingUserDetails");
   }
-
+  
+  getUserOpenAccountDetails():Observable<UserOpenAccount[]>{
+    return this.http.get<UserOpenAccount[]>(this.req+"/UserOpenAccounts1");
+  }
+  getAccountDetails():Observable<AccountDetails[]>{
+    return this.http.get<AccountDetails[]>(this.req+"/AccountDetails");
+  }
   getUserDetailsByID(id:string):Observable<UserOpenAccount>{
-    return this.http.get<UserOpenAccount>(this.req+"/UserOpenAccounts/"+id);
+    return this.http.get<UserOpenAccount>(this.req+"/UserOpenAccounts1/"+id);
   }
 
   getNetBankingByID(id:number):Observable<NetBankingUserDetails>{

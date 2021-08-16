@@ -1,15 +1,17 @@
 <div class="container align-center border" style="margin-top: 1cm; width:25cm">
 
-<form [formGroup]="SetNewTranPasswordForm " (ngSubmit)="put_api(SetNewTranPasswordForm.value.UserId,SetNewTranPasswordForm.value)">
+<form [formGroup]="SetNewTranPasswordForm " (ngSubmit)="SetNewTransactionPassword()">
     <h1 class="text-center mt-3" style="background-color: rgb(141, 212, 74); color: white;">Set New Transaction Password</h1>
 
     <div class="">
-        <div class="row mt-5 form-group">
+        <!-- <div class="row mt-5 form-group">
             <div class="col-md-6">
         <label for="UserId">Enter User ID<span class="text-danger">*</span></label>
     </div>
     <div class="col-md-6">
         <input type="number" id="UserId" name="UserId" formControlName="UserId">
+        <span class="error" *ngIf="SetNewTranPasswordForm.controls.UserId.invalid&&(SetNewTranPasswordForm.controls.UserId.touched)" >This field is mandatory</span> 
+
     </div>
 </div>
 <div class="row mt-5 form-group">
@@ -18,6 +20,8 @@
         </div>
         <div class="col-md-6">
             <input type="text" pattern="\d*" id="AccountNumber" name="AccountNumber" formControlName="AccountNumber">
+            <span class="error" *ngIf="SetNewTranPasswordForm.controls.UserId.invalid&&(SetNewTranPasswordForm.controls.UserId.touched)" >This field is mandatory</span> 
+
         </div>
     </div>
     <div class="row mt-5 form-group">
@@ -26,6 +30,11 @@
 </div>
 <div class="col-md-6">
 <input type="text" id="Login_Password" name="Login_Password" formControlName="UserPassword">
+<span class="error" *ngIf="SetNewTranPasswordForm.controls.UserPassword.invalid && SetNewTranPasswordForm.controls.UserPassword.touched
+&& !SetNewTranPasswordForm.controls.UserPassword.dirty">This field is mandatory</span>
+<span class="error" *ngIf="SetNewTranPasswordForm.controls.UserPassword.invalid && SetNewTranPasswordForm.controls.UserPassword.touched
+&& SetNewTranPasswordForm.controls.UserPassword.dirty">
+The password should be 8-30 characters and contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character</span>
 </div>
 </div>
 <div class="row mt-5 form-group">
@@ -35,16 +44,25 @@
 <div class="col-md-6">
     <input type="text" id="Confirm_Login_Password" name="Confirm_Login_Password" formControlName="Confirm_Login_Password">
 
+    <span class="error" *ngIf="SetNewTranPasswordForm.controls.Confirm_Login_Password.invalid&&(SetNewTranPasswordForm.controls.Confirm_Login_Password.touched && !SetNewTranPasswordForm.controls.Confirm_Login_Password.dirty)" >This field is mandatory</span> 
+
     <span class="error" *ngIf="SetNewTranPasswordForm.controls.Confirm_Login_Password.invalid&&(SetNewTranPasswordForm.controls.Confirm_Login_Password.touched && SetNewTranPasswordForm.controls.Confirm_Login_Password.dirty)" >Password doesn't match</span>
 
     </div>
-</div>
+</div> -->
 <div class="row mt-5 form-group">
  <div class="col-md-6">
             <label for="TransactionPass">Transaction Password<span class="text-danger">*</span></label>
+            
         </div>
         <div class="col-md-6">
-            <input type="text" id="TransactionPass" name="TransactionPass" formControlName="TransactionPass">
+            <input type="password" id="TransactionPass" name="TransactionPass" formControlName="TransactionPass">
+            <span class="error" *ngIf="SetNewTranPasswordForm.controls.TransactionPass.invalid && SetNewTranPasswordForm.controls.TransactionPass.touched
+&& !SetNewTranPasswordForm.controls.UserPassword.dirty">This field is mandatory</span>
+<span class="error" *ngIf="SetNewTranPasswordForm.controls.TransactionPass.invalid && SetNewTranPasswordForm.controls.TransactionPass.touched
+&& SetNewTranPasswordForm.controls.TransactionPass.dirty">
+The password should be 8-30 characters and contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special character</span>
+            
         </div>
     </div>
     <div class="row mt-5 form-group">
@@ -52,7 +70,9 @@
                 <label for="Confirm_Transaction_Password">Confirm Transaction Password</label>
             </div>
             <div class="col-md-6">
-                <input type="text" id="Confirm_Transaction_Password" name="Confirm_Transaction_Password" formControlName="Confirm_Transaction_Password">
+                <input type="password" id="Confirm_Transaction_Password" name="Confirm_Transaction_Password" formControlName="Confirm_Transaction_Password">
+                <span class="error" *ngIf="SetNewTranPasswordForm.controls.Confirm_Transaction_Password.invalid && SetNewTranPasswordForm.controls.Confirm_Transaction_Password.touched
+                && !SetNewTranPasswordForm.controls.Confirm_Transaction_Password.dirty">This field is mandatory</span>
                 <span class="error" *ngIf="SetNewTranPasswordForm.controls.Confirm_Transaction_Password.invalid&&(SetNewTranPasswordForm.controls.Confirm_Transaction_Password.touched && SetNewTranPasswordForm.controls.Confirm_Transaction_Password.dirty)" >Password doesn't match</span>
 
             </div>
@@ -60,8 +80,12 @@
         
          <div class="col-md-6">
 
-    <button type="submit" class="float-end btn btn-primary mt-3" [disabled]="SetNewTranPasswordForm.invalid" style="background-color: #6f7177; color: white;">Proceed</button>
+    <button type="submit" class="float-end btn btn-primary mt-3" [disabled]="SetNewTranPasswordForm.invalid" 
+    style="background-color: #6f7177; color: white;">Proceed</button>
          </div>
+         <div class="col-md-6">
+            <button class="float-end btn btn-primary mt-3" style="background-color: #6f7177; color: white; margin-right:2mm;" routerLink = "/UserDashboard">Return to Dashboard</button>
+          </div>
          </div>
         
     </form>

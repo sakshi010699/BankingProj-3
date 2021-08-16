@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SSetNewPasswordService } from '../Services/sset-new-password.service';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
+import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
+import { GlobalsService } from '../globals.service';
+import { GlobalAccountService } from '../Services/global-account.service';
 
 @Component({
   selector: 'app-set-new-password',
@@ -20,34 +23,38 @@ export class SetNewPasswordComponent implements OnInit {
   update_id:number=0;
 
 
-  constructor(private obj:SSetNewPasswordService) { }
+  constructor(private obj:SSetNewPasswordService,private obj1:SNetbankingUserService,private globals:GlobalAccountService) { }
 
   ngOnInit(): void {
   }
 SetPasswordForm = new FormGroup({
-  UserPassword: new FormControl("",[Validators.required]),
-Confirm_Login_Password: new FormControl("",[Validators.required,accNumbercompare]),
-UserId: new FormControl(),
-AccountNumber: new FormControl(),
-TransactionPass: new FormControl()
+  UserPassword: new FormControl("",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+Confirm_Login_Password: new FormControl("",[Validators.required,accNumbercompare])
 
 
 
 })
-onSubmit(){
-console.log(this.SetPasswordForm.value);
 
-}
-put_api(id:number,data:any):void
-  {
-    this.obj.updateUser(id,data).subscribe(data=>{
-      this.u_msg="Successfully updated user details "+id;
-      console.log(data);
+
+SetNewPassword(){
+  this.obj1.getNetBankingByID(this.globals.GlobalUserId_Number).subscribe(data=>
+    {
+      data.userPassword=this.SetPasswordForm.controls.UserPassword.value;
+      this.obj.updateUser(this.globals.GlobalUserId_Number,data).subscribe(data=>{
+        this.u_msg="Successfully updated user details "+this.globals.GlobalUserId_Number;
+        console.log(data);
+      })
+     
+      alert("Password has been updated Successfully");
     })
-   
 
-    }
 }
+}
+
+
+    
+    
+
 export function accNumbercompare(control:AbstractControl):any{
   let controlvalue:string=control.value;
   let comparevalue:string=control.root.get("UserPassword")?.value;
