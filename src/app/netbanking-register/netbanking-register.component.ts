@@ -67,7 +67,7 @@ export class NetbankingRegisterComponent implements OnInit {
     confirmPass : new FormControl("", [Validators.required,passwordcompare]),
     setTranPass : new FormControl("", [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}')]),
     confirmTranPass : new FormControl("", [Validators.required,tranPasswordcompare]),
-    enterOtp : new FormControl("", [Validators.required])
+    
   })
   onSubmit() {
     console.log(this.netBankingReg.value);

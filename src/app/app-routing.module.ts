@@ -22,6 +22,7 @@ import { AccountStatementComponent } from './account-statement/account-statement
 import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
 import { DisplayInitiatedAccountComponent } from './display-initiated-account/display-initiated-account.component';
 import { AdminRouteGuard } from './admin-route.guard';
+import { UserRouteGuard } from './user-route.guard';
 
 const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "", component: HomeComponent },
@@ -33,7 +34,7 @@ const routes: Routes = [{ path: "Home", redirectTo: "Home", pathMatch: "full" },
 { path: "AddPayee", component: BeneficiaryComponent },
 { path: "SetPassword", component: SetNewPasswordComponent },
 { path: "SetTranPassword", component: SetNewTranPaswordComponent },
-{ path: "UserDashboard", component: UserDashboardComponent },
+{ path: "UserDashboard", component: UserDashboardComponent, canActivate:[UserRouteGuard] },
 { path: "ForgotPassword", component: ForgotPasswordComponent },
 { path: "ForgotUserId", component: ForgotUserIdComponent },
 { path: "OpenSavingsAccount", component: OpenAccount2Component },

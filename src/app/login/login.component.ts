@@ -7,6 +7,7 @@ import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
 import { STransactionService } from '../Services/stransaction.service';
 import { UserOpenAccount2Service } from '../Services/user-open-account2.service';
 import { AdminRouteGuard } from '../admin-route.guard';
+import { UserRouteGuard } from '../user-route.guard';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
       private global : GlobalAccountService,
        private obj1:STransactionService,
        private obj2:UserOpenAccount2Service,
-       private obj3:AdminRouteGuard) { }
+       private obj3:AdminRouteGuard,
+       private obj4:UserRouteGuard) { }
 
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class LoginComponent implements OnInit {
             })
           })
           
-
+          this.obj4.isLogin=true;
           this.router.navigate(["/UserDashboard"]);  
           //return this.temprouter="/UserDashboard";
         }
