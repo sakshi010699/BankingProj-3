@@ -133,6 +133,6 @@ export class AdminDashboardComponent implements OnInit {
   logOutAdmin(){
     //routerLink="/LoginComponent"
     this.obj2.isAdmin=false;
-    this.router.navigate(["/LoginComponent"]);
+
   }
 }
