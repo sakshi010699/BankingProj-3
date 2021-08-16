@@ -3,6 +3,8 @@ import { SadminApproveService } from '../Services/sadmin-approve.service';
 import { UserOpenAccount } from 'Models/user-open-account';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 import { AccountDetails } from 'Models/account-details';
+import { AdminRouteGuard } from '../admin-route.guard';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -54,7 +56,7 @@ export class AdminDashboardComponent implements OnInit {
   
   allAccounts:AccountDetails[]=[];
 
-  constructor(private obj:SadminApproveService) { }
+  constructor(private obj:SadminApproveService, private obj2:AdminRouteGuard, private router:Router) { }
 
   ngOnInit(): void {
     this.get_api();
@@ -126,5 +128,11 @@ export class AdminDashboardComponent implements OnInit {
     this.obj.deleteUser(item.aadharCardNumber).subscribe(data => {
       item.approvalStatus = false;
     })
+  }
+
+  logOutAdmin(){
+    //routerLink="/LoginComponent"
+    this.obj2.isAdmin=false;
+    this.router.navigate(["/LoginComponent"]);
   }
 }

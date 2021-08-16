@@ -6,6 +6,7 @@ import { GlobalAccountService } from '../Services/global-account.service';
 import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
 import { STransactionService } from '../Services/stransaction.service';
 import { UserOpenAccount2Service } from '../Services/user-open-account2.service';
+import { AdminRouteGuard } from '../admin-route.guard';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
      private router:Router,
       private global : GlobalAccountService,
        private obj1:STransactionService,
-       private obj2:UserOpenAccount2Service) { }
+       private obj2:UserOpenAccount2Service,
+       private obj3:AdminRouteGuard) { }
 
 
   ngOnInit(): void {
@@ -97,7 +99,11 @@ export class LoginComponent implements OnInit {
       console.log(this.allNetBankingUsers);
     });
   }
-
+  checkAdmin(){
+    this.obj3.isAdmin=true;
+    // routerLink="/AdminDashboard"
+    this.router.navigate(["/AdminDashboard"]);
+  }
 
  
 }

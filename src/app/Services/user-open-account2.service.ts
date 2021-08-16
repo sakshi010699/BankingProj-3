@@ -15,13 +15,13 @@ import { getLocaleFirstDayOfWeek } from '@angular/common';
 export class UserOpenAccount2Service {
 
   constructor(private http:HttpClient) { }
-  req:string="https://localhost:44327/api/";
+  req:string="https://localhost:44333/api/";
 
 
   CreateUser(bDetails:UserOpenAccount):Observable<UserOpenAccount>
   {
     console.log(bDetails);
-    return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts1",bDetails,{
+    return this.http.post<UserOpenAccount>(this.req + "UserOpenAccounts",bDetails,{
       headers:new HttpHeaders({
         'Content-Type':'application/json;charset=UTF-8',
         'Access-Control-Allow-Origin':'*',
@@ -32,7 +32,7 @@ export class UserOpenAccount2Service {
   }
   getUserOpenAccountDetailsById(id : string):Observable<any>
   {
-    return this.http.get(this.req+"UserOpenAccounts1/" +id);
+    return this.http.get(this.req+"UserOpenAccounts/" +id);
   }
   getCityByID(pincode:string):Observable<LocationPinCodeCity>{
     return this.http.get<LocationPinCodeCity>(this.req + "LocationPinCodeCities/"+pincode);

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
 import { AccountDetails } from 'Models/account-details';
+import { GlobalAccountService } from '../Services/global-account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-initiated-account',
@@ -21,7 +23,8 @@ export class DisplayInitiatedAccountComponent implements OnInit {
   NetBankingDetailsOfUser:NetBankingUserDetails[]=[];
   
 
-  constructor(private obj:SNetbankingUserService) { }
+  constructor(private obj:SNetbankingUserService, private global:GlobalAccountService, private router:Router) 
+  { }
 
   ngOnInit(): void {
   }
@@ -52,6 +55,14 @@ export class DisplayInitiatedAccountComponent implements OnInit {
     
     })
     this.isHidden1=false;
+  }
+
+  returnToLogin(){
+    this.global.GlobalAadharCard_Number="";
+    this.global.GlobalUserId_Number=0;
+    this.global.GlobalUser_Name="";
+    this.global.GlobalAcc_Number=0;
+    this.router.navigate(["/LoginComponent"]);
   }
 
 

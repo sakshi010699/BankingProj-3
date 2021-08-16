@@ -5,6 +5,7 @@ import { NetBankingUserDetails } from 'Models/net-banking-user-details';
 import { SNetbankingUserService } from '../Services/s-netbanking-user.service';
 import { GlobalsService } from '../globals.service';
 import { GlobalAccountService } from '../Services/global-account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-set-new-password',
@@ -23,7 +24,8 @@ export class SetNewPasswordComponent implements OnInit {
   update_id:number=0;
 
 
-  constructor(private obj:SSetNewPasswordService,private obj1:SNetbankingUserService,private globals:GlobalAccountService) { }
+  constructor(private obj:SSetNewPasswordService,private obj1:SNetbankingUserService,
+    private router:Router, private globals:GlobalAccountService) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +51,13 @@ SetNewPassword(){
     })
 
 }
+
+routeToRelevant(){
+   if(this.globals.GlobalAadharCard_Number=="")
+   this.router.navigate(["/LoginComponent"]);
+   else
+   this.router.navigate(["/UserDashboard"]);
+}
 }
 
 
@@ -62,4 +71,6 @@ export function accNumbercompare(control:AbstractControl):any{
  {
   return {'errors':true}
  }
+
+ 
 }

@@ -28,6 +28,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { TransactionSlipComponent } from './transaction-slip/transaction-slip.component';
 import { SWindowService } from './Services/s-window.service';
 import { DisplayInitiatedAccountComponent } from './display-initiated-account/display-initiated-account.component';
+import { AdminRouteGuard } from './admin-route.guard';
 
 
 @NgModule({
@@ -63,7 +64,7 @@ import { DisplayInitiatedAccountComponent } from './display-initiated-account/di
     HttpClientModule,
     FormsModule
   ],
-  providers: [SWindowService],
+  providers: [SWindowService, AdminRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

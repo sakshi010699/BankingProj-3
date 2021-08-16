@@ -10,10 +10,10 @@
 
 
     
-    <input type="password" id="Password" class="form-control" name="Password" placeholder="Password" formControlName="Password">
+    <input type="text" id="Password" class="form-control" name="Password" placeholder="Password" formControlName="Password">
     
     <div *ngIf = "LoginForm.value.UserId == 666 && LoginForm.value.Password == 'admin' ; else elseBlock">
-        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" routerLink="/AdminDashboard" >
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #6f7177; color: white;" [disabled]="LoginForm.invalid" (click)="checkAdmin()">
             Login
         </button>
     </div>
